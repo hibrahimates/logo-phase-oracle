@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qollab × IonQ Hackathon — Halil için rehber</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201c;
+      --ink-soft: #3a4a44;
+      --paper: #f3efe6;
+      --paper-2: #e8e2d4;
+      --line: #c9c0ae;
+      --teal: #0f5c52;
+      --teal-deep: #0a3d37;
+      --amber: #c45c1a;
+      --white: #fbf8f1;
+      --max: 720px;
+      --wide: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 13rem; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #d9efe8 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, #efe3c8 0%, transparent 50%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(20, 32, 28, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 32, 28, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    a { color: var(--teal-deep); text-underline-offset: 0.18em; }
+    a:hover { color: var(--amber); }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2rem, var(--wide));
+      margin: 0 auto;
+    }
+
+    .narrow { width: min(100%, var(--max)); margin-inline: auto; }
+
+    .site-tabs { position: sticky; top: 0; z-index: 50; background: #0a3d37; }
+    .site-tabs-inner { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0.45rem 0; }
+    .site-tabs a { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #f3efe6; text-decoration: none; padding: 0.45rem 0.75rem; border-radius: 2px; white-space: nowrap; }
+    .site-tabs a[aria-current="page"], .site-tabs a:hover { background: #c45c1a; color: #fbf8f1; }
+
+    .hero {
+      min-height: 72svh;
+      display: grid;
+      align-items: end;
+      padding: 1.25rem 0 3.5rem;
+      position: relative;
+      overflow: clip;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(125deg, #0a3d37 0%, #0f5c52 35%, #1a7a6d 55%, transparent 72%),
+        radial-gradient(ellipse 70% 55% at 85% 15%, rgba(196, 92, 26, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(217, 239, 232, 0.5) 0%, transparent 60%);
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(243, 239, 230, 0.97) 0%, rgba(243, 239, 230, 0.82) 45%, rgba(243, 239, 230, 0.25) 100%),
+        linear-gradient(180deg, transparent 50%, rgba(243, 239, 230, 0.95) 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 36rem;
+      padding-bottom: 1rem;
+    }
+
+    .brand {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--teal-deep);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.35s;
+    }
+
+    .hero h1 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-top: 1.1rem;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.55s;
+    }
+
+    .lede {
+      margin-top: 0.85rem;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 32rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.75s;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-top: 1.75rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.95s;
+    }
+
+    .btn {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.7rem 1.15rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: var(--teal-deep);
+      color: var(--white);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal-deep);
+    }
+
+    .btn-ghost:hover {
+      background: var(--teal-deep);
+      color: var(--white);
+    }
+
+    .toc {
+      position: sticky;
+      top: 5.9rem;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 239, 230, 0.82);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .toc-inner {
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      padding: 0.65rem 0;
+      scrollbar-width: none;
+    }
+
+    .toc-inner::-webkit-scrollbar { display: none; }
+
+    .toc a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 0.4rem 0.65rem;
+      color: var(--ink-soft);
+      border: 1px solid transparent;
+      border-radius: 2px;
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      color: var(--teal-deep);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    section {
+      padding: 3.25rem 0 1rem;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.is-in,
+    section:first-of-type {
+      opacity: 1;
+      transform: none;
+    }
+
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.35rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--teal-deep);
+    }
+
+    h3 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin: 2rem 0 0.65rem;
+      color: var(--ink);
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .section-lead {
+      color: var(--ink-soft);
+      font-size: 1.12rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 3.5rem 0 0;
+      border: 0;
+    }
+
+    pre, .formula {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      background: var(--teal-deep);
+      color: #d7ebe6;
+      padding: 1.1rem 1.2rem;
+      overflow-x: auto;
+      border-radius: 2px;
+      margin: 1.15rem 0;
+    }
+
+    code.inline {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85em;
+      background: rgba(15, 92, 82, 0.1);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .score { grid-template-columns: 1fr 1fr; }
+    }
+
+    .score div {
+      padding: 1rem 0.85rem;
+      border-top: 2px solid var(--teal);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .score dt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+    }
+
+    .score dd {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      color: var(--teal-deep);
+      margin-top: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .score dd small {
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: block;
+      color: var(--ink-soft);
+      margin-top: 0.25rem;
+    }
+
+    .note {
+      margin: 1.5rem 0;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--amber);
+      background: rgba(196, 92, 26, 0.08);
+      font-size: 1rem;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 1.5rem 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .steps > li {
+      position: relative;
+      padding: 1.15rem 1.15rem 1.15rem 4.2rem;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .steps > li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 1rem;
+      top: 1.15rem;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--amber);
+      letter-spacing: -0.04em;
+    }
+
+    .steps h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .steps p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+    }
+
+    ul.plain {
+      margin: 1rem 0 0 1.25rem;
+      color: var(--ink-soft);
+    }
+
+    ul.plain li + li { margin-top: 0.5rem; }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    footer strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      color: var(--ink);
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+
+    .kid-bar {
+      position: sticky;
+      top: 2.35rem;
+      z-index: 40;
+      background: rgba(251, 248, 241, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kid-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      flex-wrap: wrap;
+    }
+
+    .kid-bar-label {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--teal-deep);
+    }
+
+    .kid-bar-hint {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      max-width: 36rem;
+    }
+
+    .kid-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      user-select: none;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .kid-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    .kid-track {
+      width: 2.7rem;
+      height: 1.45rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: transparent;
+      position: relative;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .kid-thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 0.95rem;
+      height: 0.95rem;
+      background: var(--teal-deep);
+      border-radius: 1px;
+      transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s ease;
+    }
+
+    .kid-switch input:checked + .kid-track {
+      background: var(--amber);
+      border-color: var(--amber);
+    }
+
+    .kid-switch input:checked + .kid-track .kid-thumb {
+      transform: translateX(1.15rem);
+      background: var(--white);
+    }
+
+    .kid-switch input:focus-visible + .kid-track {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    .kid-bubble {
+      display: none;
+      margin: 1.15rem 0 1.35rem;
+      padding: 1.05rem 1.15rem 1.15rem;
+      background: #fff8e8;
+      border: 1.5px solid #e8c48a;
+      border-radius: 4px 18px 18px 18px;
+      position: relative;
+      box-shadow: 6px 8px 0 rgba(196, 92, 26, 0.08);
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .kid-bubble::before {
+      content: "";
+      position: absolute;
+      left: 1.1rem;
+      top: -9px;
+      width: 16px;
+      height: 16px;
+      background: #fff8e8;
+      border-left: 1.5px solid #e8c48a;
+      border-top: 1.5px solid #e8c48a;
+      transform: rotate(45deg);
+    }
+
+    .kid-bubble-who {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      color: var(--amber);
+      margin-bottom: 0.45rem;
+    }
+
+    .kid-bubble p + p { margin-top: 0.7rem; }
+
+    .kid-bubble strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      color: var(--teal-deep);
+    }
+
+    .kid-bubble ul {
+      margin: 0.55rem 0 0 1.1rem;
+      color: var(--ink-soft);
+    }
+
+    .kid-bubble li + li { margin-top: 0.35rem; }
+
+    .kid-line {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      background: #fff8e8;
+      border-left: 4px solid #e8c48a;
+      border-radius: 0 10px 10px 0;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+
+    .kid-line strong { color: var(--amber); }
+
+    body.kid-mode .kid-line {
+      display: block;
+      animation: bubbleIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    body.kid-mode .kid-bubble {
+      display: block;
+      animation: bubbleIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      section { opacity: 1; transform: none; }
+      .brand, .hero h1, .lede, .cta-row { opacity: 1; transform: none; }
+      body.kid-mode .kid-bubble, body.kid-mode .kid-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-tabs" aria-label="Yarışmalar">
+    <div class="wrap site-tabs-inner">
+      <a href="index.html">Classiq</a>
+      <a href="qhack.html">QHack</a>
+      <a href="qollab.html" aria-current="page">Qollab</a>
+      <a href="qoolqit.html">QoolQit</a>
+    </div>
+  </nav>
+
+  <div class="kid-bar">
+    <div class="wrap kid-bar-inner">
+      <div>
+        <p class="kid-bar-label">Anlatım dili</p>
+        <p class="kid-bar-hint">Açınca her bölüme “10 yaşındaki arkadaşına anlatır gibi” baloncuklar gelir.</p>
+      </div>
+      <label class="kid-switch">
+        <input type="checkbox" id="kid-toggle" role="switch" aria-checked="false" />
+        <span class="kid-track" aria-hidden="true"><span class="kid-thumb"></span></span>
+        <span class="kid-switch-text">Çocuk dili</span>
+      </label>
+    </div>
+  </div>
+
+  <header class="hero wrap">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="brand">Qollab × IonQ</p>
+      <h1>SESSION 2026.10.09 — 48 saatlik global proje hackathon’u</h1>
+      <p class="lede">
+        Qollab, IonQ ve ortakların dağıtık hackathon’u: açık kaynak proje, yerel node jürisi,
+        sonra global panel. Classiq’teki otomatik devre skoru yarışması değil — burada
+        anlattığın problem, demo ve dokümantasyon önemli.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#yours">Yapılacaklar listesi</a>
+        <a class="btn btn-ghost" href="https://qollab.xyz/programs/hackathon" rel="noopener">Resmî sayfa</a>
+      </div>
+      <aside class="kid-bubble" data-kid>
+        <p class="kid-bubble-who">Rehber · giriş</p>
+        <p>
+          <strong>Hackathon</strong> = kısa sürede (burada 48 saat) bir fikri gerçek
+          yazılıma çevirme maratonu. Dünyanın birçok yerinde aynı anda başlar;
+          her şehirdeki üniversite kendi “node” (düğüm = yerel merkez) jürisiyle
+          önce puanlar.
+        </p>
+        <p>
+          <strong>IonQ</strong> gerçek kuantum bilgisayarları yapan bir şirket.
+          Kazananlara hem para hem de onların makinesinde çalışma süresi
+          (<strong>compute</strong> = hesaplama kredisi) veriliyor.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="İçindekiler">
+    <div class="wrap toc-inner">
+      <a href="#problem">Problem</a>
+      <a href="#rules">Kurallar</a>
+      <a href="#calendar">Takvim</a>
+      <a href="#prizes">Ödüller</a>
+      <a href="#themes">Temalar</a>
+      <a href="#prep">Hazırlık</a>
+      <a href="#yours">Senin listem</a>
+      <a href="#risks">Riskler</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="problem">
+      <div class="narrow">
+        <p class="eyebrow">01 — Problem</p>
+        <h2>Ne yapıyorsun?</h2>
+        <p class="section-lead">
+          48 saat içinde kuantumla anlamlı bir <strong>proje</strong> teslim ediyorsun:
+          kod, demo, README ve mümkünse fork edilebilir açık kaynak repo.
+        </p>
+        <p>
+          Oturum adı <code class="inline">SESSION 2026.10.09</code>. Qollab ve IonQ
+          ortaklığında, partner üniversite node’ları üzerinden yerel değerlendirme,
+          ardından global jüri. Solo veya en fazla dört kişilik takım; katılımcılar
+          <strong>18 yaş ve üzeri</strong>.
+        </p>
+        <p>
+          Classiq Logo Phase Oracle yarışması gibi “tek devre, otomatik derinlik skoru”
+          değil: burada endüstri problemi, oyun, eğitim aracı gibi somut bir ürün
+          anlatırsın; kuantum parçası neden gerekli onu gösterirsin.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · problem</p>
+          <p>
+            Classiq’te tek bir devre yazıp robot puanlıyordu. Burada ise
+            <strong>mini bir uygulama</strong> yapıyorsun: oyun, grafik, veri analizi…
+            İçinde kuantum fikri gerçekten işe yarıyor olmalı — süs değil.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="rules">
+      <div class="narrow">
+        <p class="eyebrow">02 — Kurallar</p>
+        <h2>Kim katılabilir?</h2>
+
+        <div class="note">
+          <strong>Türkiye engeli:</strong> Resmî sayfadaki uygun ülke listesinde
+          <strong>Türkiye yok</strong>. Listede olmayan ülkeler için sayfa,
+          kayıt kapanmadan önce <a href="mailto:hello@qollab.xyz">hello@qollab.xyz</a>
+          adresine yazmanı ve katılıp katılamayacağını öğrenmeni söylüyor.
+          Kayıt son tarihi: <strong>6 Eki 2026 11:00 ET</strong> =
+          <strong>6 Eki 2026 18:00 Türkiye</strong>. Bu onay gelmeden ilerleme riskli.
+        </div>
+
+        <p>
+          İki yol var: (1) katılımcı üniversitelerden birinde öğrenci olmak;
+          (2) uygun ülkede profesyonel olarak bulunmak. Takım ikisini karıştırabilir.
+          Kayıt için üniversiteye kayıtlı olmak <em>şart değil</em>; ama profesyonel
+          (veya katılımcı olmayan üniversitede okuyan öğrenci) başvuruyu bir
+          <strong>participating university node</strong> ile ilişkilendirmeli ki yerel
+          jüri puanlayabilsin.
+        </p>
+        <p>
+          Yaş sınırı 18+. Takım en fazla 4 kişi. Projeler açık kaynak olmalı;
+          “fork’lamaya değer” iş bekleniyor.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · kurallar</p>
+          <p>
+            <strong>Node</strong> = hackathon’un bağlı olduğu üniversite kulübü gibi
+            bir merkez. Jüri orada oturuyor. Türkiye’de yaşayıp listede yoksan önce
+            e-posta ile “ben girebilir miyim?” diye sorman lazım — yoksa kapı kapalı
+            kalabilir.
+          </p>
+          <p>
+            <strong>Participating university</strong> = resmî listede olan okul.
+            Onunla eşleşmezsen yerel jüri seni puanlayamaz.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="calendar">
+      <div class="narrow">
+        <p class="eyebrow">03 — Takvim</p>
+        <h2>Saatler: ET ve Türkiye</h2>
+        <p class="section-lead">
+          Ekim 2026’da ABD Doğu hâlâ <strong>EDT (UTC−4)</strong>; Türkiye
+          <strong>UTC+3</strong> → arada <strong>7 saat</strong> var. Aşağıda her satırda ikisi de yazılı.
+        </p>
+        <dl class="score">
+          <div>
+            <dt>Kayıt açılış</dt>
+            <dd>28 Eyl<small>11:00 ET · 18:00 TR</small></dd>
+          </div>
+          <div>
+            <dt>Kayıt kapanış</dt>
+            <dd>6 Eki<small>11:00 ET · 18:00 TR</small></dd>
+          </div>
+          <div>
+            <dt>Build başlar</dt>
+            <dd>9 Eki 19:00 ET<small>10 Eki 02:00 TR</small></dd>
+          </div>
+          <div>
+            <dt>Gönderim kapanır</dt>
+            <dd>11 Eki 19:00 ET<small>12 Eki 02:00 TR</small></dd>
+          </div>
+        </dl>
+        <p>
+          Build penceresi Doğu saatiyle 9–11 Ekim akşamları gibi görünse de Türkiye’de
+          kodlama aralığı <strong>10 Ekim 02:00</strong> ile <strong>12 Ekim 02:00</strong>
+          arasıdır (gece/ sabah dahil planla).
+        </p>
+        <p>Kazananlar <strong>19 Ekim 2026 haftası</strong> içinde duyurulur.</p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · takvim</p>
+          <p>
+            Amerika’da saat 7 geride. Onlar “9 Ekim akşam” derken bizde çoğu zaman
+            <strong>10 Ekim’in gece yarısından sonra</strong> oluyor. Takvime yazarken
+            Türkiye saatini kullan — yoksa hackathon başlamadan uyuyabilirsin!
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="prizes">
+      <div class="narrow">
+        <p class="eyebrow">04 — Ödüller</p>
+        <h2>Global ödül tablosu</h2>
+        <p class="section-lead">
+          Nakit + IonQ donanımında çalışma süresi (compute; nakit karşılığı yok).
+          Bir takım hem derece hem tema / özel ödül alabilir.
+        </p>
+        <dl class="score">
+          <div>
+            <dt>1. sıra</dt>
+            <dd>$10k<small>+ $20k compute</small></dd>
+          </div>
+          <div>
+            <dt>2. sıra</dt>
+            <dd>$5k<small>+ $15k compute</small></dd>
+          </div>
+          <div>
+            <dt>3. sıra</dt>
+            <dd>$2.5k<small>+ $10k compute</small></dd>
+          </div>
+          <div>
+            <dt>Özel ödüller</dt>
+            <dd>$500<small>+ $5k compute (her biri)</small></dd>
+          </div>
+        </dl>
+        <p>
+          Özel ödül kategorileri: en yenilikçi, en iyi dokümantasyon, en yüksek etki,
+          ve <strong>her resmî tema için en iyi</strong>.
+        </p>
+        <p>
+          Global ilk üç ayrıca IonQ mühendis mentörlüğü ve hızlandırılmış IonQ mülakat
+          erişimi alır. Ücretli <strong>Qollab Fellow</strong> rolü için şans da var
+          (maaş detayı sayfada belirtilmiyor — uydurma).
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · ödüller</p>
+          <p>
+            <strong>Compute</strong> = gerçek kuantum bilgisayarda deneme hakkı.
+            Paraya çevrilemez; ama projeni gerçek makinede koşturursun.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="themes">
+      <div class="narrow">
+        <p class="eyebrow">05 — Temalar</p>
+        <h2>Üç resmî tema</h2>
+        <p class="section-lead">
+          İsimler birebir sayfadaki gibi. Hiçbirine uymayan proje yine derece ve yerel
+          ödül için yarışır; sadece <em>tema özel ödülü</em> alamaz.
+        </p>
+
+        <h3>Quantum Impact</h3>
+        <p>
+          Lojistik, üretim, uzay, finans, enerji vb. gerçek bir meydan okuma; hibrit
+          kuantum-klasik yaklaşım; kamusal veri seti; güçlü klasik baseline; kuantum
+          alt rutinin sonucu nerede değiştirdiğini göster.
+        </p>
+
+        <h3>Quantum Playground</h3>
+        <p>
+          Oyun, müzik, sanat veya interaktif parça — süperpozisyon, girişim,
+          dolaşıklık veya ölçüm <strong>olmazsa olmaz</strong>; sadece rastgele sayı
+          yetmez.
+        </p>
+
+        <h3>Quantum Unlocked</h3>
+        <p>
+          Hata düzeltme, fault tolerance, ağ, algoritma gibi zor konuyu interaktif
+          demo, animasyon, görselleştirme veya GUI ile öğret.
+        </p>
+
+        <p>
+          Detaylı proje tohumları: repo kökündeki
+          <code class="inline">qollab/proje_fikirleri.md</code>.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · temalar</p>
+          <ul>
+            <li><strong>Impact</strong> = gerçek dünya işi (kargo rotası gibi).</li>
+            <li><strong>Playground</strong> = oyun/sanat; kuantum kuralı oyunun kalbi.</li>
+            <li><strong>Unlocked</strong> = zor konuyu interaktif ders gibi anlat.</li>
+          </ul>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="prep">
+      <div class="narrow">
+        <p class="eyebrow">06 — Hazırlık</p>
+        <h2>48 saatten önce ne hazırlanmalı?</h2>
+        <ul class="plain">
+          <li>GitHub (veya eşdeğeri) boş repo + README iskeleti.</li>
+          <li>Seçtiğin tema için veri linki veya demo kabuğu (Impact ise baseline script).</li>
+          <li>Node seçimi: hangi üniversite node’una bağlanacağını önceden araştır.</li>
+          <li>IonQ / simülatör hesabı ve API anahtarları (compute ödülü için yol).</li>
+          <li>Judging akışını oku: önce yerel node, sonra global panel.</li>
+        </ul>
+        <p>
+          Classiq notlarındaki devre optimizasyonu burada doğrudan skor değil; ama
+          hibrit projede küçük bir oracle veya alt devre yine işine yarayabilir.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · hazırlık</p>
+          <p>
+            Maraton günü sıfırdan “merhaba dünya” yazma. Önceden tabakları hazırla:
+            veri indirilmiş, proje açılıyor, README’de fikir yazılı olsun.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="yours">
+      <div class="narrow">
+        <p class="eyebrow">07 — Senin listem</p>
+        <h2>Halil — numaralı checklist</h2>
+        <ol class="steps">
+          <li>
+            <h3>E-postayı bugün gönder</h3>
+            <p>
+              Taslak: <code class="inline">qollab/email_taslak.txt</code> →
+              <a href="mailto:hello@qollab.xyz">hello@qollab.xyz</a>
+              (Türkiye uygunluğu).
+            </p>
+          </li>
+          <li>
+            <h3>Onayı bekle</h3>
+            <p>Olumlu yanıt gelmeden kayıt ve node seçimini kesinleştirme.</p>
+          </li>
+          <li>
+            <h3>Kayıt ol</h3>
+            <p>
+              <a href="https://qollab.xyz/programs/hackathon">qollab.xyz/programs/hackathon</a>
+              — en geç <strong>6 Eki 2026 18:00 TR</strong> (11:00 ET).
+            </p>
+          </li>
+          <li>
+            <h3>Node ve tema seç</h3>
+            <p>Participating university node + Quantum Impact, Playground veya Unlocked.</p>
+          </li>
+          <li>
+            <h3>İskelet hazırla</h3>
+            <p>48 saatlik pencere açılmadan veri seti veya demo iskeleti repo’da dursun.</p>
+          </li>
+          <li>
+            <h3>Takvimi blokla</h3>
+            <p><strong>10 Eki 2026 02:00 – 12 Eki 2026 02:00 TR</strong> — build ve teslim aralığı.</p>
+          </li>
+        </ol>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · checklist</p>
+          <p>
+            En önemli madde 1: e-posta. Türkiye listede yok; sormadan kayıt olursan
+            boşa uğraşmış olabilirsin.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="risks">
+      <div class="narrow">
+        <p class="eyebrow">08 — Riskler</p>
+        <h2>Neler ters gidebilir?</h2>
+        <ul class="plain">
+          <li><strong>Ülke onayı gelmez</strong> veya kayıt kapanışına yetişmez (6 Eki 18:00 TR).</li>
+          <li><strong>Node eşleşmesi</strong> yapılmaz → yerel jüri puanlayamaz.</li>
+          <li>Türkiye saati kayması: build’i “9 Ekim gündüz” sanmak (aslı 10 Eki 02:00 TR).</li>
+          <li>Tema dışı kalıp tema ödülünü kaçırmak (derece hâlâ mümkün).</li>
+          <li>Kuantum parçası “süs” kalır — Playground / Impact jürisi bunu arar.</li>
+          <li>Açık kaynak ve dokümantasyon zayıf → “best documentation” ve genel izlenim düşer.</li>
+        </ul>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · riskler</p>
+          <p>
+            En büyük korku: “Hackathon cumartesi başlıyor” deyip cumartesi uyumak.
+            Bizde başlangıç <strong>gece 02:00</strong>. Alarm kur!
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="narrow">
+      <p>
+        <strong>Kaynak:</strong>
+        <a href="https://qollab.xyz/programs/hackathon">Qollab Hackathon — SESSION 2026.10.09</a>.
+        Yerel dosyalar: proje kökünde <code class="inline">qollab/</code>
+        (README, e-posta taslağı, proje fikirleri, kişisel checklist).
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const sections = document.querySelectorAll("section");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("is-in");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      sections.forEach((s) => io.observe(s));
+
+      const links = document.querySelectorAll(".toc a");
+      const spy = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            links.forEach((a) => {
+              a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+            });
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      );
+      sections.forEach((s) => spy.observe(s));
+
+      const kidToggle = document.getElementById("kid-toggle");
+      const kidText = document.querySelector(".kid-switch-text");
+      function applyKidMode(on) {
+        document.body.classList.toggle("kid-mode", on);
+        kidToggle.setAttribute("aria-checked", on ? "true" : "false");
+        if (kidText) kidText.textContent = on ? "Çocuk dili: açık" : "Çocuk dili";
+        try {
+          localStorage.setItem("logo-oracle-kid-mode", on ? "1" : "0");
+        } catch (_) {}
+      }
+      let saved = false;
+      try {
+        saved = localStorage.getItem("logo-oracle-kid-mode") === "1";
+      } catch (_) {}
+      kidToggle.checked = saved;
+      applyKidMode(saved);
+      kidToggle.addEventListener("change", () => applyKidMode(kidToggle.checked));
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pasqal QoolQit Contest — Eğitim Notları</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201c;
+      --ink-soft: #3a4a44;
+      --paper: #f3efe6;
+      --paper-2: #e8e2d4;
+      --line: #c9c0ae;
+      --teal: #0f5c52;
+      --teal-deep: #0a3d37;
+      --amber: #c45c1a;
+      --white: #fbf8f1;
+      --max: 720px;
+      --wide: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 13rem; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #d9efe8 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, #efe3c8 0%, transparent 50%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(20, 32, 28, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 32, 28, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    a { color: var(--teal-deep); text-underline-offset: 0.18em; }
+    a:hover { color: var(--amber); }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2rem, var(--wide));
+      margin: 0 auto;
+    }
+
+    .narrow { width: min(100%, var(--max)); margin-inline: auto; }
+
+    .site-tabs { position: sticky; top: 0; z-index: 50; background: #0a3d37; }
+    .site-tabs-inner { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0.45rem 0; }
+    .site-tabs a { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #f3efe6; text-decoration: none; padding: 0.45rem 0.75rem; border-radius: 2px; white-space: nowrap; }
+    .site-tabs a[aria-current="page"], .site-tabs a:hover { background: #c45c1a; color: #fbf8f1; }
+
+    .hero {
+      min-height: 72svh;
+      display: grid;
+      align-items: end;
+      padding: 1.25rem 0 3.5rem;
+      position: relative;
+      overflow: clip;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background:
+        linear-gradient(125deg, rgba(15, 92, 82, 0.35) 0%, transparent 45%),
+        linear-gradient(220deg, rgba(196, 92, 26, 0.22) 0%, transparent 50%),
+        linear-gradient(180deg, #c5ddd6 0%, #e8e2d4 55%, rgba(243, 239, 230, 0.95) 100%);
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(243, 239, 230, 0.92) 0%, rgba(243, 239, 230, 0.55) 48%, rgba(243, 239, 230, 0.12) 100%),
+        linear-gradient(180deg, transparent 50%, rgba(243, 239, 230, 0.94) 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 36rem;
+      padding-bottom: 1rem;
+    }
+
+    .brand {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--teal-deep);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.35s;
+    }
+
+    .hero h1 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-top: 1.1rem;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.55s;
+    }
+
+    .lede {
+      margin-top: 0.85rem;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 32rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.75s;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-top: 1.75rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.95s;
+    }
+
+    .btn {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.7rem 1.15rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: var(--teal-deep);
+      color: var(--white);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal-deep);
+    }
+
+    .btn-ghost:hover {
+      background: var(--teal-deep);
+      color: var(--white);
+    }
+
+    .toc {
+      position: sticky;
+      top: 5.9rem;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 239, 230, 0.82);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .toc-inner {
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      padding: 0.65rem 0;
+      scrollbar-width: none;
+    }
+
+    .toc-inner::-webkit-scrollbar { display: none; }
+
+    .toc a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 0.4rem 0.65rem;
+      color: var(--ink-soft);
+      border: 1px solid transparent;
+      border-radius: 2px;
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      color: var(--teal-deep);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    section {
+      padding: 3.25rem 0 1rem;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.is-in,
+    section:first-of-type {
+      opacity: 1;
+      transform: none;
+    }
+
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.35rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--teal-deep);
+    }
+
+    h3 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin: 2rem 0 0.65rem;
+      color: var(--ink);
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .section-lead {
+      color: var(--ink-soft);
+      font-size: 1.12rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 3.5rem 0 0;
+      border: 0;
+    }
+
+    ul.plain {
+      margin: 1rem 0 0 1.25rem;
+      color: var(--ink-soft);
+    }
+
+    ul.plain li + li { margin-top: 0.5rem; }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 1.5rem 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .steps > li {
+      position: relative;
+      padding: 1.15rem 1.15rem 1.15rem 4.2rem;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .steps > li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 1rem;
+      top: 1.15rem;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--amber);
+      letter-spacing: -0.04em;
+    }
+
+    .steps h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .steps p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+    }
+
+    pre {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      background: var(--teal-deep);
+      color: #d7ebe6;
+      padding: 1.1rem 1.2rem;
+      overflow-x: auto;
+      border-radius: 2px;
+      margin: 1.15rem 0;
+    }
+
+    code.inline {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85em;
+      background: rgba(15, 92, 82, 0.1);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .score { grid-template-columns: 1fr 1fr; }
+    }
+
+    .score div {
+      padding: 1rem 0.85rem;
+      border-top: 2px solid var(--teal);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .score dt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+    }
+
+    .score dd {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.03em;
+      color: var(--teal-deep);
+      margin-top: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .note {
+      margin: 1.5rem 0;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--amber);
+      background: rgba(196, 92, 26, 0.08);
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    footer strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      color: var(--ink);
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+
+    .kid-bar {
+      position: sticky;
+      top: 2.35rem;
+      z-index: 40;
+      background: rgba(251, 248, 241, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kid-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      flex-wrap: wrap;
+    }
+
+    .kid-bar-label {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--teal-deep);
+    }
+
+    .kid-bar-hint {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      max-width: 36rem;
+    }
+
+    .kid-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      user-select: none;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .kid-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    .kid-track {
+      width: 2.7rem;
+      height: 1.45rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: transparent;
+      position: relative;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .kid-thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 0.95rem;
+      height: 0.95rem;
+      background: var(--teal-deep);
+      border-radius: 1px;
+      transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s ease;
+    }
+
+    .kid-switch input:checked + .kid-track {
+      background: var(--amber);
+      border-color: var(--amber);
+    }
+
+    .kid-switch input:checked + .kid-track .kid-thumb {
+      transform: translateX(1.15rem);
+      background: var(--white);
+    }
+
+    .kid-switch input:focus-visible + .kid-track {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    [data-kid] { display: none; }
+
+    .kid-bubble {
+      margin: 1.15rem 0 1.35rem;
+      padding: 1.05rem 1.15rem 1.15rem;
+      background: #fff8e8;
+      border: 1.5px solid #e8c48a;
+      border-radius: 4px 18px 18px 18px;
+      position: relative;
+      box-shadow: 6px 8px 0 rgba(196, 92, 26, 0.08);
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .kid-bubble::before {
+      content: "";
+      position: absolute;
+      left: 1.1rem;
+      top: -9px;
+      width: 16px;
+      height: 16px;
+      background: #fff8e8;
+      border-left: 1.5px solid #e8c48a;
+      border-top: 1.5px solid #e8c48a;
+      transform: rotate(45deg);
+    }
+
+    .kid-bubble-who {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      color: var(--amber);
+      margin-bottom: 0.45rem;
+    }
+
+    .kid-bubble p + p { margin-top: 0.7rem; }
+
+    .kid-bubble strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      color: var(--teal-deep);
+    }
+
+    body.kid-mode [data-kid] {
+      display: block;
+      animation: bubbleIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      section { opacity: 1; transform: none; }
+      .brand, .hero h1, .lede, .cta-row { opacity: 1; transform: none; }
+      body.kid-mode [data-kid] { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-tabs" aria-label="Yarışmalar">
+    <div class="wrap site-tabs-inner">
+      <a href="index.html">Classiq</a>
+      <a href="qhack.html">QHack</a>
+      <a href="qollab.html">Qollab</a>
+      <a href="qoolqit.html" aria-current="page">QoolQit</a>
+    </div>
+  </nav>
+
+  <div class="kid-bar">
+    <div class="wrap kid-bar-inner">
+      <div>
+        <p class="kid-bar-label">Anlatım dili</p>
+        <p class="kid-bar-hint">Açınca her bölüme “10 yaşındaki arkadaşına anlatır gibi” baloncuklar gelir.</p>
+      </div>
+      <label class="kid-switch">
+        <input type="checkbox" id="kid-toggle" role="switch" aria-checked="false" />
+        <span class="kid-track" aria-hidden="true"><span class="kid-thumb"></span></span>
+        <span class="kid-switch-text">Çocuk dili</span>
+      </label>
+    </div>
+  </div>
+
+  <header class="hero wrap">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-copy">
+      <p class="brand">QoolQit</p>
+      <h1>Pasqal QoolQit Contest — analog kuantum proje teslimi</h1>
+      <p class="lede">
+        Açık kaynak <strong>QoolQit</strong> ile nötr atom / Rydberg analog programlama.
+        Classiq’teki otomatik devre skoru yok: tek notebook + iki slayt, e-posta ile gönderim.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#problem">Probleme başla</a>
+        <a class="btn btn-ghost" href="#yours">Yapılacaklar</a>
+      </div>
+      <aside class="kid-bubble" data-kid>
+        <p class="kid-bubble-who">Rehber · giriş</p>
+        <p>
+          Bu sayfa başka bir <strong>kuantum yarışması</strong>. Classiq’te “en kısa devreyi yaz”
+          derlerdi; burada “QoolQit ile güzel bir proje yap, notebook ve iki slayt gönder” diyorlar.
+        </p>
+        <p>
+          <strong>QoolQit</strong> Python’da analog kuantum program yazmak için bir kutu araç.
+          <strong>Pulser</strong> başka, eski bir kütüphane — karıştırma.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="İçindekiler">
+    <div class="wrap toc-inner">
+      <a href="#problem">Problem</a>
+      <a href="#rules">Kurallar</a>
+      <a href="#calendar">Takvim</a>
+      <a href="#prizes">Ödül</a>
+      <a href="#topics">Konular</a>
+      <a href="#prep">Hazırlık</a>
+      <a href="#yours">Senin listesi</a>
+      <a href="#risks">Riskler</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="problem">
+      <div class="narrow">
+        <p class="eyebrow">01 — Problem</p>
+        <h2>Ne isteniyor?</h2>
+        <p class="section-lead">
+          Pasqal, <strong>QoolQit</strong> kütüphanesini kullanarak analog kuantum
+          programlama becerisini gösteren projeler topluyor.
+        </p>
+        <p>
+          QoolQit, donanımdan bağımsız, açık kaynak bir Python kütüphanesidir.
+          Nötr atom cihazlarda <strong>Rydberg analog</strong> modeliyle çalışır:
+          programı boyutsuz parametrelerle yazarsın, derleyici bunu hedef donanıma
+          veya emülatöre taşır.
+        </p>
+        <p>
+          Bu yarışma <em>devre derinliği liderlik tablosu</em> değil. Tek seferlik,
+          e-posta ile proje teslimi: çalışan notebook + kısa sunum.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · analog kuantum</p>
+          <p>
+            <strong>Nötr atom</strong> (neutral atom): atomları minik tuzaklarda tutup
+            ışıkla oynayarak hesap yapan bilgisayar türü — madde parçacıkları “soğuk”
+            ve düzenli duruyor.
+          </p>
+          <p>
+            <strong>Rydberg</strong>: atomun en dış elektronunu çok uzağa itince komşu
+            atomlarla güçlü etkileşir; bu, analog kuantum hesabın fiziksel dili.
+          </p>
+          <p>
+            <strong>Analog kuantum computing</strong>: devre kapıları zinciri yerine,
+            fizik sisteminin kendisini sürekli bir denkleme benzetip sonucu ölçmek —
+            QoolQit bu dili Python’da yazmanı sağlar.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="rules">
+      <div class="narrow">
+        <p class="eyebrow">02 — Kurallar</p>
+        <h2>Kim katılır, ne gönderilir?</h2>
+        <ul class="plain">
+          <li>Bireysel veya grup; yayınlanmış ülke kısıtı duyurulmadı.</li>
+          <li><strong>Üç konudan biri</strong> seçilir (aşağıda).</li>
+          <li><strong>1× Jupyter notebook</strong> — çalıştırılabilir; içinde <strong>QoolQit sürümü açıkça</strong> yazılı.</li>
+          <li><strong>1× 2 slaytlık sunum</strong> (PDF veya PowerPoint): proje özeti + QoolQit deneyimi.</li>
+          <li>Gönderim: <code class="inline">qoolqit.contest@pasqal.com</code> — web formu yok.</li>
+          <li>Çalışmanın sahibi sensin; Pasqal izinsiz yayınlamaz ve materyalleri contest sonrası siler (duyuru metni).</li>
+        </ul>
+        <div class="note">
+          <strong>Pulser değil.</strong> Pasqal ekosisteminde Pulser ayrı, daha eski nötr atom
+          kütüphanesidir. Yarışma girişin QoolQit ile olmalı.
+        </div>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · teslim</p>
+          <p>
+            Notebook = ödev defteri: adım adım kod, grafik, açıklama.
+            İki slayt = sunum günü konuşacağın kartların kısa hali.
+            İkisini de e-postaya <strong>ek dosya</strong> olarak koyuyorsun.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="calendar">
+      <div class="narrow">
+        <p class="eyebrow">03 — Takvim</p>
+        <h2>Son tarih</h2>
+        <dl class="score">
+          <div>
+            <dt>CEST (UTC+2)</dt>
+            <dd>18 Eki 2026<br />23:59</dd>
+          </div>
+          <div>
+            <dt>Türkiye (UTC+3)</dt>
+            <dd>19 Eki 2026<br />00:59</dd>
+          </div>
+          <div>
+            <dt>Format</dt>
+            <dd>E-posta</dd>
+          </div>
+          <div>
+            <dt>Duyuru</dt>
+            <dd>İç inceleme<br />sonrası</dd>
+          </div>
+        </dl>
+        <p>
+          Son dakikada göndermek riskli: saat dilimi, ek boyutu ve kurulum hataları için
+          en az bir gün önce “Run All” ile notebook’u doğrula.
+        </p>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="prizes">
+      <div class="narrow">
+        <p class="eyebrow">04 — Ödül</p>
+        <h2>Nakit yok — hesaplama saati var</h2>
+        <p class="section-lead">
+          Seçilen katılımcılar <strong>Pasqal compute hours</strong> alır: bulut
+          <strong>emülatörleri</strong> ve seçilenler için gerçek
+          <strong>nötr atom QPU</strong> süresi.
+        </p>
+        <p>
+          Kazananlar kamuya açıklanır; süreç iç inceleme ile yürür. Duyuruda
+          <em>dolar veya nakit ödül</em> belirtilmedi — burada uydurma miktar yazılmaz.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · QPU &amp; emülatör</p>
+          <p>
+            <strong>Emülatör</strong>: gerçek kuantum makinesi olmadan, bilgisayarda
+            “sanki atom varmış” diye deneme yapman — ücretsiz veya kotayla verilebilir.
+          </p>
+          <p>
+            <strong>QPU</strong> (Quantum Processing Unit = kuantum işlem birimi):
+            gerçek donanımda çalıştırma hakkı — pahalı ve kısıtlı, ödül olarak anlamlı.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="topics">
+      <div class="narrow">
+        <p class="eyebrow">05 — Konular</p>
+        <h2>Üç yoldan biri</h2>
+        <h3>1 — Makale yeniden üretimi</h3>
+        <p>
+          Literatürdeki bir sonucu QoolQit ile uyarlamak. “Bitti” tanımı net:
+          makaledeki figür / metrik ile karşılaştırma tablosu.
+        </p>
+        <h3>2 — Endüstriyel kullanım</h3>
+        <p>
+          Optimizasyon, malzeme, lojistik, enerji, finans, makine öğrenmesi vb.
+          Classiq devre optimizasyon yarışmasından sonra en <em>aktarılabilir</em>
+          yol: problem kurma ve metrik düşünme alışkanlığın benzer, dil analog.
+        </p>
+        <h3>3 — QoolQit’i genişletmek</h3>
+        <p>
+          Gömme yöntemleri, rutinler, araçlar — kod katkısı odaklı.
+        </p>
+        <div class="note">
+          <strong>Varsayılan öneri (Classiq geçmişin varsa):</strong> endüstriyel optimizasyon
+          senaryosu — öğrendiğin “problem → model → sonuç” hikâyesini taşırsın.
+          Net bitiş çizgisi istiyorsan <strong>makale rotası</strong> genelde daha güvenli;
+          henüz bir konu seçilmedi ve proje çözülmedi — sadece plan.
+        </div>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · konu seçimi</p>
+          <p>
+            Makale yolu = öğretmen “şu kitaptaki alıştırmayı yap” demiş gibi.
+            Endüstri yolu = “gerçek hayattan bir soru bul” demek — daha yaratıcı ama
+            sınırı sen çizersin.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="prep">
+      <div class="narrow">
+        <p class="eyebrow">06 — Hazırlık</p>
+        <h2>Klasör ve iskeletler</h2>
+        <p>
+          Çalışma dosyaları repoda <code class="inline">qoolqit/</code> altında:
+          README, kişisel checklist, slayt ve notebook iskeletleri, e-posta hatırlatması.
+        </p>
+        <p>
+          Kurulum ve kaynak kod bağlantıları için resmi duyuru:
+          <a href="https://www.pasqal.com/resources/the-qoolqit-contest-is-live/">The QoolQit Contest is live</a>.
+          Pip paket adını burada uydurmuyoruz; dokümantasyondaki adı kullan.
+        </p>
+        <pre>import qoolqit
+print(getattr(qoolqit, "__version__", "sürümü dokümana göre kaydet"))</pre>
+        <p>
+          Bu makinede <code class="inline">import qoolqit</code> henüz başarısız (modül yüklü değil).
+          Notebook iskeleti kurulum sonrası doldurulacak.
+        </p>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="yours">
+      <div class="narrow">
+        <p class="eyebrow">07 — Senin listesi</p>
+        <h2>Numaralı yapılacaklar</h2>
+        <ol class="steps">
+          <li>
+            <h3>QoolQit kur, sürümü yaz</h3>
+            <p>Pasqal dokümantasyonundan kur. Notebook’un ilk kod hücrelerinde sürümü sabitle.</p>
+          </li>
+          <li>
+            <h3>Tek konu seç</h3>
+            <p>Makale, endüstri veya kod genişletme — üçünü birden yapma.</p>
+          </li>
+          <li>
+            <h3>Notebook’u inşa et</h3>
+            <p>Problem, yaklaşım, sonuçlar, yeniden çalıştırma adımları; temiz kernel ile Run All.</p>
+          </li>
+          <li>
+            <h3>İki slaytı üret</h3>
+            <p>PDF veya PPT; slayt 2’de QoolQit deneyimini dürüst anlat.</p>
+          </li>
+          <li>
+            <h3>E-postayı zamanında gönder</h3>
+            <p>
+              <code class="inline">qoolqit.contest@pasqal.com</code> — her iki ek dosyayla.
+              Türkiye saatiyle <strong>19 Ekim 2026 00:59</strong> sonrası geç kalma;
+              son saniyeye bırakma.
+            </p>
+          </li>
+        </ol>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="risks">
+      <div class="narrow">
+        <p class="eyebrow">08 — Riskler</p>
+        <h2>Nerede takılırsın?</h2>
+        <ul class="plain">
+          <li><strong>Pulser / QoolQit karışıklığı</strong> — yanlış kütüphane, yanlış API.</li>
+          <li><strong>Sürüm yazmamak</strong> — contest açıkça istiyor; jüri tekrarlayamaz.</li>
+          <li><strong>Çalışmayan notebook</strong> — göndermeden önce başka makinede veya temiz venv’de dene.</li>
+          <li><strong>Emülatör kotası / kurulum</strong> — erken başla; son haftaya bırakma.</li>
+          <li><strong>Kapsam şişirmek</strong> — tek konu, tek hikâye, iki slayt sınırına saygı.</li>
+        </ul>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · risk</p>
+          <p>
+            En sık hata: “yarın hallederim” deyip kurulumun çalışmaması.
+            Classiq’te otomatik puan vardı; burada öğretmen senin defterini
+            eline alıp tek tek okuyacak — kod gerçekten koşmalı.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="narrow">
+      <p>
+        <strong>Pasqal QoolQit Contest</strong> ·
+        <a href="https://www.pasqal.com/resources/the-qoolqit-contest-is-live/">Resmi duyuru</a>
+        · çalışma klasörü:
+        <code class="inline">kuantum/qoolqit/</code>
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const sections = document.querySelectorAll("section");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("is-in");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      sections.forEach((s) => io.observe(s));
+
+      const links = document.querySelectorAll(".toc a");
+      const spy = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            links.forEach((a) => {
+              a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+            });
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      );
+      sections.forEach((s) => spy.observe(s));
+
+      const kidToggle = document.getElementById("kid-toggle");
+      const kidText = document.querySelector(".kid-switch-text");
+      function applyKidMode(on) {
+        document.body.classList.toggle("kid-mode", on);
+        kidToggle.setAttribute("aria-checked", on ? "true" : "false");
+        if (kidText) kidText.textContent = on ? "Çocuk dili: açık" : "Çocuk dili";
+        try {
+          localStorage.setItem("logo-oracle-kid-mode", on ? "1" : "0");
+        } catch (_) {}
+      }
+      let saved = false;
+      try {
+        saved = localStorage.getItem("logo-oracle-kid-mode") === "1";
+      } catch (_) {}
+      kidToggle.checked = saved;
+      applyKidMode(saved);
+      kidToggle.addEventListener("change", () => applyKidMode(kidToggle.checked));
+    })();
+  </script>
+</body>
+</html>
