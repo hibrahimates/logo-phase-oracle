@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Logo Phase Oracle — Classiq Challenge Eğitim Notları</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14201c;
+      --ink-soft: #3a4a44;
+      --paper: #f3efe6;
+      --paper-2: #e8e2d4;
+      --line: #c9c0ae;
+      --teal: #0f5c52;
+      --teal-deep: #0a3d37;
+      --amber: #c45c1a;
+      --white: #fbf8f1;
+      --max: 720px;
+      --wide: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 13rem; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, #d9efe8 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, #efe3c8 0%, transparent 50%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+      background-attachment: fixed;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image:
+        linear-gradient(rgba(20, 32, 28, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 32, 28, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    a { color: var(--teal-deep); text-underline-offset: 0.18em; }
+    a:hover { color: var(--amber); }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2rem, var(--wide));
+      margin: 0 auto;
+    }
+
+    .narrow { width: min(100%, var(--max)); margin-inline: auto; }
+
+    /* —— Hero —— */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: 1.25rem 0 3.5rem;
+      position: relative;
+      overflow: clip;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 70% center;
+      opacity: 0;
+      animation: heroFade 1.4s ease forwards 0.15s;
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(243, 239, 230, 0.96) 0%, rgba(243, 239, 230, 0.78) 42%, rgba(243, 239, 230, 0.18) 100%),
+        linear-gradient(180deg, transparent 55%, rgba(243, 239, 230, 0.92) 100%);
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 34rem;
+      padding-bottom: 1rem;
+    }
+
+    .brand {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: var(--teal-deep);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.35s;
+    }
+
+    .hero h1 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-top: 1.1rem;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.55s;
+    }
+
+    .lede {
+      margin-top: 0.85rem;
+      color: var(--ink-soft);
+      font-size: 1.05rem;
+      max-width: 28rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.75s;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      margin-top: 1.75rem;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards 0.95s;
+    }
+
+    .btn {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.7rem 1.15rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: var(--teal-deep);
+      color: var(--white);
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--teal-deep);
+    }
+
+    .btn-ghost:hover {
+      background: var(--teal-deep);
+      color: var(--white);
+    }
+
+    /* —— Nav —— */
+    .site-tabs { position: sticky; top: 0; z-index: 50; background: #0a3d37; }
+    .site-tabs-inner { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0.45rem 0; }
+    .site-tabs a { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #f3efe6; text-decoration: none; padding: 0.45rem 0.75rem; border-radius: 2px; white-space: nowrap; }
+    .site-tabs a[aria-current="page"], .site-tabs a:hover { background: #c45c1a; color: #fbf8f1; }
+
+    .toc {
+      position: sticky;
+      top: 5.9rem;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(243, 239, 230, 0.82);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 3rem;
+    }
+
+    .toc-inner {
+      display: flex;
+      gap: 0.35rem;
+      overflow-x: auto;
+      padding: 0.65rem 0;
+      scrollbar-width: none;
+    }
+
+    .toc-inner::-webkit-scrollbar { display: none; }
+
+    .toc a {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 0.4rem 0.65rem;
+      color: var(--ink-soft);
+      border: 1px solid transparent;
+      border-radius: 2px;
+    }
+
+    .toc a:hover,
+    .toc a.is-active {
+      color: var(--teal-deep);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    /* —— Sections —— */
+    section {
+      padding: 3.25rem 0 1rem;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.is-in,
+    section:first-of-type {
+      opacity: 1;
+      transform: none;
+    }
+
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+
+    h2 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.7rem, 3.5vw, 2.35rem);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--teal-deep);
+    }
+
+    h3 {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      margin: 2rem 0 0.65rem;
+      color: var(--ink);
+    }
+
+    p + p { margin-top: 1rem; }
+
+    .section-lead {
+      color: var(--ink-soft);
+      font-size: 1.12rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .rule {
+      height: 1px;
+      background: var(--line);
+      margin: 3.5rem 0 0;
+      border: 0;
+    }
+
+    /* —— Visuals —— */
+    .logo-stage {
+      margin: 1.75rem 0 0.5rem;
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .logo-stage canvas {
+      display: block;
+      width: min(100%, 420px);
+      height: auto;
+      image-rendering: pixelated;
+      margin: 0 auto;
+    }
+
+    .caption {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--ink-soft);
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    .qubit-map {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .qubit-map { grid-template-columns: 1fr; }
+    }
+
+    .qubit-map figure {
+      padding: 1rem 1.05rem;
+      border-left: 3px solid var(--teal);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .qubit-map strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .qubit-map code {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--teal);
+    }
+
+    .qubit-map p {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      margin-top: 0.45rem;
+    }
+
+    /* —— Steps —— */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin: 1.5rem 0;
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .steps > li {
+      position: relative;
+      padding: 1.15rem 1.15rem 1.15rem 4.2rem;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--line);
+      border-radius: 2px;
+    }
+
+    .steps > li::before {
+      counter-increment: step;
+      content: counter(step, decimal-leading-zero);
+      position: absolute;
+      left: 1rem;
+      top: 1.15rem;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--amber);
+      letter-spacing: -0.04em;
+    }
+
+    .steps h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .steps p {
+      font-size: 1rem;
+      color: var(--ink-soft);
+    }
+
+    /* —— Formula / code —— */
+    pre, .formula {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      background: var(--teal-deep);
+      color: #d7ebe6;
+      padding: 1.1rem 1.2rem;
+      overflow-x: auto;
+      border-radius: 2px;
+      margin: 1.15rem 0;
+    }
+
+    .formula { white-space: pre-wrap; }
+
+    code.inline {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.85em;
+      background: rgba(15, 92, 82, 0.1);
+      padding: 0.1em 0.35em;
+      border-radius: 2px;
+    }
+
+    /* —— Score strip —— */
+    .score {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 700px) {
+      .score { grid-template-columns: 1fr 1fr; }
+    }
+
+    .score div {
+      padding: 1rem 0.85rem;
+      border-top: 2px solid var(--teal);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .score dt {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+    }
+
+    .score dd {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 1.65rem;
+      letter-spacing: -0.03em;
+      color: var(--teal-deep);
+      margin-top: 0.2rem;
+    }
+
+    /* —— Tried / dead ends —— */
+    .tried {
+      margin: 1.25rem 0;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .tried details {
+      border-bottom: 1px solid var(--line);
+      padding: 0.65rem 0;
+    }
+
+    .tried summary {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .tried summary::-webkit-details-marker { display: none; }
+
+    .tried summary::after {
+      content: "+";
+      font-family: "IBM Plex Mono", monospace;
+      color: var(--amber);
+    }
+
+    .tried details[open] summary::after { content: "−"; }
+
+    .tried p {
+      margin-top: 0.55rem;
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      padding-bottom: 0.4rem;
+    }
+
+    /* —— Callout —— */
+    .note {
+      margin: 1.5rem 0;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--amber);
+      background: rgba(196, 92, 26, 0.08);
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    footer strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      color: var(--ink);
+    }
+
+    @keyframes rise {
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes heroFade {
+      to { opacity: 1; }
+    }
+
+    /* —— Kid mode toggle + bubbles —— */
+    .kid-bar {
+      position: sticky;
+      top: 2.35rem;
+      z-index: 40;
+      background: rgba(251, 248, 241, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kid-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      flex-wrap: wrap;
+    }
+
+    .kid-bar-label {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--teal-deep);
+    }
+
+    .kid-bar-hint {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      max-width: 36rem;
+    }
+
+    .kid-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      user-select: none;
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .kid-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+    }
+
+    .kid-track {
+      width: 2.7rem;
+      height: 1.45rem;
+      border-radius: 2px;
+      border: 1.5px solid var(--teal-deep);
+      background: transparent;
+      position: relative;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .kid-thumb {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 0.95rem;
+      height: 0.95rem;
+      background: var(--teal-deep);
+      border-radius: 1px;
+      transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.2s ease;
+    }
+
+    .kid-switch input:checked + .kid-track {
+      background: var(--amber);
+      border-color: var(--amber);
+    }
+
+    .kid-switch input:checked + .kid-track .kid-thumb {
+      transform: translateX(1.15rem);
+      background: var(--white);
+    }
+
+    .kid-switch input:focus-visible + .kid-track {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+    }
+
+    .kid-bubble {
+      display: none;
+      margin: 1.15rem 0 1.35rem;
+      padding: 1.05rem 1.15rem 1.15rem;
+      background: #fff8e8;
+      border: 1.5px solid #e8c48a;
+      border-radius: 4px 18px 18px 18px;
+      position: relative;
+      box-shadow: 6px 8px 0 rgba(196, 92, 26, 0.08);
+      color: var(--ink);
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .kid-bubble::before {
+      content: "";
+      position: absolute;
+      left: 1.1rem;
+      top: -9px;
+      width: 16px;
+      height: 16px;
+      background: #fff8e8;
+      border-left: 1.5px solid #e8c48a;
+      border-top: 1.5px solid #e8c48a;
+      transform: rotate(45deg);
+    }
+
+    .kid-bubble-who {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      color: var(--amber);
+      margin-bottom: 0.45rem;
+    }
+
+    .kid-bubble p + p { margin-top: 0.7rem; }
+
+    .kid-bubble strong {
+      font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      font-weight: 700;
+      color: var(--teal-deep);
+    }
+
+    .kid-bubble ul {
+      margin: 0.55rem 0 0 1.1rem;
+      color: var(--ink-soft);
+    }
+
+    .kid-bubble li + li { margin-top: 0.35rem; }
+
+    .kid-line {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.6rem 0.8rem;
+      background: #fff8e8;
+      border-left: 4px solid #e8c48a;
+      border-radius: 0 10px 10px 0;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+
+    .kid-line strong { color: var(--amber); }
+
+    body.kid-mode .kid-line {
+      display: block;
+      animation: bubbleIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    body.kid-mode .kid-bubble {
+      display: block;
+      animation: bubbleIn 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(10px) scale(0.98); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      section { opacity: 1; transform: none; }
+      .brand, .hero h1, .lede, .cta-row, .hero-bg img { opacity: 1; transform: none; }
+      body.kid-mode .kid-bubble, body.kid-mode .kid-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-tabs" aria-label="Yarışmalar">
+    <div class="wrap site-tabs-inner">
+      <a href="index.html" aria-current="page">Classiq</a>
+      <a href="qhack.html">QHack</a>
+      <a href="qollab.html">Qollab</a>
+      <a href="qoolqit.html">QoolQit</a>
+    </div>
+  </nav>
+
+  <div class="kid-bar">
+    <div class="wrap kid-bar-inner">
+      <div>
+        <p class="kid-bar-label">Anlatım dili</p>
+        <p class="kid-bar-hint">Açınca her bölüme “10 yaşındaki arkadaşına anlatır gibi” baloncuklar gelir.</p>
+      </div>
+      <label class="kid-switch">
+        <input type="checkbox" id="kid-toggle" role="switch" aria-checked="false" />
+        <span class="kid-track" aria-hidden="true"><span class="kid-thumb"></span></span>
+        <span class="kid-switch-text">Çocuk dili</span>
+      </label>
+    </div>
+  </div>
+
+  <header class="hero wrap">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="oracle-hero.png" alt="" width="1600" height="900" />
+    </div>
+    <div class="hero-copy">
+      <p class="brand">Logo Phase Oracle</p>
+      <h1>Classiq Quantum Circuit Challenge için adım adım eğitim notları</h1>
+      <p class="lede">
+        64×64 Classiq logosunu faz oracle’ına çevirdik. Güncel gönderilen
+        skor: 18 kübit · derinlik 1991 · 1868 CX (30 Eylül 2026).
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#problem">Probleme başla</a>
+        <a class="btn btn-ghost" href="#lab">Lab günlüğü</a>
+      </div>
+      <aside class="kid-bubble" data-kid>
+        <p class="kid-bubble-who">Rehber · çocuk dili</p>
+        <p>
+          Bu site bir <strong>bilim yarışması ödevinin</strong> hikâyesi.
+          Classiq diye bir şirket “şunu yapan en kısa kuantum devresini kim yazar?”
+          diye bir bulmaca koydu. Biz de o bulmacayı çözmeye çalıştık.
+        </p>
+        <p>
+          Yukarıdaki düğmeyi açtıysan: her bölümde sana “bu ne demek?” diye
+          anlatacağım. Kısaltmaları uzun yazacağım, zor kelimeleri oyun gibi
+          örneklerle bağlayacağım.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="İçindekiler">
+    <div class="wrap toc-inner">
+      <a href="#problem">Problem</a>
+      <a href="#geometry">Geometri</a>
+      <a href="#rules">Kurallar</a>
+      <a href="#deadends">Denemeler</a>
+      <a href="#solution">Çözüm</a>
+      <a href="#journey">Yolculuk</a>
+      <a href="#lab">Lab günlüğü</a>
+      <a href="#verify">Doğrulama</a>
+      <a href="#score">Skor</a>
+      <a href="#next">Kapanış</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="problem">
+      <div class="narrow">
+        <p class="eyebrow">01 — Problem</p>
+        <h2>Ne isteniyor?</h2>
+        <p class="section-lead">
+          Classiq’in yarışma görevi: 1.097 siyah pikseli olan 64×64 ikili logoyu
+          bir <em>faz oracle</em> olarak gerçekleştirmek.
+        </p>
+        <p>
+          İki adet 6 kübitlik register, koordinatları kodlar: <code class="inline">x</code>
+          ve <code class="inline">y</code> (little-endian). Oracle, işaretli bir
+          piksele denk gelen her baz durumunda fazı −1 ile çarpar; diğer tüm
+          durumları olduğu gibi bırakır. Ancilla’lar iş bitince <code class="inline">|0⟩</code>
+         ’a dönmeli; koordinat kübitleri değişmemeli.
+        </p>
+        <div class="formula">|x⟩|y⟩  →  (−1)<sup>logo(x,y)</sup>  |x⟩|y⟩</div>
+        <p>
+          Bu, Grover tipi aramalardaki klasik “işaretli durumu işaretle”
+          bloğunun görsel bir örneği. Skor, oracle’ın <code class="inline">u3</code>
+          + <code class="inline">cx</code> bazında, all-to-all bağlantıda derinlik
+          (öncelikli) ve CX sayısıyla ölçülür.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · problem</p>
+          <p>
+            Hayal et: elinde 64×64’lük bir kare defter var. Yani satır ve sütun
+            0’dan 63’e kadar. Üzerinde Classiq logosunun <strong>1.097 siyah
+            karesi</strong> boyalı, gerisi boş.
+          </p>
+          <p>
+            <strong>Faz oracle</strong> (phase oracle = “faz kâhini / işaretçi”)
+            şöyle bir makine: her kareye bakıyor. Kare siyahsa o karenin
+            “ruh hâline” eksi işaret koyuyor (−1). Beyazsa dokunmuyor (+1).
+            Koordinatları silmiyor, sadece “bu siyah mıydı?” diye bir damga vuruyor.
+          </p>
+          <p>
+            <strong>Kübit</strong> (qubit = quantum bit = kuantum biti): klasik
+            bilgisayardaki 0/1 anahtarı gibi, ama aynı anda hem 0 hem 1
+            “hissinde” olabilen özel bir anahtar. 6 kübit ile 2<sup>6</sup> = 64
+            farklı sayı yazabilirsin — tam x veya y için.
+          </p>
+          <p>
+            <strong>Little-endian</strong>: sayıyı yazarken en küçük dilimi
+            (LSB = Least Significant Bit = en önemsiz bit) en soldaki kübite
+            koyuyoruz. Telefon numarasında son hanenin “küçük dilim” olması gibi.
+          </p>
+          <p>
+            <strong>Ancilla</strong> (yardımcı kübit): defterin kenarındaki
+            karalama kâğıdı. Hesap yaparken kullanırsın, iş bitince silmen lazım
+            (<code>|0⟩</code> = sıfır durumu). Karalama kalırsa öğretmen
+            (grader = otomatik puanlayan robot) ödevi kabul etmez.
+          </p>
+          <p>
+            Skorda <strong>derinlik</strong> = “işlem kaç katman sürdü?”
+            (merdiven basamakları). <strong>CX</strong> = Controlled-X =
+            kontrollü X kapısı (CNOT = Controlled NOT = “eğer kontrol 1 ise
+            diğerini çevir”). Az basamak + az CX = daha iyi not.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="geometry">
+      <div class="narrow">
+        <p class="eyebrow">02 — Geometri</p>
+        <h2>Logo tam olarak hangi pikseller?</h2>
+        <p class="section-lead">
+          Resmi baseline notebook’taki predicate dört parçanın birleşimi:
+          iki dikdörtgen ve iki disk.
+        </p>
+        <div class="formula">logo(x,y) =
+  (2 ≤ x ≤ 26 ∧ 29 ≤ y ≤ 53)          // A: dikey gövde
+∨ (26 ≤ x ≤ 49 ∧ 39 ≤ y ≤ 43)          // B: yatay kol
+∨ (x−55)² + (y−41)² ≤ 42              // C: sağ disk
+∨ (x−40)² + (y−19)² ≤ 72              // D: üst disk</div>
+        <p>
+          Piksel sayıları: A = 625, B = 120, C = 137, D = 225. Çakışmalar az:
+          yalnızca A∩B = 5 ve B∩C = 5. Toplam işaretli piksel 1.097.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · geometri</p>
+          <p>
+            Logo tek bir şekil gibi görünür ama aslında <strong>dört Lego
+            parçası</strong> yapıştırılmış:
+          </p>
+          <ul>
+            <li><strong>A</strong> = uzun dikey dikdörtgen (gövde)</li>
+            <li><strong>B</strong> = yatay ince şerit (kol)</li>
+            <li><strong>C</strong> = sağdaki yuvarlak disk</li>
+            <li><strong>D</strong> = üstteki yuvarlak disk</li>
+          </ul>
+          <p>
+            Formüldeki ∧ “ve”, ∨ “veya” demek. Yani bir kare, bu dört
+            parçadan <em>en az birinin içindeyse</em> siyahtır.
+          </p>
+          <p>
+            Disk formülü “(merkezden uzaklığın karesi ≤ sayı)” demek:
+            cetvelle daire çizmek gibi. <strong>Baseline notebook</strong> =
+            yarışmanın verdiği başlangıç defteri / örnek çözüm kılavuzu.
+            <strong>Predicate</strong> = “şu şart doğru mu?” diyen kural cümlesi.
+          </p>
+          <p>
+            İki Lego biraz üst üste biniyor (A∩B ve B∩C = her biri 5 kare).
+            Toplarken çift saymamak lazım — yoksa logo şişer. Bizim son
+            sayım: tam <strong>1.097</strong> siyah kare.
+          </p>
+        </aside>
+      </div>
+
+      <div class="logo-stage narrow">
+        <canvas id="logo" width="64" height="64" aria-label="64x64 Classiq logo pikselleri"></canvas>
+        <p class="caption">Canlı çizim · logo_pixel(x,y) formülünden · siyah = işaretli</p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · resim</p>
+          <p>
+            Bu minik mozaik, formülden canlı çiziliyor. Her nokta bir
+            <strong>piksel</strong> (pixel = picture element = resim birimi).
+            Koyu olanlar “işaretli” — oracle’ın −1 damgası vuracağı yerler.
+            Beyazlar dokunulmayacak.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="rules">
+      <div class="narrow">
+        <p class="eyebrow">03 — Kısıtlar</p>
+        <h2>Grader neyi kabul eder?</h2>
+        <p class="section-lead">
+          Genişlik 12–18 kübit; en fazla 6 temiz ancilla. Tek qreg
+          <code class="inline">q</code>, OpenQASM 2.0, sadece <code class="inline">u3</code>
+          ve <code class="inline">cx</code>.
+        </p>
+
+        <div class="qubit-map">
+          <figure>
+            <strong>x register</strong>
+            <code>q[0] … q[5]</code>
+            <p>Little-endian. LSB = q[0].</p>
+          </figure>
+          <figure>
+            <strong>y register</strong>
+            <code>q[6] … q[11]</code>
+            <p>Little-endian. LSB = q[6].</p>
+          </figure>
+          <figure>
+            <strong>ancilla</strong>
+            <code>q[12] … q[17]</code>
+            <p>Temiz başlar, temiz biter.</p>
+          </figure>
+        </div>
+
+        <p>
+          Derinlik, grader’da basit bir katman sayacı: her kapı, operand
+          kübitlerinin max derinliğini +1 artırır. Yani skor yeniden
+          optimize edilmez; yazdığın (veya transpile ettiğin) katman düzeni
+          doğrudan ölçülür.           Ödül eşiği kapanışta ilk 5 (≤108); lider ~95 derinlik / 272 CX.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · kurallar</p>
+          <p>
+            Düşün ki öğretmen şöyle diyor: “Ödevi sadece şu iki Lego parçasıyla
+            yapacaksın: <strong>u3</strong> (universal 3-parametre tek kübit
+            kapısı = bir kübiti istediğin açıyla döndüren genel düğme) ve
+            <strong>CX</strong> (Controlled-X). Başka kapı yok.”
+          </p>
+          <p>
+            <strong>OpenQASM 2.0</strong> = Open Quantum Assembly Language =
+            kuantum devrelerini yazmak için kullanılan ortak dil (versiyon 2.0).
+            <strong>qreg</strong> = quantum register = kübit kutusu. Hepsi tek
+            kutuda: <code>q[0]…q[17]</code>.
+          </p>
+          <p>
+            Ancilla’lar “temiz” olmalı: işe boş kâğıtla başla, iş bitince yine
+            boş bırak. Karalama kalırsa hile sayılır.
+          </p>
+          <p>
+            <strong>All-to-all</strong> bağlantı: her kübit her kübite
+            konuşabilir — sınıfın herkesinin herkese fısıldayabilmesi gibi.
+            (Bazı gerçek makinelerde komşu olmak gerekir; burada yok.)
+          </p>
+          <p>
+            <strong>Derinlik</strong> metaforu: pasta yapmak. Un ve yumurtayı
+            aynı anda karıştırabilirsin (paralel = aynı katman). Ama fırın
+            ısınmadan keki koyamazsın (sıralı = yeni katman). Az katman =
+            hızlı pasta. Lider ~95 katmanda bitirmiş; kapanışta biz
+            <strong>1991</strong>’deydik — pasta doğru, fırın 5329 → 3229 →
+            1991 kısaldı, şampiyon mutfağı (~95–108) hâlâ uzak.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="deadends">
+      <div class="narrow">
+        <p class="eyebrow">04 — Keşif</p>
+        <h2>Neleri denedik, neden yetmedi?</h2>
+        <p class="section-lead">
+          Doğrudan “her siyah pikseli ayrı işaretle” yolu binlerce CX üretir.
+          Daha akıllı kaplamalar da çoğu zaman derinlik duvarına çarptı.
+        </p>
+
+        <div class="tried">
+          <details>
+            <summary>Baseline: 18 dikdörtgen (~5329 derinlik)</summary>
+            <p>
+              Satır aralıklarını birleştirip Classiq
+              <code class="inline">control(range, phase(π))</code> ile sentezlemek
+              doğru ama optimize edilmeden ~5000–5300 derinlik bandında kalıyor.
+              Bu “geçer not”un tavanı değil, başlangıç çizgisi.
+            </p>
+          </details>
+          <details>
+            <summary>ANF / ESOP faz polinomu — işe yaramadı</summary>
+            <p>
+              12-bit fonksiyonun ANF’i 886 terimli. Greedy ESOP ~77 terim /
+              ~3000 CX; Qiskit EsopGenerator 164 terim / ~7800 CX. Liderin
+              269 CX’ine yaklaşmıyor. Faz polinomu doğru ama CX yağmuru.
+            </p>
+          </details>
+          <details>
+            <summary>Dyadic küp çarpımları — işe yaramadı</summary>
+            <p>
+              Dikdörtgenleri x-küp × y-küp olarak açmak 133 küp ve ~7000 CX
+              verdi. Yüksek ağırlıklı ürünler kritik yolu şişiriyor.
+            </p>
+          </details>
+          <details>
+            <summary>İki canlı 6-bit karşılaştırıcı — sığmadı</summary>
+            <p>
+              6-bit comparator zirvede 5 carry + 1 sonuç ister. Bir x-flag
+              tutulurken kalan 5 kübit, ikinci 6-bit compare için yetmiyor.
+              Bu yüzden y tarafında comparator kullanamadık; y hep dyadic.
+            </p>
+          </details>
+          <details>
+            <summary>DiagonalGate / PhaseOracle — daha kötü</summary>
+            <p>
+              4096 diyagonal fazı Qiskit
+              <code class="inline">DiagonalGate</code> ile vermek ~8170 derinlik /
+              4094 CX. Disk için 8-bit PhaseOracle tek başına ~3585 derinlik.
+              “Her pikseli tabloya yaz” yolu kısa değil.
+            </p>
+          </details>
+          <details>
+            <summary>MCZ ile y-bayrağını kaldırmak — işe yaramadı</summary>
+            <p>
+              x-flag üzerine doğrudan H–MCX–H (MCZ) uygulamak, y-flag yaz-CZ-sil
+              döngüsünden teoride ucuz görünüyor. Ama hedef süperpozisyondayken
+              ucuz RCCX kullanılamıyor; exact Toffoli ile derinlik
+              <strong>4415</strong>’e çıktı. Geri alındı.
+            </p>
+          </details>
+          <details>
+            <summary>BQSKit yeniden sentez — işe yaramadı</summary>
+            <p>
+              Berkeley Quantum Synthesis Toolkit tek bir grupta bile ~27 sn sürdü
+              ve Qiskit opt=3’ün 296 derinliğini 301’e kötüleştirdi. Tam oracle’a
+              uygulanmadı.
+            </p>
+          </details>
+          <details>
+            <summary>Classiq auth — açıldı; kapalı form ~97 vermedi</summary>
+            <p>
+              <code class="inline">classiq.authenticate()</code> çalışıyor, bulut
+              sentezi gidiyor. Kapalı form
+              <code class="inline">(x−55)²+(y−41)²≤42</code> ise
+              <code class="inline">max_width=18</code> ile reddediliyor: motor en az
+              39 kübit istiyor. 40 kübitte derinlik ~4100. Tek dikdörtgen S bile
+              416; sadece x aralığı <code class="inline">[2,26]</code> 194.
+              İlk 5 (95–111) bu sentezleyicinin tek aralık kontrolünden daha kısa.
+            </p>
+          </details>
+          <details open>
+            <summary>İşe yarayanlar: merge_S + supercube + paylaşımlı küp</summary>
+            <p>
+              S’yi tek dikdörtgen <code class="inline">[2,26]×[29,53]</code>
+              yaptık; orta şerit <code class="inline">[27,61]×[39,43]</code>
+              (B + sağ disk ekvatoru). Pahalı x-aralıklarını
+              (<code class="inline">[33,47]</code>, <code class="inline">[34,46]</code>,
+              <code class="inline">[50,60]</code>) büyük dyadic küp ⊕ delik
+              tarifiyle kodladık; sol diskte <code class="inline">[32,47]</code>
+              küpünü bir kez tutup bantlar arasında paylaştık. geq2 hibrit +
+              pytket ile birlikte →
+              <strong>3229 derinlik / 2085 CX</strong>.
+            </p>
+          </details>
+        </div>
+
+        <div class="note">
+          Auth açıkken kapalı formu DEPTH + max_width=18 ile sentezledik.
+          Aritmetik disk 18 kübite sığmıyor (en az 39); sığan dikdörtgen S tek
+          başına 416 derinlik. İlk 5 (95–111) bu motorun “formülü ver, kısalt”
+          çıktısı değil. pytket / BQSKit mevcut el oracle’ında yalnızca küçük
+          tıraş yapıyor.
+        </div>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · denemeler</p>
+          <p>
+            Birçok yol denedik; çoğu “doğru cevap ama çok uzun yol” oldu.
+            Okuldan eve yürüyebilirsin, ama her sokakta ayrı durak koyarsan
+            akşam olur.
+          </p>
+          <ul>
+            <li>
+              <strong>Baseline</strong> = başlangıç çözümü: logoyu 18 küçük
+              dikdörtgene ayırıp her birini ayrı işaretlemek. Doğru, ama yavaş.
+            </li>
+            <li>
+              <strong>ANF</strong> = Algebraic Normal Form = cebirsel normal
+              biçim (çok terimli bir “ve/veya” yazımı).
+              <strong>ESOP</strong> = Exclusive Sum Of Products = “XOR’lanmış
+              çarpımlar toplamı”. Terim çok olunca CX yağmuru yağar.
+            </li>
+            <li>
+              <strong>Dyadic küp</strong> = kenarı 1, 2, 4, 8… olan hizalı
+              blok (ikinin kuvveti). Lego’yu sadece 1×1, 2×2, 4×4 ile kaplamak
+              gibi — bazen çok parça gerekir.
+            </li>
+            <li>
+              <strong>Comparator</strong> = karşılaştırıcı (“sayı ≥ 26 mı?”).
+              İki tane aynı anda çalıştırmak için masada yetmeyecek kadar
+              yardımcı kâğıt (ancilla) ister. O yüzden y tarafında
+              kullanamadık.
+            </li>
+            <li>
+              <strong>pytket / BQSKit</strong> = açık kaynak “devre berberi”.
+              pytket biraz tıraşladı; BQSKit bu saç modelinde işe yaramadı.
+            </li>
+            <li>
+              <strong>geq2 hibrit</strong> = “≥ 2 mi?” sorusunu üst bitlerin
+              OR’u ile sormak — tam comparator’dan ucuz. İşe yaradı.
+            </li>
+          </ul>
+          <p>
+            Hesap açık: formülü tek parça yazıp buluta “kısa yap” dedik.
+            Mutfak girdi, ama çıkan pasta ya 39 kübit istedi ya da binlerce
+            katman oldu. Lider ~95, bizim tek x-aralığımız bile 194.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="solution">
+      <div class="narrow">
+        <p class="eyebrow">05 — Çözüm</p>
+        <h2>Çalışan mimari</h2>
+        <p class="section-lead">
+          Logoyu örtüşmeyen x-aralığı gruplarına ayırdık. Her grup için:
+          x-flag yaz → y-flag’leri sırayla yaz → CZ → geri al.
+        </p>
+
+        <ol class="steps">
+          <li>
+            <h3>Örtüşmeyen gruplar</h3>
+            <p>
+              Baseline satır birleşimini, aynı x-aralığını paylaşan y-dilimleri
+              altında topladık. 10 grup; kapsama tam 1.097, çakışma yok.
+              Örnek: <code class="inline">x∈[38,42]</code> ile
+              <code class="inline">y∈{11,27}</code>.
+            </p>
+          </li>
+          <li>
+            <h3>Kübit rolleri</h3>
+            <p>
+              <code class="inline">a0 = q[12]</code> x-flag,
+              <code class="inline">a1 = q[13]</code> y-flag,
+              kalanlar scratch. X flag yazılırken 5 scratch serbest;
+              y flag yazılırken x flag canlı olduğu için sadece 4 scratch var.
+            </p>
+          </li>
+          <li>
+            <h3>Aralık bayrağı = XOR of dyadic cubes</h3>
+            <p>
+              <code class="inline">[lo, hi]</code> hizasız bir aralık, üst üste
+              binmeyen hizalı 2-kuvvet bloklarına ayrılır. Her küp için sabit
+              bitlere X, sonra MCX-XOR ile hedefe XOR, sonra X geri. Küpler
+              ayrık olduğu için bayrak tam doğru.
+            </p>
+          </li>
+          <li>
+            <h3>MCX-XOR merdiveni</h3>
+            <p>
+              Relative-phase Toffoli (RCCX) + son CCX: hedefe
+              AND(controls) XOR’lanır, ancilla temiz kalır, faz +1.
+              6 kontrol için 4 ancilla yeter — y eşitliklerinin tamamı sığar.
+            </p>
+          </li>
+          <li>
+            <h3>Geniş x aralıklarında comparator / geq2 hibrit</h3>
+            <p>
+              <code class="inline">[34,46]</code> için iki iç içe
+              <code class="inline">≥</code> comparator (aynı hedefe XOR) dyadic’ten
+              ucuz. Kimlik:
+              <code class="inline">(v≥lo) ⊕ (v≥hi+1) = lo≤v≤hi</code>.
+              Non-result CCX’ler RCCX ile değiştirildi.
+            </p>
+            <p>
+              <code class="inline">[2,26]</code> ve
+              <code class="inline">[2,61]</code> için özel yol:
+              <code class="inline">v≥2 ⇔ OR(bits[1:5])</code> (ucuz XOR-OR),
+              sonra <code class="inline">v≥27</code> / <code class="inline">v≥62</code>
+              comparator. İki tam comparator (~155) yerine ~113 derinlik.
+              Involutory olduğu için compute/uncompute aynı devre.
+            </p>
+          </li>
+          <li>
+            <h3>Faz = CZ(a0, a1)</h3>
+            <p>
+              x ve y bayrakları 1 iken CZ fazı çevirir. Sonra aynı XOR
+              rutinleri tekrarlanarak bayraklar sıfırlanır (involutory).
+            </p>
+          </li>
+        </ol>
+
+        <h3>Kapalı form (Qmod)</h3>
+        <p>
+          Gönderdiğimiz <code class="inline">submission.qmod</code>, predicate’i
+          tek <code class="inline">control</code> içinde tutar. Bu, Classiq
+          bulut sentezi için hazır model; yerel QASM ise el yapımı oracle.
+        </p>
+        <pre>qperm logo_phase_oracle(const x: qnum, const y: qnum) {
+  control ((A) | (B) | (C) | (D)) {
+    phase(pi);
+  }
+}</pre>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · çözüm</p>
+          <p>
+            Bizim çalışan yöntem: logoyu <strong>10 grup</strong> yapboz parçasına
+            ayırmak. Her parçada aynı x aralığı var, altında birkaç y dilimi.
+          </p>
+          <p>
+            Metafor: sınıfta yoklama. Önce “x bu aralıkta mı?” diye bir
+            <strong>bayrak</strong> (flag) kaldırıyorsun. Sonra her y dilimi için
+            ikinci bayrağı kaldırıp ikisi de kalkıksa zil çalıyorsun
+            (<strong>CZ</strong> = Controlled-Z = kontrollü Z kapısı = “ikisi de
+            1 ise fazı çevir”). Sonra bayrakları indiriyorsun ki sıra karışmasın.
+          </p>
+          <p>
+            <strong>Dyadic cubes / XOR of dyadic cubes</strong>: bir sayı
+            aralığını, üst üste binmeyen 1-2-4-8’lik kutulara ayırıp her kutuyu
+            ayrı kontrol etmek; sonuçları XOR (exclusive or = “ya o ya bu,
+            ikisi birden değil”) ile birleştirmek. Kutular çakışmadığı için
+            yanlışlıkla iki kez işaretlenmez.
+          </p>
+          <p>
+            <strong>MCX</strong> = Multi-Controlled X = çok kontrollü X.
+            <strong>RCCX</strong> = Relative-phase CCX = “ucuz Toffoli”
+            (üç kübite AND yazan kapı; biraz faz oyunuyla daha az CX harcar).
+            <strong>Scratch</strong> = karalama kâğıdı ancilla’ları.
+          </p>
+          <p>
+            Geniş x aralıklarında <strong>comparator</strong> daha ucuz çıktı:
+            “sayı lo’dan büyük eşit mi?” ile “hi+1’den büyük eşit mi?”yi XOR’la
+            — ikisinin farkı tam aralığın içi. Cetvelle “şuradan şuraya kadar”
+            demek gibi. Özellikle <strong>≥ 2</strong> için üst bitlerin
+            OR’u yetiyor; tam comparator’a gerek kalmıyor (geq2 hibrit).
+          </p>
+          <p>
+            <strong>Qmod</strong> = Classiq’in model dili (Quantum Model).
+            <strong>QASM</strong> = Quantum Assembly = kapı kapı yazılmış
+            devre. Qmod “tarif”, QASM “pişmiş yemek”.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="journey">
+      <div class="narrow">
+        <p class="eyebrow">05b — Yolculuk</p>
+        <h2>Skor nasıl düştü? Ne denendi?</h2>
+        <p class="section-lead">
+          Kısa bir zaman çizelgesi: hangi fikir kaç derinlik bıraktı, hangisi
+          çöpe gitti.
+        </p>
+
+        <ol class="steps">
+          <li>
+            <h3>Baseline Classiq notebook</h3>
+            <p>
+              ~5329 derinlik / 3502 CX. Doğru ama kasıtlı olarak pahalı.
+            </p>
+          </li>
+          <li>
+            <h3>Gruplu el oracle (<code class="inline">logo_oracle.py</code>)</h3>
+            <p>
+              10 x-grubu, dyadic + comparator, RCCX merdiveni →
+              <strong>~4222 / 2671</strong>. Statevector yeşil.
+            </p>
+          </li>
+          <li>
+            <h3>Açık kaynak derleyiciler</h3>
+            <p>
+              pytket FullPeephole: 4222 → 4190 (küçük ama gerçek).
+              BQSKit: tek grupta kötüleşme, bırakıldı.
+            </p>
+          </li>
+          <li>
+            <h3>geq2 hibrit</h3>
+            <p>
+              Geniş gövde aralıklarında <code class="inline">v≥2 = OR(üst bitler)</code>
+              → ~4053, pytket sonrası ~4063 / 2565.
+            </p>
+          </li>
+          <li>
+            <h3>merge_S + supercube + paylaşımlı küp</h3>
+            <p>
+              S tek blok; pahalı x-aralıkları büyük küp ⊕ delik; sol diskte
+              <code class="inline">[32,47]</code> bir kez tutuldu →
+              <strong>3317 / 2122</strong>.
+            </p>
+          </li>
+          <li>
+            <h3>Auth + Classiq hibrit</h3>
+            <p>
+              Hesap açıldı. Classiq S+B dikdörtgenleri (~708) + yerel diskler
+              → doğrulanmış <strong>3229 / 2085</strong>. Kapalı form ~97
+              vermedi; lab günlüğünde ayrıntı.
+            </p>
+          </li>
+        </ol>
+
+        <div class="note">
+          Özet kartı: <strong>işe yaradı</strong> = gruplama, RCCX, seçici
+          comparator, geq2-OR hibrit, merge_S, supercube ⊕ delik, paylaşımlı
+          dyadic küp, pytket, Classiq S+B hibriti.
+          <strong>işe yaramadı</strong> = ANF/ESOP, BQSKit, Classiq disk
+          aritmetiği (39 kübit / ~4100), ince satırların Classiq’de silinmesi,
+          sığ ama yanlış kare predicate.
+        </div>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · yolculuk</p>
+          <p>
+            Koşu antrenmanı: 5329 → 4222 → 4063 → 3317 → <strong>3229</strong>.
+            Mutfak anahtarı geldi; fırın çalışıyor. Ama “dört formüllü kapalı
+            tarif” şampiyon pastasını basmadı — ayrıntı bir sonraki bölümde.
+          </p>
+          <p>
+            Önemli ders: <em>her akıllı fikir skor düşürmez</em>. Bazıları
+            doğruyu bulur ama pastayı daha uzun pişirir. Bu yüzden her denemeyi
+            ölçüp yeşil/kırmızı diye işaretledik.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="lab">
+      <div class="narrow">
+        <p class="eyebrow">05c — Lab günlüğü</p>
+        <h2>Auth açıldıktan sonra ne denedik?</h2>
+        <p class="section-lead">
+          29 Eylül 2026: <code class="inline">classiq.authenticate()</code>
+          geçti. Aşağıdakiler o günden beri yapılan ölçümler — her biri
+          “neden / nasıl / sonuç” üçlüsüyle.
+        </p>
+
+        <div class="tried">
+          <details open>
+            <summary>1) Kapalı form: “tarif → kapı listesi” — 18’e sığmadı</summary>
+            <p>
+              <code class="inline">synthesize_closed_form.py</code> logoyu dört
+              geometrik cümleyle yazar:
+            </p>
+            <div class="formula">
+              S ∪ B ∪ (x−55)²+(y−41)²≤42 ∪ (x−40)²+(y−19)²≤72
+            </div>
+            <p>
+              <code class="inline">DEPTH + max_width=18</code> ile sentez:
+              motor <strong>en az 39 kübit</strong> istiyor. Genişliği 40’a
+              açınca sentez olur; derinlik ~4100 / CX binlerce — bizim 3229’dan
+              kötü. Genişliği 48’de ~5552.
+            </p>
+            <p>
+              <strong>Ders:</strong> “formülü yaz, sentezleyici kısaltsın”
+              yolu bu hesapta / bu SDK’da (1.29.1) lider bandına gitmiyor.
+              Geniş Classiq çıktısını <code class="inline">submission.qasm</code>
+              üzerine yazmadık.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> pastayı tek tarifle fırına
+              verdik, fırın “tepsim küçük, 39 kişilik olsun” dedi. Büyük
+              tepside pişince pasta bin kat oldu — şampiyon pastası
+              değil. Büyük tepsiyi çöpe attık.
+            </p>
+          </details>
+
+          <details open>
+            <summary>2) Parça parça ölçüm: tek aralık bile ilk 5’ten derin</summary>
+            <p>
+              Liderboard (29 Eylül): 1. sıra <strong>95 / 272</strong>, ilk 5
+              hepsi 95–111 derinlik, 18 kübit.
+            </p>
+            <p>
+              Aynı motora tek tek aralık verince (doğrulanan / ölçülen):
+            </p>
+            <ul>
+              <li>x ∈ [2,26] → derinlik <strong>194</strong>, CX 105</li>
+              <li>y ∈ [29,53] → <strong>217</strong> / 119</li>
+              <li>S dikdörtgeni [2,26]×[29,53] → <strong>416</strong> / 246</li>
+              <li>orta şerit [27,61]×[39,43] → <strong>264</strong> / 221</li>
+              <li>Classiq S+B birlikte → <strong>~708</strong> / 470</li>
+            </ul>
+            <p>
+              194, “bir sayıyı aralığa koy, ancillayı temizle”nin bedeli.
+              İlk 5’in <em>bütün</em> logosu bundan kısa. Kazananlar aralıkları
+              uç uca dizmiyor; kritik yolları bir karşılaştırıcıdan kısa.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> şampiyon bütün ödevi 95 satırda
+              bitirmiş. Bizim makine tek soruya (“2 ile 26 arasında mı?”)
+              194 satır harcıyor. Demek ki şampiyon başka makine
+              kullanıyor!
+            </p>
+          </details>
+
+          <details open>
+            <summary>3) Hibrit: Classiq S+B + yerel diskler → 3229</summary>
+            <p>
+              Classiq kalın dikdörtgenlerde iyi (S+B ~708). Yerel OSS S+B tek
+              başına ~840. Disk halkaları OSS’de paylaşımlı küp ile ~2524.
+            </p>
+            <p>
+              Birleşim (doğrulandı, statevector yeşil):
+              <strong>18 / 3229 / 2085</strong>. Bu, 3317’den ~88 katman kısa.
+              Gönderi dosyası buna güncellendi.
+            </p>
+            <p>
+              <strong>Dikkat:</strong> Hadamard’lı sentez çıktısında u3(π/2,0,π)
+              prep kapıları kalabiliyor; oracle ölçümünden önce onları
+              çıkarmak / prep’siz model yazmak şart. Aksi halde faz kontrolü
+              bozulur.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> kalın işleri robota, ince
+              yuvarlakları elimize verdik — 88 satır kısaldı, sınavdan
+              geçtik. Yeni rekor: 3229!
+            </p>
+          </details>
+
+          <details>
+            <summary>4) İnce satırlar (yükseklik 1): Classiq siliyor</summary>
+            <p>
+              Disk halkalarındaki tek piksel yüksekliğinde bantlar
+              (<code class="inline">y=11</code>, <code class="inline">y=35</code>…)
+              Classiq’de yalnız başına veya hatta S ile birlikte sentezlenince
+              faz çoğu zaman kayboluyor: derinlik 0 veya “doğru gibi görünen”
+              ama 56 piksel eksik.
+            </p>
+            <p>
+              Yükseklik ≥2 bantlar tutuluyor. Çözüm: ince satırları OSS’de
+              bırakmak; kalın parçaları Classiq’e vermek (hibrit).
+            </p>
+            <p>
+              İki yükseklik-2 bandını XOR’layınca
+              (<code class="inline">[11,12] ⊕ [12,13]</code>) y=11 ve y=13
+              fazlanır, y=12 iptal olur — motor her iki h=2’yi de tutuyor.
+              Komşu logo pikselleri yüzünden bu hileyi doğrudan uygulamak
+              zor; yine de “motor neyi siler?” sorusuna cevap verdi.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> robot incecik çizgileri
+              görmüyor — silip geçiyor, 56 piksel kayboldu! O yüzden ince
+              çizgileri biz boyadık, kalınları robota bıraktık.
+            </p>
+          </details>
+
+          <details>
+            <summary>5) Sığ ama yanlış: 4 bitlik a²+b²≤42</summary>
+            <p>
+              Classiq’e 4 bitlik unsigned
+              <code class="inline">a*a + b*b ≤ 42</code> verince
+              <strong>derinlik 17 / CX 12</strong> gibi “rüya” bir skor çıktı.
+              Statevector: 256 noktanın <strong>41’i yanlış</strong>. QASM’de
+              çarpma / karşılaştırma kapıları fiilen boş; faz silinmiş.
+            </p>
+            <p>
+              <strong>Ders:</strong> skor tablosuna bakmadan önce
+              statevector. “Sığ” Classiq aritmetiği bazen yanlış.
+              Dikdörtgen karşılaştırmaları (S, B) bu motorla doğru çıktı;
+              kareler güvenilmez.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> robot “17 satırda bitirdim!”
+              dedi, sevinçten zıpladık. Sonra cevap anahtarıyla
+              karşılaştırdık: 41 soru yanlış! Meğer robot bazı soruları
+              boş bırakmış.
+            </p>
+          </details>
+
+          <details>
+            <summary>6) 4 bit ofset: +9 doğrulandı (derinlik 25)</summary>
+            <p>
+              Sağ disk merkezi 55. Alt 4 bit için
+              <code class="inline">(x−55) ≡ (x_low + 9) (mod 16)</code>
+              ve <code class="inline">x ∈ [49,61]</code> iken bu, gerçek
+              <code class="inline">x−55</code> ile birebir.
+            </p>
+            <p>
+              Elle yazılan +9 mod 16 (2 CCX + CX’ler): derinlik <strong>25</strong>,
+              CX 16; 16 girdi için doğrulandı. Benzer ofset y için de mümkün.
+            </p>
+            <p>
+              Sonraki adım kare + toplam + ≤42. 6 ancilla ile sıkışıyor:
+              kare bit 1 hep 0 → sonuç 5 bit; ikinci kareyi toplarken AND
+              hedefi + carry aynı anda yetmiyor. Ancillasız MCX merdiveni
+              (4 kontrollü ~65 derinlik) birkaç kez dizilince tek disk,
+              liderin bütün bütçesini aşıyor.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> “55’e ne kadar uzağız?” Son 4
+              rakama 9 ekleyince cevap çıkıyor — üstelik sadece 25 satır!
+              Ama bu sadece ilk adım; kareler derken masalar doluyor.
+            </p>
+          </details>
+
+          <details>
+            <summary>7) Neden ilk 5 “parça birleştir” ile gelmiyor?</summary>
+            <p>
+              Kabaca lider bütçesi: ~95 derinlik ≈ birkaç Toffoli derinliği;
+              ~272 CX ≈ ~45 Toffoli. Bizim doğru parçalar:
+            </p>
+            <ul>
+              <li>tek x-aralığı Classiq: 194 (zaten bütçenin 2×’i)</li>
+              <li>ofset: 25 (ucuz, ama sadece giriş)</li>
+              <li>hibrit bütün logo: 3229</li>
+            </ul>
+            <p>
+              İlk 5’e girmek için logonun <em>en uzun</em> kapı zinciri bir
+              aralık kontrolünden kısa olmalı. Bu, ya tamamen farklı bir
+              Boolean / BDD paylaşımı ya da 6 ancillayı yeniden kullanan
+              çok sıkı bir aritmetik makine demek — Classiq’in varsayılan
+              “geniş aritmetik + uncompute” şablonu değil.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> şampiyonun çantası küçük: 95
+              satır, ~45 zımba. Bizim tek cetvelimiz bile 95 satırdan
+              uzun. Çantaya sığmak için cetveli değil, bütün çantayı
+              değiştirmek lazım.
+            </p>
+          </details>
+
+          <details>
+            <summary>8) qmod uyumu: tarif defteriyle pişen yemek eşleşti</summary>
+            <p>
+              <strong>Neden:</strong> yarışmaya iki dosya veriliyor:
+              <code class="inline">submission.qasm</code> (pişen yemek —
+              puanı bu alır) ve <code class="inline">submission.qmod</code>
+              (tarif defteri — yaklaşımı anlatır). Bizim tabakta 18 kübitlik
+              hibrit vardı ama defterde hâlâ “39 kübit isteyen kapalı form”
+              yazıyordu. Garson (grader = otomatik puanlayan robot) tabağa
+              bakar, ama defterle tabak çelişmemeli.
+            </p>
+            <p>
+              <strong>Nasıl:</strong> qmod, GROUPS’un 17 dikdörtgen
+              cümlesiyle yeniden yazıldı (“x şu aralıktaysa VE y bu
+              aralıktaysa faz ver”, 17 kez). Classiq’in model kurucusu
+              (<code class="inline">create_model</code> = “tarifi makineye
+              okut”) <code class="inline">max_width=18</code> ile
+              <strong>OK</strong> verdi — yani bu tarif 18 kişilik tepsiye
+              sığıyor.
+            </p>
+            <p>
+              <strong>Sonuç:</strong> qasm değişmedi
+              (<strong>3229 / 2085</strong>), paket tutarlı. Eski defter
+              yedekte duruyor.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> yemeğimiz doğruydu ama üstündeki
+              etiket başka yemek yazıyordu. Etiketi düzeltip tabağın
+              üstüne yapıştırdık — yemek aynı, etiket artık doğru.
+            </p>
+          </details>
+
+          <details>
+            <summary>9) QROM blokları: doğru Lego’lar, ama kule kısa kalmadı — park</summary>
+            <p>
+              <strong>Neden:</strong> sağ diski “kare al, topla, 42 ile
+              karşılaştır” diye yapmak istiyoruz. Sayıları 4 bite
+              indirgemiştik (madde 6’daki +9 numarası). Bu turda üç Lego
+              parçası tek tek dökülüp ölçüldü:
+            </p>
+            <ul>
+              <li>
+                <strong>+9 ofseti:</strong> derinlik <strong>25</strong>, CX 16.
+                16 girdinin 16’sında doğru. Sadece 2 CCX
+                (CCX = Toffoli = “iki anahtar da açıksa üçüncüyü çevir”).
+              </li>
+              <li>
+                <strong>+7 ofseti</strong> (y ekseni için): 63 derinlik,
+                16/16 doğru. Biraz hedef üstü ama sağlam.
+              </li>
+              <li>
+                <strong>Füzed kare</strong> (ofset+kare tek parça, x’e
+                dokunmadan): <strong>432</strong> derinlik / 305 CX,
+                16/16 doğru. “Füzed” = iki işi tek hamlede yapmak;
+                kare bit 1 hep 0 çıktığı için 6 yerine 5 bit yetti.
+              </li>
+            </ul>
+            <p>
+              <strong>Ders (v=7→8 böceği):</strong> ilk denemede çarpımlar
+              yanlış sırayla yazılmıştı: 7 girince 8 çıkıyordu. Sebep basit
+              bir mutfak hatası — malzemeyi doğrarken aynı bıçakla tabağı
+              düzeltmek: bitleri değiştirince sonraki çarpımlar kirli
+              bitleri okudu. Kural: <em>önce bütün çarpımları temiz
+              girdiden hesapla, girdi bitlerini en sona bırak.</em>
+              Düzeltilen parçalar <code class="inline">qrom_disk.py</code>
+              bankasında duruyor.
+            </p>
+            <p>
+              <strong>Neden park:</strong> tek eksenin karesi bile 432.
+              Öbür eksen + toplama + karşılaştırma eklenince tek disk
+              ~1200+ olur; iki disk + dikdörtgenler 3229’u geçemez.
+              Doğru Lego’lar, yanlış kule.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> disk pastasını kesmek için üç
+              bıçak yaptık. Bıçaklar keskin çıktı, tek tek denedik, hepsi
+              kesti! Ama bütün pastayı kesmek yine de çok uzun sürdü.
+              Bıçakları kutuya kaldırdık — belki başka pastada kullanırız.
+            </p>
+          </details>
+
+          <details>
+            <summary>10) ROBDD: 83 düğümlü akıllı harita 6 masaya sığmadı — park</summary>
+            <p>
+              <strong>Neden:</strong> 886 terimli ANF (madde 5’in kuzeni)
+              ölmüştü. Ama aynı sorunun <strong>ROBDD</strong> haritası
+              (Reduced Ordered Binary Decision Diagram = “aynı alt
+              yolları paylaşan karar ağacı”) sadece
+              <strong>83 düğüm</strong>: aynı soru iki yerde soruluyorsa
+              harita tek düğümde birleştiriyor. Katman genişlikleri
+              [1,2,4,6,10,9,10,11,14,10,4,2] — en kalabalık katmanda 14
+              düğüm aynı anda açık.
+            </p>
+            <p>
+              <strong>Nasıl denendi:</strong> her düğüm
+              “alt yol XOR (soru VE fark)” formülüyle tek bayrağa işlenecekti.
+              <strong>Pebbling</strong> (çakıl taşı oyunu = “hangi ara
+              sonucu hangi masada tutayım, hangisini silip gerekirse yeniden
+              hesaplayayım” planı) simülasyonu gösterdi: aynı anda
+              <strong>~17</strong> masa lazım, bizde 6 ancilla
+              (ancilla = yardımcı kâğıt) var. Sığmıyor.
+            </p>
+            <p>
+              <strong>Geri dönüş ve sonuç:</strong> harita 139 ayrık yola
+              açılıp her yol ayrı ayrı hesaplandı → doğruluk OK ama
+              <strong>29348 / 19442</strong>, 9 kat kötü. Yeniden-hesaplama
+              (recompute = “masan yoksa sil, lazım olunca baştan yap”)
+              ödünü de 3229’u geçemez. Park edildi; harita ve üreteç
+              <code class="inline">build_bdd_oracle.py</code>’de duruyor.
+              Sıradaki deneme: 111 dyadic çifti parite-gadget’lara çevirip
+              TODD ile sıkıştırmak (GraySynth).
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> bütün soruları tek akıllı
+              haritada birleştirdik — sadece 83 durak! Ama haritayı okumak
+              için 17 masa lazım, bizde 6 masa var. Herkes ayrı yoldan
+              gidince de yol 9 kat uzadı. Haritayı çekmeceye kaldırdık.
+            </p>
+          </details>
+
+          <details>
+            <summary>11) Parite ütücüsü: yanlış soru sorulmuş — park</summary>
+            <p>
+              <strong>Neden:</strong> 111 küçük bloğu “parite listesi”ne
+              çevirip TODD akıllı ütücüsüyle sıkıştırmak istedik.
+              <strong>Parite</strong> = “bu kübitlerin toplamı tek mi çift
+              mi?” sorusu. Plan: her bloğu tek parite cümlesi yap, ütücü
+              listeyi kısaltsın.
+            </p>
+            <p>
+              <strong>Nasıl:</strong> her dyadic çifti tek
+              <code class="inline">ParityPhase(π)</code> olarak kuruldu.
+              S alt kümesi 464 two-qubit, tam merdiven 1966. Transpile
+              sonrası <strong>625 / 509</strong> gibi rüya bir skor
+              göründü — ama sınavdan kaldı.
+            </p>
+            <p>
+              <strong>Neden öldü:</strong> “hepsi 1 mi?” (çok-kontrollü
+              kapı) ile “toplam tek mi?” (parite) farklı sorular. 12
+              kontrollü bir kapı, tek parite cümlesine değil
+              <strong>4096</strong> parite cümlesine eşit. Tek-kontrollü
+              bloklar şans eseri doğruydu (Z kapısı = tek parite),
+              kalabalık bloklar fazı bozdu. Üstüne TODD, π-fazlı
+              (Clifford) devrede ütülenecek T bulamayıp devreyi boşalttı.
+              625/509, yanlış devrenin skoruydu. Dosya yazılmadı,
+              <code class="inline">submission.qasm</code> el değmeden duruyor.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> “herkes el kaldırsın mı?” ile
+              “tek sayıda el mi kalktı?” farklı sorular! Biz ikinci
+              soruyu sorup birinci sorunun cevabını bekledik. Küçük
+              sınıfta şans eseri tuttu, büyük sınıfta yakalandık.
+            </p>
+          </details>
+
+          <details open>
+            <summary>12) Çok-kontrollü kapı kıyaslaması: ağaç 6 kontrolü 42’ye indirdi</summary>
+            <p>
+              <strong>Neden:</strong> her aralık bayrağı “şu bitlerin hepsi
+              1 mi?” diye soruyor. Bu kapının katman sayısı, her grubun
+              tabanı. Aynı işi linear RCCX merdiven, dengeli ağaç ve
+              Qiskit’in Khattar–Gidney sentezleriyle ölçtük
+              (<code class="inline">mcxlib.py</code>).
+            </p>
+            <p>
+              <strong>Sonuç (doğrulandı):</strong> CCX = 11, RCCX = 7 katman.
+              5 kontrol + 3 boş ancilla: ağaç <strong>34</strong> (eski
+              merdiven 38). 6 kontrol + 4 boş: ağaç <strong>42</strong>
+              (eski 46). Ancilla yokken 6 kontrol 191 katman — yani
+              yardımcı kâğıt olmadan bu Lego çok pahalı.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> “beş kişi aynı anda onay versin”
+              diye sormak. Eski yol: sırayla sor, herkes “evet” desin.
+              Yeni yol: ikişer kişilik grup, sonra grupların grupları —
+              merdiven yerine ağaç. 6 kişilik onay 46 basamaktan 42’ye indi.
+              Küçük kazanç, ama her grupta iki kez kullanıyoruz.
+            </p>
+          </details>
+
+          <details open>
+            <summary>13) Paralel bayrak motoru: 3229 → 1991 — gönderildi</summary>
+            <p>
+              <strong>Neden:</strong> eski oracle x-bayrağını yazıyor, sonra
+              y-bayrağını yazıyor; ikisi sırayla duruyor. Ancilla’ları iki
+              havuza bölüp x ve y’yi <em>aynı anda</em> hesaplayınca
+              katmanlar üst üste biner. Üstüne her küme için 0–2 CX’lik
+              “affine ön-dönüşüm” arandı: küme, ucuz bir dyadic küp olsun
+              diye bitler birbirine XOR’lanıyor, iş bitince geri alınıyor.
+            </p>
+            <p>
+              <strong>Üç gruplama (hepsi statevector yeşil):</strong>
+            </p>
+            <ul>
+              <li>
+                <strong>A satır:</strong> <code class="inline">GROUPS</code>
+                — <strong>1991 / 1868</strong>. Kazanan.
+              </li>
+              <li>
+                <strong>C hibrit:</strong> S + orta şerit + disk dilimleri
+                — 2063 / 2421.
+              </li>
+              <li>
+                <strong>B sütun:</strong> geniş y-birleşimleri küp sayısını
+                şişirdi — 2844 / 3033.
+              </li>
+            </ul>
+            <p>
+              Bağımsız kontrol: <code class="inline">qasm_metrics</code>
+              1991/1868; 3 rastgele çarpım-faz girişinde hata ~5×10<sup>−16</sup>;
+              ancilla temiz. Dosya:
+              <code class="inline">flag_engine_full.qasm</code>.
+              30 Eylül’de <code class="inline">submission.qasm</code>
+              bu dosyayla yollandı (HubSpot accepted).
+            </p>
+            <p>
+              <strong>Neden 113 değil:</strong> 10 grup, her biri ~164–278
+              katman. En pahalı üçü: S bar 278, <code class="inline">[33,47]</code>
+              250, orta şerit 236. x-bayrağı y ile gizlendi; kalan fatura
+              tek satırlık y-bantları (her biri 6-kontrollü küp, yaz+CZ+sil).
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> eskiden önce “x bu aralıkta mı?”
+              diye soruyorduk, cevap gelince “y bu dilimde mi?”. Şimdi iki
+              soruyu aynı anda soruyoruz — pasta katmanı kısalıyor.
+              3229’dan 1991’e indik. Ama 10 ayrı pasta dilimi hâlâ sırayla
+              pişiyor; şampiyon pasta 108 katman, biz dilim başı ~200’deyiz.
+            </p>
+          </details>
+
+          <details>
+            <summary>14) Birleşik y-bantları: 3582 — daha kötü, park</summary>
+            <p>
+              <strong>Plan:</strong> her grubun y-dilimlerini tek kümeye
+              birleştirmek. Örnek: {11, 27} yalnız 4. bitte farklı → tek
+              5-kontrollü küp. Tahmin 1100–1400’dü.
+            </p>
+            <p>
+              <strong>Ölçüm (doğrulandı, ~19 dk):</strong> A2
+              <strong>3582 / 2358</strong>, A3 3586 / 2362. Satır gruplarını
+              birleştirmek paralel gizli y-bayraklarını tek, daha şişman
+              kümeye yığdı; kritik yol uzadı. QASM’a yazıp yeniden yükleyince
+              kirli ancilla (q[12] uyarımı) — o kopya geçersiz; bellek içi
+              3582 yeşildi. 1991’lik gönderim duruyor.
+            </p>
+            <p class="kid-line">
+              <strong>Çocuk dili:</strong> iki kısa yoklamayı tek uzun
+              yoklamada birleştirdik. Soru sayısı azaldı ama soru zorlaştı,
+              merdiven 1991’den 3582’ye çıktı. Bu tarifi çekmeceye kaldırdık.
+            </p>
+          </details>
+        </div>
+
+        <div class="note">
+          Lab kuralı: her Classiq çıktısı için (1) genişlik ≤18,
+          (2) <code class="inline">qasm_metrics</code>,
+          (3) statevector. Üçü yeşil değilse dosyaya yazma.
+          Gönderilen (30 Eylül): <strong>1991 / 1868</strong>
+          (<code class="inline">submission.qasm</code>).
+          Önceki zarf: 3229 / 2085.
+          Park: QROM (432 tavan), BDD (peak 17&gt;6), GraySynth (yanlış
+          parite varsayımı).
+        </div>
+
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · lab</p>
+          <p>
+            Anahtar geldi, fırını açtık. Dört formüllü “kapalı tarif”i verdik:
+            fırın “tepsim 39 kişilik olmalı” dedi. Tepsiyi büyütünce pasta
+            bin katmanlı çıktı — şampiyon pasta değil.
+          </p>
+          <p>
+            Sonra tek bir “şu sayı 2 ile 26 arasında mı?” sorduk: cevap 194
+            katman sürdü. Şampiyonların <em>bütün</em> logosu 95 katman.
+            Yani onlar bu fırının varsayılan “aralık makinesi”ni kullanmıyor.
+          </p>
+          <p>
+            Hibrit işe yaradı: kalın dikdörtgenleri buluta, diskleri el
+            tarifine verdik → 3229. İnce çizgileri bulut silmeye bayılıyor;
+            “sığ ama yanlış” kare tarifine de kanmamak lazım — 17 katman
+            görünüp 41 pikseli hatalı boyuyor.
+          </p>
+          <p>
+            Sonra üç iş daha: tarif defterini tabakla eşleştirdik (8),
+            Lego’ları tek tek döküp ölçtük (9), 83 düğümlü akıllı haritayı
+            6 masaya sığdırmaya çalıştık (10). Lego’lar doğru çıktı ama
+            kule kısa kalmadı; harita ise 17 masa istiyor. İkisi de
+            “doğru ama uzun” çekmecesine kalktı — ama Lego kutusu ve
+            harita saklanıyor, ileride parça lazım olursa geri döneceğiz.
+          </p>
+          <p>
+            <strong>auth</strong> = giriş anahtarı (bizde var).
+            <strong>statevector</strong> = “her pikseli tek tek kontrol eden
+            sınav”.
+            <strong>kritik yol</strong> = pastanın en uzun sırası; skor onu
+            sayar.
+            <strong>ROBDD</strong> = aynı alt yolu paylaşan karar ağacı.
+            <strong>pebbling</strong> = “hangi ara sonucu hangi masada
+            tutayım” oyunu.
+            <strong>TODD</strong> = parite listesini kısaltan “akıllı
+            ütücü”.
+          </p>
+          <p>
+            30 Eylül: iki soruyu aynı anda sorduk (madde 13) → 1991
+            ve zarfa koyduk. Birleşik yoklama (14) merdiveni 3582’ye
+            uzattı — park.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="verify">
+      <div class="narrow">
+        <p class="eyebrow">06 — Doğrulama</p>
+        <h2>Nasıl emin olduk?</h2>
+        <p class="section-lead">
+          Klasik kapsama testi + tam statevector faz kontrolü.
+        </p>
+        <p>
+          Önce grupların birleşiminin tam 1.097 piksel ve sıfır çakışma
+          verdiğini saydık. Sonra 12 kübite Hadamard, oracle, statevector:
+          norm 1, ancilla uyarımı yok, her (x,y) genliğinin büyüklüğü
+          2<sup>−6</sup>, beyaz piksele göre bağıl faz logo_pixel ise −1,
+          değilse +1 (tolerans 10<sup>−6</sup>).
+        </p>
+        <p>
+          Transpile: Qiskit <code class="inline">optimization_level=3</code>,
+          baz <code class="inline">u3,cx</code>; ardından isteğe bağlı
+          <code class="inline">optimize_pytket.py</code> (FullPeephole + U3/CX
+          rebase). Grader ile aynı katman sayacı
+          <code class="inline">qasm_metrics</code> ile ölçüldü.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · doğrulama</p>
+          <p>
+            İki sınav yaptık — ikisini de geçmeden ödevi göndermedik.
+          </p>
+          <p>
+            <strong>1) Klasik sayım:</strong> bilgisayar, grupların birleşiminin
+            gerçekten 1.097 siyah kare verdiğini ve hiçbir kareyi iki kez
+            saymadığını kontrol etti. Yapboz parçaları tam oturmalı, fazla
+            kenar taşmamalı.
+          </p>
+          <p>
+            <strong>2) Statevector</strong> (durum vektörü = tüm olasılık
+            genliklerinin listesi): 12 kübite Hadamard (hepsini “süperpozisyon”
+            = aynı anda birçok değer) koyduk, oracle’ı çalıştırdık, sonra
+            baktık:
+          </p>
+          <ul>
+            <li>Toplam olasılık 1 mi? (norm = uzunluk)</li>
+            <li>Ancilla’lar hâlâ 0 mı?</li>
+            <li>Siyah karelerin fazı −1, beyazların +1 mi?</li>
+          </ul>
+          <p>
+            <strong>Transpile</strong> = “güzel yazılmış tarifi, sadece u3 ve
+            cx Lego’larına çevir”. Qiskit bunu yaptı; biz de grader’ın
+            kullandığı katman sayacıyla derinliği ölçtük.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="score">
+      <div class="narrow">
+        <p class="eyebrow">07 — Sonuç</p>
+        <h2>Gönderilen skor</h2>
+        <p class="section-lead">
+          30 Eylül 2026’da paralel bayrak motoru HubSpot’a gitti: 1991 / 1868.
+          Tabloda en son görünen satır “Halil I.” 3317 / 2122 (~72/91).
+          1991 public tabloda görünmedi; kapanıştan sonra sayfa kilitlendi.
+        </p>
+
+        <dl class="score">
+          <div>
+            <dt>Genişlik</dt>
+            <dd>18</dd>
+          </div>
+          <div>
+            <dt>Derinlik</dt>
+            <dd>1991</dd>
+          </div>
+          <div>
+            <dt>CX</dt>
+            <dd>1868</dd>
+          </div>
+          <div>
+            <dt>İlk 5 (30 Eyl)</dt>
+            <dd>≤108</dd>
+          </div>
+        </dl>
+
+        <p>
+          Zincir: baseline ~5329 → el oracle ~4222 → geq2 4063 → merge_S
+          3317 → hibrit 3229 → paralel bayrak <strong>1991 / 1868</strong>
+          (gönderildi, 30 Eylül). Son açık tablo: 1. 95, 2. 107, 3. 108,
+          4–5. 109. 1991 işlenseydi ~65/91 olurdu; tabloda teyit yok.
+          Bu mimarinin tavanı ~1000–1400; ilk 5 (≤108) değil.
+        </p>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · skor</p>
+          <p>İki rapor kartı var, karışmasın:</p>
+          <ul>
+            <li><strong>Zarfta:</strong> 1991 katman / 1868 CX (HubSpot accepted)</li>
+            <li><strong>Son açık tablo:</strong> Halil I. 3317 ile 72/91</li>
+            <li><strong>Şampiyon kulübü:</strong> ≤108 katman; arada ~18× var</li>
+          </ul>
+          <p>
+            1991 doğru pasta, daha kısa fırın. İlk 5 için başka mutfak lazım.
+          </p>
+        </aside>
+      </div>
+      <hr class="rule" />
+    </section>
+
+    <section id="next">
+      <div class="narrow">
+        <p class="eyebrow">08 — Kapanış</p>
+        <h2>Yarışma bitti; notlar duruyor</h2>
+        <p class="section-lead">
+          30 Eylül 2026 kapanış. 1991 gönderildi. İlk 5 (≤108) bu
+          mimariden çıkmadı. Aşağıdaki maddeler “sırada ne var” değil,
+          “neden yetmedi” özeti.
+        </p>
+        <ol class="steps">
+          <li>
+            <h3>Lab günlüğünü oku</h3>
+            <p>
+              <a href="#lab">05c — Lab günlüğü</a>: hangi Classiq tarifi
+              doğru, hangisi sığ ama yanlış, neden 39 kübit.
+            </p>
+          </li>
+          <li>
+            <h3>Paylaşımlı harita denendi — 6 masaya sığmadı</h3>
+            <p>
+              83 düğümlü karar haritası (ROBDD) doğru çıktı ama aynı anda
+              ~17 ara sonuç istiyor; 6 yardımcı kübit yetmedi, geri dönüş
+              29348 derinlik oldu. Ayrıntı lab günlüğü madde 10’da.
+              Parite-gadget + TODD denemesi de madde 11’de öldü (yanlış
+              soru sorulmuş).
+            </p>
+          </li>
+          <li>
+            <h3>Lego blokları doğrulandı — ama kule kısa kalmadı</h3>
+            <p>
+              +9 (25 derinlik), +7 (63), füzed kare (432) — üçü de sınavdan
+              geçti, fakat tek disk bile ~1200+ tutuyor. Ayrıntı lab
+              günlüğü madde 9’da. Bloklar
+              <code class="inline">qrom_disk.py</code> kutusunda saklanıyor;
+              ileride parça lazım olursa geri döneceğiz.
+            </p>
+          </li>
+          <li>
+            <h3>1991 gönderildi; tablo kilitlendi</h3>
+            <p>
+              HubSpot <em>accepted</em> dedi.
+              <code class="inline">submission.qasm</code> = 1991/1868.
+              Public liderboard kapanıştan sonra şifrelendi; 1991 satırı
+              teyit edilemedi. Son açık sıra: 72 (3317).
+            </p>
+          </li>
+        </ol>
+        <aside class="kid-bubble" data-kid>
+          <p class="kid-bubble-who">Rehber · sonraki adım</p>
+          <p>
+            Anahtar var. Fırın “kapalı tarif”le şampiyon pasta basmıyor.
+            İki soruyu aynı anda sormak 1991’e indirdi. Ayna satırları
+            birleştirmek 3582’ye uzadı (park). Notlar burada duruyor;
+            yarışma kapandı.
+          </p>
+          <p>
+            <strong>authenticate</strong> = giriş; geçiyor.
+            <strong>ROBDD</strong> = karar ağacı gibi ama aynı alt ağaçları
+            paylaşır (az düğüm = umut).
+            <strong>DEPTH</strong> = “öncelik: derinliği küçült”.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="narrow">
+      <p>
+        <strong>Logo Phase Oracle</strong> · Classiq Quantum Circuit Challenge
+        eğitim notları · kaynak dosyalar:
+        <code class="inline">logo_oracle.py</code>,
+        <code class="inline">optimize_pytket.py</code>,
+        <code class="inline">submission.qasm</code>,
+        <code class="inline">submission.qmod</code>
+      </p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const canvas = document.getElementById("logo");
+      const ctx = canvas.getContext("2d");
+      const scale = 1;
+
+      function logoPixel(x, y) {
+        return (
+          (x >= 2 && x <= 26 && y >= 29 && y <= 53) ||
+          (x >= 26 && x <= 49 && y >= 39 && y <= 43) ||
+          (x - 55) ** 2 + (y - 41) ** 2 <= 42 ||
+          (x - 40) ** 2 + (y - 19) ** 2 <= 72
+        );
+      }
+
+      ctx.fillStyle = "#fbf8f1";
+      ctx.fillRect(0, 0, 64, 64);
+      ctx.fillStyle = "#0a3d37";
+      let marked = 0;
+      for (let y = 0; y < 64; y++) {
+        for (let x = 0; x < 64; x++) {
+          if (logoPixel(x, y)) {
+            ctx.fillRect(x * scale, y * scale, scale, scale);
+            marked++;
+          }
+        }
+      }
+      document.querySelector(".logo-stage .caption").textContent =
+        `Canlı çizim · logo_pixel(x,y) · ${marked} siyah piksel`;
+
+      const sections = document.querySelectorAll("section");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("is-in");
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      sections.forEach((s) => io.observe(s));
+
+      const links = document.querySelectorAll(".toc a");
+      const spy = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const id = e.target.id;
+            links.forEach((a) => {
+              a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+            });
+          });
+        },
+        { rootMargin: "-35% 0px -55% 0px", threshold: 0 }
+      );
+      sections.forEach((s) => spy.observe(s));
+
+      const kidToggle = document.getElementById("kid-toggle");
+      const kidText = document.querySelector(".kid-switch-text");
+      function applyKidMode(on) {
+        document.body.classList.toggle("kid-mode", on);
+        kidToggle.setAttribute("aria-checked", on ? "true" : "false");
+        if (kidText) kidText.textContent = on ? "Çocuk dili: açık" : "Çocuk dili";
+        try {
+          localStorage.setItem("logo-oracle-kid-mode", on ? "1" : "0");
+        } catch (_) {}
+      }
+      let saved = false;
+      try {
+        saved = localStorage.getItem("logo-oracle-kid-mode") === "1";
+      } catch (_) {}
+      kidToggle.checked = saved;
+      applyKidMode(saved);
+      kidToggle.addEventListener("change", () => applyKidMode(kidToggle.checked));
+    })();
+  </script>
+</body>
+</html>
