@@ -1819,6 +1819,287 @@ const COURSE = {
       ]
     },
     {
+      "title": "Kaynak rafı · MIT, makale, güncel yayın",
+      "lessons": [
+        {
+          "id": "mit-state",
+          "free": true,
+          "title": "MIT: durum bir birim vektördür",
+          "kicker": "18.435J · ders 2",
+          "meta": "Shor · Feldman notu",
+          "lead": "Peter Shor’un 2003 güz dersinde hesap, dört postüla ile kurulur. İlki: kapalı bir sistemin durumu, sonlu boyutlu bir Hilbert uzayında uzunluğu 1 olan vektördür.",
+          "reading": "Notu öğrenciler tutmuştur. Ders 2’yi Vitaly Feldman yazmıştır. PDF’yi açınca önce postüla 1’i, sonra küresel fazın durumu değiştirmediğini, sonra bileşik sistemin tensör çarpımı olduğunu oku. Kapı ve ölçüm aynı notun devamındadır; numarayı ezberleme, cümleyi kur.",
+          "note": "Bu raf video sırasını kilitlemez. Soldaki Nielsen dersleri kendi sırasında durur. Buradaki notlar istediğin zaman açılır.",
+          "links": [
+            {
+              "label": "Ders notlarının listesi",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/pages/lecture-notes/"
+            },
+            {
+              "label": "Ders 2 · Basics of Quantum Mechanics",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/resources/qc_lec02/"
+            },
+            {
+              "label": "Dersin sayfası",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/"
+            }
+          ],
+          "quiz": {
+            "q": "Shor’un ders 2 notunda postüla 1 ne der?",
+            "options": [
+              "Durum, sonlu boyutlu bir Hilbert uzayında uzunluğu 1 olan bir vektördür",
+              "Durum, ölçümden önce 0 ile 1 arasında klasik bir olasılıktır",
+              "Durum, ancak laboratuvardaki aletin voltajı yazılırsa tanımlanır"
+            ],
+            "answer": 0,
+            "why": "Feldman’ın notu, kapalı sistemin durumunu birim vektör diye yazar. Kübit, bu uzayın iki boyutlu örneğidir."
+          },
+          "cues": [
+            {
+              "en": "18.435J was taught by Peter Shor at MIT in fall 2003. The scribed notes are student write-ups, used with permission. Not every lecture was scribed. Lecture 2, Basics of Quantum Mechanics, was written by Vitaly Feldman.",
+              "tr": "18.435J’yi 2003 güzünde MIT’de Peter Shor verdi. Ders notlarını öğrenciler tuttu; izinle yayımlanmışlar. Her dersin notu yok. Ders 2, kuantum mekaniğinin temeli, Vitaly Feldman’ın notudur."
+            },
+            {
+              "en": "The lecture abstracts computation with four postulates and assumes finite-dimensional Hilbert spaces. Postulate 1 says that an isolated system has a complex inner-product space, and that its state is a unit vector in that space. A qubit is the two-dimensional case.",
+              "tr": "Ders, hesabı dört postülayla kurar ve Hilbert uzaylarını sonlu boyutlu sayar. Postüla 1: kapalı bir sistemin karmaşık, iç çarpımlı bir uzayı vardır ve durumu o uzayda bir birim vektördür. Kübit, bunun iki boyutlu halidir."
+            },
+            {
+              "en": "A global phase does not give a new state. Feldman notes that multiplying by e to the iθ leaves the physical state unchanged, so e to the iθ times a ket is the same state as the ket.",
+              "tr": "Küresel faz yeni bir durum değildir. Feldman, e üzeri iθ ile çarpmanın fiziksel durumu değiştirmediğini yazar. Yani e üzeri iθ çarpı bir ket, o ketin aynı durumudur."
+            },
+            {
+              "en": "Postulate 2 in that note is the composite system. If you have several systems, the joint state space is the tensor product of their spaces. A product state is what you get when each piece is prepared on its own. Entangled states live in the same big space and are not product states.",
+              "tr": "O notta postüla 2, bileşik sistemdir. Birden fazla sistemin ortak durum uzayı, tek tek uzayların tensör çarpımıdır. Çarpım durumu, her parçayı ayrı hazırlayınca elde ettiğindir. Dolanık durumlar aynı büyük uzayda durur ve çarpım durumu değildir."
+            },
+            {
+              "en": "Read the PDF for how a state moves and how a measurement answers. Do not memorize postulate numbers from another book and paste them onto this note. Shor’s scribe put the tensor product second. Nielsen’s textbook orders the same ideas differently.",
+              "tr": "Durumun nasıl ilerlediğini ve ölçümün nasıl cevap verdiğini PDF’den oku. Başka kitaptaki postüla numaralarını bu nota yapıştırma. Shor’un notu tensör çarpımını ikinci sıraya koymuş. Nielsen’in kitabı aynı fikirleri başka sırada dizer."
+            }
+          ]
+        },
+        {
+          "id": "mit-circuits",
+          "free": true,
+          "title": "MIT: kapı ve Deutsch–Jozsa",
+          "kicker": "18.435J · ders 4 ve 5",
+          "meta": "Liskov · Harmon",
+          "lead": "Ders 4 klasik hesabı ve kuantum kapıyı kurar. Ders 5 ilk kuantum algoritmayı işler: Deutsch–Jozsa.",
+          "reading": "İki PDF de kısa. Ders 4’te klasik devre modelinden kapıya geç. Ders 5’te Harmon, Nielsen ve Chuang’ın devre bölümlerine ve Deutsch–Jozsa’ya atıf verir. Algoritmanın vaadi şu: fonksiyonun sabit mi yoksa dengeli mi olduğunu, fonksiyonu her girdide çağırmadan ayırt etmek.",
+          "note": "Bu ders, Nielsen videosundaki X, H ve CNOT’un ders notundaki yerini gösterir. Yeni bir kapı kümesi icat etmez.",
+          "links": [
+            {
+              "label": "Ders 4 · Classical models and quantum gates",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/resources/qc_lec04/"
+            },
+            {
+              "label": "Ders 5 · Circuits and a simple algorithm",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/resources/qc_lec05/"
+            }
+          ],
+          "quiz": {
+            "q": "Deutsch–Jozsa neyi ayırt eder?",
+            "options": [
+              "Söz verilen bir fonksiyonun sabit mi, dengeli mi olduğunu",
+              "Bir sayının asal çarpanlarını",
+              "Bir veri tabanındaki işaretli elemanın adresini"
+            ],
+            "answer": 0,
+            "why": "Sabit fonksiyon her girdide aynı cevabı verir. Dengeli fonksiyon girdilerin yarısında 0, yarısında 1 verir. Arama ve çarpanlara ayırma başka algoritmalardır."
+          },
+          "cues": [
+            {
+              "en": "Lecture 4 is Classical Computation Models and Quantum Gates, scribed by Moses Liskov. It is the bridge from ordinary circuits to the quantum gate. Lecture 5 is Quantum Circuits and a Simple Quantum Algorithm, scribed by Dion Harmon on 18 September 2003.",
+              "tr": "Ders 4, klasik hesap modelleri ve kuantum kapılar, Moses Liskov’un notudur. Sıradan devreden kuantum kapıya köprü odur. Ders 5, kuantum devreler ve basit bir kuantum algoritma, 18 Eylül 2003’te Dion Harmon’ın notudur."
+            },
+            {
+              "en": "Harmon’s outline points at the Nielsen and Chuang sections on classical circuits, quantum programs, and gates, then at the Deutsch–Jozsa algorithm. The promise is a function that is either constant or balanced. Constant means the same answer on every input. Balanced means zero on half the inputs and one on the other half.",
+              "tr": "Harmon’ın planı, Nielsen ve Chuang’ta klasik devre, kuantum program ve kapı bölümlerini, sonra Deutsch–Jozsa’yı gösterir. Söz şu: fonksiyon ya sabittir ya dengeli. Sabit, her girdide aynı cevap demektir. Dengeli, girdilerin yarısında 0, diğer yarısında 1 demektir."
+            },
+            {
+              "en": "A classical check may have to read the function many times. The quantum circuit queries a reversible version of the function once, in superposition, and the interference leaves a single bit that says which promise holds. The lecture is the place to see the circuit, not a slogan.",
+              "tr": "Klasik kontrol, fonksiyonu çok kez okumak zorunda kalabilir. Kuantum devre, fonksiyonun tersinir halini süperpozisyonda bir kez sorgular ve girişim, sözün hangisi olduğunu söyleyen tek bir bit bırakır. Devreyi sloganın yerine derste gör."
+            },
+            {
+              "en": "The gates in that circuit are the ones already on this page: Hadamard, and a reversible embedding of a classical yes-no function. Deutsch–Jozsa is a promise problem. It is not Grover’s search and it is not Shor’s factoring.",
+              "tr": "O devredeki kapılar bu sayfada zaten duranlardır: Hadamard ve klasik bir evet-hayır fonksiyonunun tersinir gömülmesi. Deutsch–Jozsa bir söz problemidir. Grover araması değildir, Shor’un çarpanlara ayırması da değildir."
+            }
+          ]
+        },
+        {
+          "id": "mit-grover",
+          "free": true,
+          "title": "MIT: Grover’ın uygulamaları",
+          "kicker": "18.435J · ders 11",
+          "meta": "Cheng notu",
+          "lead": "Grover’ın kendisi ders 10’dur ve o dersin notu tutulmamıştır. Tutulan not ders 11’dir: aramanın uygulamaları. Dersin kapağındaki kuantum sayım şekli bu notun yazarınındır.",
+          "reading": "Yuan-Chung Cheng’in PDF’inde Grover yinelemesinin nereye uygulandığını izle. Kuantum sayım, işaretli elemanların sayısını, elemanları tek tek dökmeden kestirir. İşaret hâlâ bir eksi fazdır. Bu sitedeki logo oracle’ı da bir evet-hayır işaretidir; sayım ondan sonraki konudur.",
+          "note": "Ders 8, 9 ve 10’un scribe notu yok. Eksik dersi uydurma. Liste, hangi notun durduğunu söyler.",
+          "links": [
+            {
+              "label": "Ders 11 · Applications of Grover",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/resources/qc_lec11/"
+            },
+            {
+              "label": "Hangi derslerin notu var",
+              "href": "https://ocw.mit.edu/courses/18-435j-quantum-computation-fall-2003/pages/lecture-notes/"
+            }
+          ],
+          "quiz": {
+            "q": "18.435J’de Grover uygulamalarının tutulmuş notu hangi derstir?",
+            "options": [
+              "Ders 11, Yuan-Chung Cheng",
+              "Ders 10, çünkü arama orada anlatılır ve notu tamdır",
+              "Ders 2, postülaların içindedir"
+            ],
+            "answer": 0,
+            "why": "Ders 10 Grover’ın aramasıdır ve scribe notu yoktur. Uygulamalar ders 11’dedir. Kuantum sayım şekli Cheng’in notuna aittir."
+          },
+          "cues": [
+            {
+              "en": "The lecture list gives Grover’s search as lecture 10 and its applications as lecture 11. Lecture 10 was not scribed. Lecture 11 was scribed by Yuan-Chung Cheng. The course front page credits him for the quantum-counting figure.",
+              "tr": "Ders listesi Grover aramasını ders 10, uygulamalarını ders 11 diye koyar. Ders 10’un notu yoktur. Ders 11’i Yuan-Chung Cheng tutmuştur. Dersin kapağı, kuantum sayım şeklini ona bağlar."
+            },
+            {
+              "en": "Grover’s iterate marks the solutions with a phase and reflects the state so the amplitude on those solutions grows. Quantum counting uses that iterate to estimate how many solutions there are, without listing them. The mark is still a minus sign on the yes answers.",
+              "tr": "Grover yinelemesi çözümleri bir fazla işaretler ve durumu yansıtır; çözümlerin üzerindeki genlik büyür. Kuantum sayım, o yinelemeyle kaç çözüm olduğunu, onları tek tek dökmeden kestirir. İşaret hâlâ evet cevaplarındaki eksi fazdır."
+            },
+            {
+              "en": "The logo oracle on this site is that same kind of mark: a pixel is black or it is not, and the circuit multiplies the black basis states by minus one. Counting how many black pixels there are would be the application in lecture 11. Building the cheap mark is the problem in lesson 9.",
+              "tr": "Bu sitedeki logo oracle aynı türden bir işarettir: piksel ya siyahtır ya değildir, devre siyah baz durumlarını eksi birle çarpar. Kaç siyah piksel olduğunu saymak ders 11’in uygulamasıdır. Ucuz işareti kurmak ders 9’un problemidir."
+            },
+            {
+              "en": "Lectures 8, 9, and 10 have no scribe notes on the public list. Factoring and the first pass of Grover are named there, and the PDF is absent. Use lecture 11 for the applications you can actually read, and do not invent the missing pages.",
+              "tr": "Ders 8, 9 ve 10’un açık listede scribe notu yoktur. Çarpanlara ayırma ve Grover’ın ilk geçişi orada adıyla durur, PDF yoktur. Okuyabildiğin uygulama ders 11’dir. Eksik sayfayı uydurma."
+            }
+          ]
+        },
+        {
+          "id": "papers-classic",
+          "free": true,
+          "title": "Dört referans makale",
+          "kicker": "Kapı, arama, çarpan, teleport",
+          "meta": "1993–1997",
+          "lead": "Bu sayfadaki kapı, işaret ve dolanıklık cümlelerinin kaynakları dört makaledir. Her birinin tek cümlesini ayır.",
+          "reading": "Önce başlığı ve sonucu oku, sonra ispatı. Barenco, tek kübit kapı ile CNOT’un yeterli olduğunu söyler. Grover, N elemanda aramayı kabaca karekök N sorguya indirir. Shor, çarpanlara ayırmayı kuantum bilgisayarda polinom zamanda kurar. Bennett ve arkadaşları, bilinmeyen bir kübiti iki klasik bit ve paylaşılan bir dolanık çift ile gönderir.",
+          "note": "Makale, ders videosunun yerine geçmez. Video modeli kurar. Makale, modelin yayınlandığı yerdir.",
+          "links": [
+            {
+              "label": "Barenco ve arkadaşları, 1995",
+              "href": "https://arxiv.org/abs/quant-ph/9503016"
+            },
+            {
+              "label": "Grover, 1996",
+              "href": "https://arxiv.org/abs/quant-ph/9605043"
+            },
+            {
+              "label": "Shor, 1997",
+              "href": "https://arxiv.org/abs/quant-ph/9508027"
+            },
+            {
+              "label": "Bennett ve arkadaşları, 1993",
+              "href": "https://doi.org/10.1103/PhysRevLett.70.1895"
+            }
+          ],
+          "quiz": {
+            "q": "Barenco, Bennett, Cleve, DiVincenzo, Margolus, Shor, Sleator, Smolin ve Weinfurter’in 1995 makalesi neyi yeter diye gösterir?",
+            "options": [
+              "Tek kübit kapılar ile CNOT, kuantum devre için yeter",
+              "Yalnız Hadamard, bütün hesabı kurar",
+              "Ölçüm, kapının yerine geçer"
+            ],
+            "answer": 0,
+            "why": "Makalenin başlığı temel kapılardır. Sonuç, tek kübitlik üniterler ile CNOT’tan genel bir kuantum devre kurulabileceğidir. Yarışmadaki u3 ve cx bu ailenin içindedir."
+          },
+          "cues": [
+            {
+              "en": "Barenco, Bennett, Cleve, DiVincenzo, Margolus, Shor, Sleator, Smolin, and Weinfurter, Elementary gates for quantum computation, Physical Review A 52, 3457 (1995). The arXiv id is quant-ph/9503016. One-qubit unitaries together with CNOT are enough to build a general quantum circuit.",
+              "tr": "Barenco, Bennett, Cleve, DiVincenzo, Margolus, Shor, Sleator, Smolin ve Weinfurter, Elementary gates for quantum computation, Physical Review A 52, 3457 (1995). arXiv numarası quant-ph/9503016. Tek kübit üniterler ile CNOT, genel bir kuantum devre kurmaya yeter."
+            },
+            {
+              "en": "Lov Grover, A fast quantum mechanical algorithm for database search, arXiv quant-ph/9605043, presented at STOC in 1996. For an unstructured list of N items, the number of queries drops from order N to order square root of N. The precise count carries a factor of π/4. The mark inside the iterate is the phase oracle.",
+              "tr": "Lov Grover, A fast quantum mechanical algorithm for database search, arXiv quant-ph/9605043, 1996 STOC. Yapısız N elemanlık bir listede sorgu sayısı N mertebesinden karekök N mertebesine iner. Kesin sayının içinde π/4 çarpanı vardır. Yinelemenin içindeki işaret, faz oracle’ıdır."
+            },
+            {
+              "en": "Peter Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer, SIAM Journal on Computing, 1997. The arXiv id is quant-ph/9508027. Factoring and the discrete logarithm move into polynomial time on a quantum computer. That is a different promise from Grover’s square-root speedup.",
+              "tr": "Peter Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer, SIAM Journal on Computing, 1997. arXiv numarası quant-ph/9508027. Çarpanlara ayırma ve ayrık logaritma, kuantum bilgisayarda polinom zamana iner. Bu, Grover’ın karekök hızlanmasından başka bir sözdür."
+            },
+            {
+              "en": "Bennett, Brassard, Crépeau, Jozsa, Peres, and Wootters, Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels, Physical Review Letters 70, 1895 (1993). An unknown qubit is sent using two classical bits and a shared entangled pair. The qubit is not copied. The entangled pair is used up.",
+              "tr": "Bennett, Brassard, Crépeau, Jozsa, Peres ve Wootters, Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels, Physical Review Letters 70, 1895 (1993). Bilinmeyen bir kübit, iki klasik bit ve paylaşılan bir dolanık çift ile gönderilir. Kübit kopyalanmaz. Dolanık çift harcanır."
+            }
+          ]
+        },
+        {
+          "id": "papers-now",
+          "free": true,
+          "title": "Çok atıf alan güncel yayınlar",
+          "kicker": "NISQ’tan eşiğin altına",
+          "meta": "2012–2025",
+          "lead": "Atıfı biriken çizgi şu: gürültülü cihaz, sonra yüzey kodu, sonra eşiğin altında bir mantıksal bellek. Her makalenin ölçtüğü şeyi, vaat ettiği şeyden ayır.",
+          "reading": "Sırayla oku. Preskill NISQ çağının adını koyar. Fowler yüzey kodunu uygulanabilir bir plan diye yazar. Arute 53 kübitte rastgele devre örneklemesi gösterir. Kim 127 kübitte, hata düzeltmesiz, beklenti değeri ölçer. Google 2023 ve 2025, yüzey kodunda mesafeyi büyütünce mantıksal hatanın düştüğünü ölçer.",
+          "note": "Atıf sayısı her gün değişir. Burada sayı yazılmadı. Bu altı yayın, deneysel kuantum hesap literatüründe en çok dönülenlerdendir. Başlığı tıklayıp özeti oku.",
+          "links": [
+            {
+              "label": "Preskill, NISQ, 2018",
+              "href": "https://arxiv.org/abs/1801.00862"
+            },
+            {
+              "label": "Fowler ve arkadaşları, yüzey kodu, 2012",
+              "href": "https://arxiv.org/abs/1208.0928"
+            },
+            {
+              "label": "Arute ve arkadaşları, Nature, 2019",
+              "href": "https://www.nature.com/articles/s41586-019-1666-5"
+            },
+            {
+              "label": "Kim ve arkadaşları, Nature, 2023",
+              "href": "https://www.nature.com/articles/s41586-023-06096-3"
+            },
+            {
+              "label": "Google, yüzey kodunu büyütmek, 2023",
+              "href": "https://arxiv.org/abs/2207.06431"
+            },
+            {
+              "label": "Google, eşiğin altı, 2025",
+              "href": "https://arxiv.org/abs/2408.13687"
+            }
+          ],
+          "quiz": {
+            "q": "Google’ın 2025 Nature makalesi neyi ölçer?",
+            "options": [
+              "Yüzey kodunda mesafe artınca mantıksal hatanın düştüğünü, eşiğin altında",
+              "Shor ile büyük bir sayının çarpanlarını",
+              "Logo piksellerinin oracle derinliğini"
+            ],
+            "answer": 0,
+            "why": "Willow işlemcisinde mesafe 5 ve mesafe 7 bellek vardır. Mesafe iki artınca döngü başına mantıksal hata yaklaşık 2,14 kat baskılanır. 101 kübitlik mesafe 7 kodda bu oran yüzde 0,143’tür. Bu bir çarpanlara ayırma deneyi değildir."
+          },
+          "cues": [
+            {
+              "en": "John Preskill, Quantum Computing in the NISQ era and beyond, Quantum 2, 79 (2018), arXiv 1801.00862. NISQ means noisy intermediate-scale quantum: tens to hundreds of qubits, too noisy for long fault-tolerant algorithms, still useful as laboratory devices. He treats fully fault-tolerant machines as a later goal, not as the machine already on the bench.",
+              "tr": "John Preskill, Quantum Computing in the NISQ era and beyond, Quantum 2, 79 (2018), arXiv 1801.00862. NISQ, gürültülü orta ölçek demektir: onlarca ila yüzlerce kübit, uzun hataya dayanıklı algoritmalar için fazla gürültülü, laboratuvar aleti olarak yine işe yarar. Tam hataya dayanıklı makineyi tezgahtaki alet diye değil, sonraki hedef diye koyar."
+            },
+            {
+              "en": "Fowler, Mariantoni, Martinis, and Cleland, Surface codes: Towards practical large-scale quantum computation, Physical Review A 86, 032324 (2012), arXiv 1208.0928. It is the working introduction to the surface code: stabilizers on a two-dimensional grid, logical qubits, and a logical CNOT made by braiding. Later experiments cite this plan.",
+              "tr": "Fowler, Mariantoni, Martinis ve Cleland, Surface codes: Towards practical large-scale quantum computation, Physical Review A 86, 032324 (2012), arXiv 1208.0928. Yüzey kodunun çalışan girişidir: iki boyutlu ızgarada stabilizatörler, mantıksal kübitler ve örgüyle kurulan mantıksal CNOT. Sonraki deneyler bu planı anar."
+            },
+            {
+              "en": "Arute and collaborators, Quantum supremacy using a programmable superconducting processor, Nature 574, 505–510 (2019). The processor ran random circuits on 53 working qubits. The claim is a sampling task that was, at the time, far cheaper on that chip than on classical supercomputers. The paper itself says factoring still needs fault-tolerant logical qubits.",
+              "tr": "Arute ve çalışma arkadaşları, Quantum supremacy using a programmable superconducting processor, Nature 574, 505–510 (2019). İşlemci, çalışan 53 kübitte rastgele devreler koştu. İddia, o tarihte klasik süperbilgisayarda çipten çok daha pahalı olan bir örnekleme görevidir. Makalenin kendisi, çarpanlara ayırmanın hâlâ hataya dayanıklı mantıksal kübit istediğini söyler."
+            },
+            {
+              "en": "Kim and collaborators, Evidence for the utility of quantum computing before fault tolerance, Nature 618 (2023). On a 127-qubit noisy processor they measure expectation values for circuits past brute-force classical simulation, and they check those values on circuits that can still be verified exactly. This is evidence before fault tolerance. It is not an error-corrected logical qubit.",
+              "tr": "Kim ve çalışma arkadaşları, Evidence for the utility of quantum computing before fault tolerance, Nature 618 (2023). 127 kübitlik gürültülü bir işlemcide, kaba kuvvet klasik simülasyonu aşan devrelerin beklenti değerlerini ölçerler ve hâlâ tam doğrulanabilen devrelerde o değerleri kontrol ederler. Bu, hata düzeltmesinden önceki bir kanıttır. Hata düzeltilmiş bir mantıksal kübit değildir."
+            },
+            {
+              "en": "Google Quantum AI, Suppressing quantum errors by scaling a surface code logical qubit, arXiv 2207.06431, published in Nature 614, 676–681 (2023). The logical error falls as the code distance grows. The 2025 follow-up is Quantum error correction below the surface code threshold, Nature 638, 920–926 (2025), arXiv 2408.13687. On Willow, a distance-7 memory uses 101 qubits and has 0.143 percent error per cycle. Increasing the distance by 2 suppresses the error by a factor Λ of 2.14. The logical memory outlives its best physical qubit by a factor of about 2.4.",
+              "tr": "Google Quantum AI, Suppressing quantum errors by scaling a surface code logical qubit, arXiv 2207.06431, Nature 614, 676–681 (2023). Kod mesafesi büyüyünce mantıksal hata düşer. 2025 devamı, Quantum error correction below the surface code threshold, Nature 638, 920–926 (2025), arXiv 2408.13687. Willow’da mesafe 7 bellek 101 kübit kullanır ve döngü başına yüzde 0,143 hata verir. Mesafe 2 artınca hata, Λ çarpanı 2,14 ile baskılanır. Mantıksal bellek, en iyi fiziksel kübitinden yaklaşık 2,4 kat uzun yaşar."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Sırada · transkript sonra işlenecek",
       "lessons": [
         {

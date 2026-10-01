@@ -324,16 +324,18 @@ function flat() {
   return out;
 }
 function openLessons() { return flat().filter(l => l.cues); }
+function tracked() { return openLessons().filter(l => !l.free); }
 function isDone(id) { return !!state.done[id]; }
 function unlocked(lesson) {
   if (!lesson.cues) return false;
-  const seq = openLessons();
+  if (lesson.free) return true;
+  const seq = tracked();
   const i = seq.findIndex(l => l.id === lesson.id);
   if (i <= 0) return true;
   return isDone(seq[i - 1].id);
 }
 function firstOpen() {
-  const seq = openLessons();
+  const seq = tracked();
   return seq.find(l => unlocked(l) && !isDone(l.id)) || seq.find(l => unlocked(l)) || seq[0];
 }
 
@@ -344,7 +346,7 @@ function fmt(t) {
 }
 
 function renderNav() {
-  const seq = openLessons();
+  const seq = tracked();
   const doneN = seq.filter(l => isDone(l.id)).length;
   document.getElementById("count").textContent = doneN + " / " + seq.length + " ders";
   document.getElementById("fill").style.width = (seq.length ? (100 * doneN / seq.length) : 0) + "%";
@@ -403,7 +405,7 @@ function show(id) {
     const tr = `<div class="cue" data-i="${i}"><time>${stamp}</time><div>${esc(c.tr)}</div></div>`;
     return [en, tr];
   });
-  const finished = openLessons().every(l => isDone(l.id));
+  const finished = tracked().length > 0 && tracked().every(l => isDone(l.id));
   stage.innerHTML = `
     <p class="kicker">${esc(lesson.kicker)}</p>
     <h2>${esc(lesson.title)}</h2>
