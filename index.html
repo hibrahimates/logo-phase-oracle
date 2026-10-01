@@ -486,7 +486,7 @@ function mountPlayer(lesson) {
     }
     player = new YT.Player("player", {
       videoId: lesson.video,
-      playerVars: { rel: 0, modestbranding: 1, playsinline: 1, cc_lang_pref: "en", cc_load_policy: 1 },
+      playerVars: { rel: 0, modestbranding: 1, playsinline: 1, cc_load_policy: 0 },
       events: { onReady: () => track(), onStateChange: () => track() }
     });
   };

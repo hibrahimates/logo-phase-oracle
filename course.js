@@ -43,58 +43,268 @@ const COURSE = {
           "cues": [
             {
               "t": 0.3,
-              "en": "Welcome to Quantum Computing for the Determined. I’m Michael Nielsen. You don’t need a background in quantum mechanics; the main prerequisite is determination. The first videos build the abstract model of quantum computation. That model is the foundation for algorithms and for things like teleportation. The background you do need is linear algebra. Abstract quantum computation is a kind of applied linear algebra.",
-              "tr": "Quantum Computing for the Determined’a hoş geldin. Ben Michael Nielsen. Kuantum mekaniği bilmene gerek yok; asıl şart sebat. İlk videolar kuantum hesabın soyut modelini kuruyor. Bu model, algoritmaların ve teleportasyon gibi işlerin temeli. İhtiyaç duyduğun zemin lineer cebir. Soyut kuantum hesaplama, bir tür uygulamalı lineer cebirdir."
+              "en": "Welcome to Quantum Computing for the Determined.",
+              "tr": "Quantum Computing for the Determined’a hoş geldin."
+            },
+            {
+              "t": 9.9,
+              "en": "I’m Michael Nielsen.",
+              "tr": "Ben Michael Nielsen."
+            },
+            {
+              "t": 13.9,
+              "en": "You don’t need a background in quantum mechanics; the main prerequisite is determination.",
+              "tr": "Kuantum mekaniği bilmene gerek yok; asıl şart sebat."
+            },
+            {
+              "t": 31.6,
+              "en": "The first videos build the abstract model of quantum computation.",
+              "tr": "İlk videolar kuantum hesabın soyut modelini kuruyor."
+            },
+            {
+              "t": 44.5,
+              "en": "That model is the foundation for algorithms and for things like teleportation.",
+              "tr": "Bu model, algoritmaların ve teleportasyon gibi işlerin temeli."
+            },
+            {
+              "t": 60.1,
+              "en": "The background you do need is linear algebra.",
+              "tr": "İhtiyaç duyduğun zemin lineer cebir."
+            },
+            {
+              "t": 69.0,
+              "en": "Abstract quantum computation is a kind of applied linear algebra.",
+              "tr": "Soyut kuantum hesaplama, bir tür uygulamalı lineer cebirdir."
             },
             {
               "t": 82.0,
-              "en": "The same is true of quantum mechanics. I’ll assume you are comfortable with vectors, matrices, multiplication, inversion, and a bit further: Hermitian matrices, unitary matrices, and similar ideas. If you don’t have that, the course is possible but hard; look things up as you go. For a refresher, Nielsen points at Khan Academy’s linear algebra lectures. Some comfort with classical circuit theory also helps.",
-              "tr": "Kuantum mekaniği de öyle. Vektör, matris, çarpma, ters alma ve biraz ilerisi — Hermityen matris, üniter matris — sana tanıdık gelsin diye varsayıyor. Bu zemin yoksa ders imkânsız değil ama zor; yolda bakacaksın. Tazelemek için Nielsen, Khan Academy’nin lineer cebir derslerini gösteriyor. Klasik devre teorisine biraz alışkın olmak da işe yarar."
+              "en": "The same is true of quantum mechanics.",
+              "tr": "Kuantum mekaniği de öyle."
+            },
+            {
+              "t": 89.8,
+              "en": "I’ll assume you are comfortable with vectors, matrices, multiplication, inversion, and a bit further: Hermitian matrices, unitary matrices, and similar ideas.",
+              "tr": "Vektör, matris, çarpma, ters alma ve biraz ilerisi — Hermityen matris, üniter matris — sana tanıdık gelsin diye varsayıyor."
+            },
+            {
+              "t": 122.1,
+              "en": "If you don’t have that, the course is possible but hard; look things up as you go.",
+              "tr": "Bu zemin yoksa ders imkânsız değil ama zor; yolda bakacaksın."
+            },
+            {
+              "t": 138.9,
+              "en": "For a refresher, Nielsen points at Khan Academy’s linear algebra lectures.",
+              "tr": "Tazelemek için Nielsen, Khan Academy’nin lineer cebir derslerini gösteriyor."
+            },
+            {
+              "t": 154.0,
+              "en": "Some comfort with classical circuit theory also helps.",
+              "tr": "Klasik devre teorisine biraz alışkın olmak da işe yarar."
             },
             {
               "t": 165.1,
-              "en": "That means ordinary logic gates — AND, OR, NOT — and how they combine. You don’t need to be an expert. In this video the goal is the qubit, the quantum bit. Classically, a bit is the unit of information: abstractly it is 0 or 1, and computations are manipulations of zeros and ones. Physically a bit might be a voltage, a magnetic domain, or light in a fiber.",
-              "tr": "Klasik kapılar: AND, OR, NOT ve bunların birleşimi. Uzman olmana gerek yok. Bu videonun hedefi qubit, yani kuantum bit. Klasik bitte bilgi birimi 0 ya da 1’dir; hesap, sıfır ve birlerin işlenmesidir. Fiziksel olarak bit bir gerilim, bir manyetik bölge ya da fiberdeki ışık olabilir."
+              "en": "That means ordinary logic gates — AND, OR, NOT — and how they combine.",
+              "tr": "Klasik kapılar: AND, OR, NOT ve bunların birleşimi."
+            },
+            {
+              "t": 181.1,
+              "en": "You don’t need to be an expert.",
+              "tr": "Uzman olmana gerek yok."
+            },
+            {
+              "t": 188.2,
+              "en": "In this video the goal is the qubit, the quantum bit.",
+              "tr": "Bu videonun hedefi qubit, yani kuantum bit."
+            },
+            {
+              "t": 200.3,
+              "en": "Classically, a bit is the unit of information: abstractly it is 0 or 1, and computations are manipulations of zeros and ones.",
+              "tr": "Klasik bitte bilgi birimi 0 ya da 1’dir; hesap, sıfır ve birlerin işlenmesidir."
+            },
+            {
+              "t": 228.8,
+              "en": "Physically a bit might be a voltage, a magnetic domain, or light in a fiber.",
+              "tr": "Fiziksel olarak bit bir gerilim, bir manyetik bölge ya da fiberdeki ışık olabilir."
             },
             {
               "t": 246.2,
-              "en": "The qubit is the corresponding system in quantum mechanics. We start with an abstract mathematical description, the same way we treat an abstract bit. Think of it as the simplest quantum system. Early on we will not worry about hardware, but a qubit can be realized in atoms, photons, electrons, and more exotic systems. For us it is the unit of quantum information: computations are manipulations of qubits and of their states.",
-              "tr": "Kübit, kuantum mekaniğindeki karşılık gelen sistemdir. Tıpkı soyut bit gibi, soyut bir matematik tarifinden başlarız. Onu en basit kuantum sistem diye düşün. Başta donanımla uğraşmayız; ama kübit atomda, fotonda, elektronda ve daha egzotik sistemlerde gerçekleştirilebilir. Bizim için o, kuantum bilgisinin birimidir: hesap, kübitlerin ve durumlarının işlenmesidir."
+              "en": "The qubit is the corresponding system in quantum mechanics.",
+              "tr": "Kübit, kuantum mekaniğindeki karşılık gelen sistemdir."
+            },
+            {
+              "t": 257.4,
+              "en": "We start with an abstract mathematical description, the same way we treat an abstract bit.",
+              "tr": "Tıpkı soyut bit gibi, soyut bir matematik tarifinden başlarız."
+            },
+            {
+              "t": 274.4,
+              "en": "Think of it as the simplest quantum system.",
+              "tr": "Onu en basit kuantum sistem diye düşün."
+            },
+            {
+              "t": 282.5,
+              "en": "Early on we will not worry about hardware, but a qubit can be realized in atoms, photons, electrons, and more exotic systems.",
+              "tr": "Başta donanımla uğraşmayız; ama kübit atomda, fotonda, elektronda ve daha egzotik sistemlerde gerçekleştirilebilir."
+            },
+            {
+              "t": 306.2,
+              "en": "For us it is the unit of quantum information: computations are manipulations of qubits and of their states.",
+              "tr": "Bizim için o, kuantum bilgisinin birimidir: hesap, kübitlerin ve durumlarının işlenmesidir."
             },
             {
               "t": 326.4,
-              "en": "A qubit has two special states, called 0 and 1. They are the analogues of the classical bit values. The bracket notation marks a quantum state; it is called ket notation. Anything in that bracket, with any label, is a ket. These two states have a name that matters: the computational basis states. They behave much like the classical states 0 and 1.",
-              "tr": "Bir kübitin 0 ve 1 denen iki özel durumu vardır. Klasik bit değerlerinin karşılığıdırlar. Parantez gösterimi bir kuantum durumunu işaretler; adına ket denir. O parantezin içine herhangi bir etiket koyarsan o bir kettir. Bu iki durumun önemli bir adı var: hesaplama bazı durumları. Klasik 0 ve 1’e çok benzer davranırlar."
+              "en": "A qubit has two special states, called 0 and 1. They are the analogues of the classical bit values.",
+              "tr": "Bir kübitin 0 ve 1 denen iki özel durumu vardır. Klasik bit değerlerinin karşılığıdırlar."
+            },
+            {
+              "t": 349.5,
+              "en": "The bracket notation marks a quantum state; it is called ket notation.",
+              "tr": "Parantez gösterimi bir kuantum durumunu işaretler; adına ket denir."
+            },
+            {
+              "t": 365.8,
+              "en": "Anything in that bracket, with any label, is a ket.",
+              "tr": "O parantezin içine herhangi bir etiket koyarsan o bir kettir."
+            },
+            {
+              "t": 377.7,
+              "en": "These two states have a name that matters: the computational basis states.",
+              "tr": "Bu iki durumun önemli bir adı var: hesaplama bazı durumları."
+            },
+            {
+              "t": 394.9,
+              "en": "They behave much like the classical states 0 and 1.",
+              "tr": "Klasik 0 ve 1’e çok benzer davranırlar."
             },
             {
               "t": 406.8,
-              "en": "A quantum state of a qubit is a vector in a two-dimensional complex vector space. Those vectors turn out to be unit vectors. A general state is a linear combination of |0⟩ and |1⟩. In Nielsen’s sketch, α is about 0.6 to 0.8 along |0⟩ and β is the coefficient of |1⟩. The coefficients may be complex, not just real.",
-              "tr": "Bir kübitin kuantum durumu, iki boyutlu karmaşık vektör uzayında bir vektördür. Bu vektörler birim vektör çıkar. Genel durum, |0⟩ ve |1⟩’in lineer birleşimidir. Nielsen’in çiziminde α, |0⟩ boyunca kabaca 0,6–0,8; β ise |1⟩’in katsayısıdır. Katsayılar yalnız gerçel değil, karmaşık da olabilir."
+              "en": "A quantum state of a qubit is a vector in a two-dimensional complex vector space.",
+              "tr": "Bir kübitin kuantum durumu, iki boyutlu karmaşık vektör uzayında bir vektördür."
+            },
+            {
+              "t": 428.3,
+              "en": "Those vectors turn out to be unit vectors.",
+              "tr": "Bu vektörler birim vektör çıkar."
+            },
+            {
+              "t": 439.4,
+              "en": "A general state is a linear combination of |0⟩ and |1⟩.",
+              "tr": "Genel durum, |0⟩ ve |1⟩’in lineer birleşimidir."
+            },
+            {
+              "t": 453.9,
+              "en": "In Nielsen’s sketch, α is about 0.6 to 0.8 along |0⟩ and β is the coefficient of |1⟩.",
+              "tr": "Nielsen’in çiziminde α, |0⟩ boyunca kabaca 0,6–0,8; β ise |1⟩’in katsayısıdır."
+            },
+            {
+              "t": 476.5,
+              "en": "The coefficients may be complex, not just real.",
+              "tr": "Katsayılar yalnız gerçel değil, karmaşık da olabilir."
             },
             {
               "t": 488.9,
-              "en": "Why vectors, and why complex numbers, instead of just the labels 0 and 1? Nielsen does not fully justify it here. Over the next videos the description lets us build a model of computation. States near |0⟩ behave like 0, states near |1⟩ behave like 1 with a little 0 mixed in. Quantum mechanics was built from about 1900 to 1925 and is not an obvious theory. The vector is mathematically simple. Intuition comes from using the rules, especially once gates appear. For now, accept the model.",
-              "tr": "Neden sadece 0 ve 1 etiketleri değil de vektör, üstelik karmaşık sayılar? Nielsen bunu burada sonuna kadar gerekçelendirmiyor. Sonraki videolarda bu tarif bir hesap modeli kurmamıza izin verir. |0⟩’a yakın durumlar 0 gibi, |1⟩’e yakın durumlar biraz 0 karışmış 1 gibi davranır. Kuantum mekaniği kabaca 1900–1925 arasında kuruldu ve apaçık bir teori değil. Vektör matematiksel olarak basit. Sezgi, kuralları kullanarak gelir; özellikle kapılar başlayınca. Şimdilik modeli kabul et."
+              "en": "Why vectors, and why complex numbers, instead of just the labels 0 and 1? Nielsen does not fully justify it here.",
+              "tr": "Neden sadece 0 ve 1 etiketleri değil de vektör, üstelik karmaşık sayılar? Nielsen bunu burada sonuna kadar gerekçelendirmiyor."
+            },
+            {
+              "t": 508.1,
+              "en": "Over the next videos the description lets us build a model of computation.",
+              "tr": "Sonraki videolarda bu tarif bir hesap modeli kurmamıza izin verir."
+            },
+            {
+              "t": 520.7,
+              "en": "States near |0⟩ behave like 0, states near |1⟩ behave like 1 with a little 0 mixed in.",
+              "tr": "|0⟩’a yakın durumlar 0 gibi, |1⟩’e yakın durumlar biraz 0 karışmış 1 gibi davranır."
+            },
+            {
+              "t": 535.3,
+              "en": "Quantum mechanics was built from about 1900 to 1925 and is not an obvious theory.",
+              "tr": "Kuantum mekaniği kabaca 1900–1925 arasında kuruldu ve apaçık bir teori değil."
+            },
+            {
+              "t": 549.1,
+              "en": "The vector is mathematically simple.",
+              "tr": "Vektör matematiksel olarak basit."
+            },
+            {
+              "t": 555.2,
+              "en": "Intuition comes from using the rules, especially once gates appear.",
+              "tr": "Sezgi, kuralları kullanarak gelir; özellikle kapılar başlayınca."
+            },
+            {
+              "t": 566.6,
+              "en": "For now, accept the model.",
+              "tr": "Şimdilik modeli kabul et."
             },
             {
               "t": 571.0,
-              "en": "Two words. A superposition is just a linear combination; physicists say “a superposition of |0⟩ and |1⟩” for α|0⟩ + β|1⟩. An amplitude is the coefficient: α is the amplitude of |0⟩, β of |1⟩. The state cannot be an arbitrary vector. The normalization constraint says the sum of the squares of the absolute values of the amplitudes is 1. If |0⟩ and |1⟩ are orthonormal, that is the statement that the state vector has length 1.",
-              "tr": "İki sözcük. Süperpozisyon, lineer birleşimden ibarettir; fizikçi α|0⟩ + β|1⟩ için “|0⟩ ile |1⟩’in süperpozisyonu” der. Genlik, katsayıdır: α, |0⟩’ın genliği, β ise |1⟩’inkidir. Durum rastgele bir vektör olamaz. Normalizasyon şartı: genliklerin mutlak değerlerinin kareleri toplamı 1’dir. |0⟩ ve |1⟩ ortonormal ise bu, durum vektörünün uzunluğunun 1 olduğu anlamına gelir."
+              "en": "Two words.",
+              "tr": "İki sözcük."
+            },
+            {
+              "t": 573.3,
+              "en": "A superposition is just a linear combination; physicists say “a superposition of |0⟩ and |1⟩” for α|0⟩ + β|1⟩.",
+              "tr": "Süperpozisyon, lineer birleşimden ibarettir; fizikçi α|0⟩ + β|1⟩ için “|0⟩ ile |1⟩’in süperpozisyonu” der."
+            },
+            {
+              "t": 594.5,
+              "en": "An amplitude is the coefficient: α is the amplitude of |0⟩, β of |1⟩.",
+              "tr": "Genlik, katsayıdır: α, |0⟩’ın genliği, β ise |1⟩’inkidir."
+            },
+            {
+              "t": 607.8,
+              "en": "The state cannot be an arbitrary vector.",
+              "tr": "Durum rastgele bir vektör olamaz."
+            },
+            {
+              "t": 615.5,
+              "en": "The normalization constraint says the sum of the squares of the absolute values of the amplitudes is 1. If |0⟩ and |1⟩ are orthonormal, that is the statement that the state vector has length 1.",
+              "tr": "Normalizasyon şartı: genliklerin mutlak değerlerinin kareleri toplamı 1’dir. |0⟩ ve |1⟩ ortonormal ise bu, durum vektörünün uzunluğunun 1 olduğu anlamına gelir."
             },
             {
               "t": 652.6,
-              "en": "If you take one sentence from this video: the quantum state of a qubit is a vector of unit length in a two-dimensional complex vector space. One confusion: the computational basis state |0⟩ is not the zero vector of the vector space. The zero vector sits at the origin and has length 0. |0⟩ has length 1. The shared word “zero” is an unfortunate overlap of notation.",
-              "tr": "Bu videodan tek cümle kalacaksa şu: bir kübitin kuantum durumu, iki boyutlu karmaşık uzayda uzunluğu 1 olan bir vektördür. Bir karışıklık: hesaplama bazı durumu |0⟩, vektör uzayının sıfır vektörü değildir. Sıfır vektörü orijindedir ve uzunluğu 0’dır. |0⟩’ın uzunluğu 1’dir. “Sıfır” sözcüğünün iki anlama gelmesi, talihsiz bir gösterim çakışmasıdır."
+              "en": "If you take one sentence from this video: the quantum state of a qubit is a vector of unit length in a two-dimensional complex vector space.",
+              "tr": "Bu videodan tek cümle kalacaksa şu: bir kübitin kuantum durumu, iki boyutlu karmaşık uzayda uzunluğu 1 olan bir vektördür."
+            },
+            {
+              "t": 684.2,
+              "en": "One confusion: the computational basis state |0⟩ is not the zero vector of the vector space.",
+              "tr": "Bir karışıklık: hesaplama bazı durumu |0⟩, vektör uzayının sıfır vektörü değildir."
+            },
+            {
+              "t": 704.9,
+              "en": "The zero vector sits at the origin and has length 0. |0⟩ has length 1. The shared word “zero” is an unfortunate overlap of notation.",
+              "tr": "Sıfır vektörü orijindedir ve uzunluğu 0’dır. |0⟩’ın uzunluğu 1’dir. “Sıfır” sözcüğünün iki anlama gelmesi, talihsiz bir gösterim çakışmasıdır."
             },
             {
               "t": 734.7,
-              "en": "What does the state mean? Many people say the qubit is “simultaneously 0 and 1.” Nielsen says he does not understand what that explanation means: it presses a classical prejudice onto the quantum world. The strategy of the course is to start from the mathematical description, look at its consequences, and build intuition that way. The next video practices working with qubits and with ket notation.",
-              "tr": "Durum ne anlama gelir? Birçok kişi kübit “aynı anda hem 0 hem 1” der. Nielsen bu açıklamanın ne demek istediğini anlamadığını söyler: klasik bir önyargıyı kuantum dünyaya yapıştırmaktır. Dersin stratejisi matematik tarifinden başlamak, sonuçlarına bakmak ve sezgiyi öyle kurmaktır. Sonraki video, kübitlerle ve ket gösterimiyle çalışmayı pratik eder."
+              "en": "What does the state mean?",
+              "tr": "Durum ne anlama gelir?"
+            },
+            {
+              "t": 739.8,
+              "en": "Many people say the qubit is “simultaneously 0 and 1.” Nielsen says he does not understand what that explanation means: it presses a classical prejudice onto the quantum world.",
+              "tr": "Birçok kişi kübit “aynı anda hem 0 hem 1” der. Nielsen bu açıklamanın ne demek istediğini anlamadığını söyler: klasik bir önyargıyı kuantum dünyaya yapıştırmaktır."
+            },
+            {
+              "t": 775.8,
+              "en": "The strategy of the course is to start from the mathematical description, look at its consequences, and build intuition that way.",
+              "tr": "Dersin stratejisi matematik tarifinden başlamak, sonuçlarına bakmak ve sezgiyi öyle kurmaktır."
+            },
+            {
+              "t": 802.1,
+              "en": "The next video practices working with qubits and with ket notation.",
+              "tr": "Sonraki video, kübitlerle ve ket gösterimiyle çalışmayı pratik eder."
             },
             {
               "t": 815.8,
-              "en": "We will come back several times to how a quantum state should be interpreted. The habit to keep: when a sentence feels like a metaphor, write the vector instead.",
-              "tr": "Bir kuantum durumunun nasıl yorumlanacağına birkaç kez döneceğiz. Alışkanlık şu olsun: bir cümle metafor gibi gelirse, onun yerine vektörü yaz."
+              "en": "We will come back several times to how a quantum state should be interpreted.",
+              "tr": "Bir kuantum durumunun nasıl yorumlanacağına birkaç kez döneceğiz."
+            },
+            {
+              "t": 821.7,
+              "en": "The habit to keep: when a sentence feels like a metaphor, write the vector instead.",
+              "tr": "Alışkanlık şu olsun: bir cümle metafor gibi gelirse, onun yerine vektörü yaz."
             }
           ]
         },
@@ -125,28 +335,123 @@ const COURSE = {
           "cues": [
             {
               "t": 0.9,
-              "en": "Last time we introduced the mathematical model of the qubit. This video practices quantum states and especially ket notation. A state is a linear combination of the computational basis states |0⟩ and |1⟩. That ket is exactly the column vector with components α and β. If α is 0.6 and β is 0.8, those are the components. We are working in the |0⟩, |1⟩ basis: the top entry is the amplitude of |0⟩, the bottom entry the amplitude of |1⟩.",
-              "tr": "Geçen videoda kübitin matematik modelini kurduk. Bu video kuantum durumlarını ve özellikle ket gösterimini çalıştırır. Bir durum, |0⟩ ve |1⟩ hesaplama bazı durumlarının lineer birleşimidir. O ket, bileşenleri α ve β olan sütun vektörünün aynısıdır. α 0,6 ve β 0,8 ise bileşenler bunlardır. |0⟩, |1⟩ bazındayız: üst giriş |0⟩’ın genliği, alt giriş |1⟩’inkidir."
+              "en": "Last time we introduced the mathematical model of the qubit.",
+              "tr": "Geçen videoda kübitin matematik modelini kurduk."
+            },
+            {
+              "t": 12.4,
+              "en": "This video practices quantum states and especially ket notation.",
+              "tr": "Bu video kuantum durumlarını ve özellikle ket gösterimini çalıştırır."
+            },
+            {
+              "t": 24.6,
+              "en": "A state is a linear combination of the computational basis states |0⟩ and |1⟩.",
+              "tr": "Bir durum, |0⟩ ve |1⟩ hesaplama bazı durumlarının lineer birleşimidir."
+            },
+            {
+              "t": 39.5,
+              "en": "That ket is exactly the column vector with components α and β.",
+              "tr": "O ket, bileşenleri α ve β olan sütun vektörünün aynısıdır."
+            },
+            {
+              "t": 51.4,
+              "en": "If α is 0.6 and β is 0.8, those are the components.",
+              "tr": "α 0,6 ve β 0,8 ise bileşenler bunlardır."
+            },
+            {
+              "t": 61.1,
+              "en": "We are working in the |0⟩, |1⟩ basis: the top entry is the amplitude of |0⟩, the bottom entry the amplitude of |1⟩.",
+              "tr": "|0⟩, |1⟩ bazındayız: üst giriş |0⟩’ın genliği, alt giriş |1⟩’inkidir."
             },
             {
               "t": 83.1,
-              "en": "You do not have to write every component every time. It is often convenient to give the ket a label, commonly |ψ⟩, and bundle the information there. The point while the notation is new: kets are vectors. Nothing more. You can always translate ket notation into column vectors and back. Physicists manipulate kets directly. At the start, if you feel unsure, do the translation.",
-              "tr": "Her seferinde bütün bileşenleri yazmak zorunda değilsin. Kete bir etiket vermek, genellikle |ψ⟩, ve bilgiyi orada toplamak kolaydır. Gösterim yeniyken asıl nokta: ketler vektördür. Başka bir şey değil. Ket gösterimini her zaman sütun vektörüne ve geri çevirebilirsin. Fizikçiler doğrudan ketle işlem yapar. Başta emin değilsen çeviriyi yap."
+              "en": "You do not have to write every component every time.",
+              "tr": "Her seferinde bütün bileşenleri yazmak zorunda değilsin."
+            },
+            {
+              "t": 94.5,
+              "en": "It is often convenient to give the ket a label, commonly |ψ⟩, and bundle the information there.",
+              "tr": "Kete bir etiket vermek, genellikle |ψ⟩, ve bilgiyi orada toplamak kolaydır."
+            },
+            {
+              "t": 115.4,
+              "en": "The point while the notation is new: kets are vectors.",
+              "tr": "Gösterim yeniyken asıl nokta: ketler vektördür."
+            },
+            {
+              "t": 127.3,
+              "en": "Nothing more.",
+              "tr": "Başka bir şey değil."
+            },
+            {
+              "t": 130.2,
+              "en": "You can always translate ket notation into column vectors and back.",
+              "tr": "Ket gösterimini her zaman sütun vektörüne ve geri çevirebilirsin."
+            },
+            {
+              "t": 144.9,
+              "en": "Physicists manipulate kets directly.",
+              "tr": "Fizikçiler doğrudan ketle işlem yapar."
+            },
+            {
+              "t": 152.8,
+              "en": "At the start, if you feel unsure, do the translation.",
+              "tr": "Başta emin değilsen çeviriyi yap."
             },
             {
               "t": 164.5,
-              "en": "Because they are vectors, the usual rules apply. Multiplication by a scalar distributes over addition: 2(α|0⟩ + β|1⟩) = 2α|0⟩ + 2β|1⟩. In column form that is 2 times the vector (α, β), which is (2α, 2β). Nielsen’s arithmetic on the board is not the point. The point is that the ordinary vector rules still hold.",
-              "tr": "Vektör oldukları için bildiğin kurallar geçer. Bir sayıyla çarpma, toplama üzerine dağılır: 2(α|0⟩ + β|1⟩) = 2α|0⟩ + 2β|1⟩. Sütun biçiminde bu, (α, β) vektörünün 2 katıdır, yani (2α, 2β). Nielsen’in tahtadaki aritmetiği mesele değil. Mesele, sıradan vektör kurallarının hâlâ geçerli olması."
+              "en": "Because they are vectors, the usual rules apply.",
+              "tr": "Vektör oldukları için bildiğin kurallar geçer."
+            },
+            {
+              "t": 177.3,
+              "en": "Multiplication by a scalar distributes over addition: 2(α|0⟩ + β|1⟩) = 2α|0⟩ + 2β|1⟩.",
+              "tr": "Bir sayıyla çarpma, toplama üzerine dağılır: 2(α|0⟩ + β|1⟩) = 2α|0⟩ + 2β|1⟩."
+            },
+            {
+              "t": 200.0,
+              "en": "In column form that is 2 times the vector (α, β), which is (2α, 2β).",
+              "tr": "Sütun biçiminde bu, (α, β) vektörünün 2 katıdır, yani (2α, 2β)."
+            },
+            {
+              "t": 218.2,
+              "en": "Nielsen’s arithmetic on the board is not the point.",
+              "tr": "Nielsen’in tahtadaki aritmetiği mesele değil."
+            },
+            {
+              "t": 231.8,
+              "en": "The point is that the ordinary vector rules still hold.",
+              "tr": "Mesele, sıradan vektör kurallarının hâlâ geçerli olması."
             },
             {
               "t": 246.5,
-              "en": "Another check: the column vector (1, 0) is |0⟩, and it is also |0⟩ + 0|1⟩. Write both as columns and they match. If a line of kets confuses you, translate it into vector notation. The next video is the first quantum logic gate: the quantum NOT gate.",
-              "tr": "Bir kontrol daha: (1, 0) sütun vektörü |0⟩’dır ve aynı zamanda |0⟩ + 0|1⟩’dir. İkisini de sütun yazarsan örtüşürler. Bir satır ket kafanı karıştırırsa onu vektör gösterimine çevir. Sonraki video ilk kuantum mantık kapısı: kuantum NOT kapısı."
+              "en": "Another check: the column vector (1, 0) is |0⟩, and it is also |0⟩ + 0|1⟩.",
+              "tr": "Bir kontrol daha: (1, 0) sütun vektörü |0⟩’dır ve aynı zamanda |0⟩ + 0|1⟩’dir."
+            },
+            {
+              "t": 271.3,
+              "en": "Write both as columns and they match.",
+              "tr": "İkisini de sütun yazarsan örtüşürler."
+            },
+            {
+              "t": 283.7,
+              "en": "If a line of kets confuses you, translate it into vector notation.",
+              "tr": "Bir satır ket kafanı karıştırırsa onu vektör gösterimine çevir."
+            },
+            {
+              "t": 305.9,
+              "en": "The next video is the first quantum logic gate: the quantum NOT gate.",
+              "tr": "Sonraki video ilk kuantum mantık kapısı: kuantum NOT kapısı."
             },
             {
               "t": 329.0,
-              "en": "The NOT gate is simple and it turns out to matter a great deal in quantum computation. It is the starting gate.",
-              "tr": "NOT kapısı basit görünür ve kuantum hesapta epey işe yarar. Başlangıç kapısı odur."
+              "en": "The NOT gate is simple and it turns out to matter a great deal in quantum computation.",
+              "tr": "NOT kapısı basit görünür ve kuantum hesapta epey işe yarar."
+            },
+            {
+              "t": 335.6,
+              "en": "It is the starting gate.",
+              "tr": "Başlangıç kapısı odur."
             }
           ]
         },
@@ -181,43 +486,168 @@ const COURSE = {
           "cues": [
             {
               "t": 0.8,
-              "en": "We can describe a qubit. Now we change it. A quantum logic gate manipulates the state of one qubit or of several. Gates are the building blocks of quantum computation and of tasks such as teleportation. The first example is the quantum NOT, a single-qubit gate. On the computational basis it does what the classical NOT does: |0⟩ goes to |1⟩ and |1⟩ goes to |0⟩.",
-              "tr": "Kübiti tarif edebiliyoruz. Şimdi onu değiştiriyoruz. Bir kuantum mantık kapısı, bir kübitin ya da birkaçının durumunu işler. Kapılar, kuantum hesabın ve teleportasyon gibi işlerin yapı taşlarıdır. İlk örnek kuantum NOT, tek kübitlik bir kapı. Hesaplama bazında klasik NOT’un yaptığını yapar: |0⟩ gider |1⟩’e, |1⟩ gider |0⟩’a."
+              "en": "We can describe a qubit.",
+              "tr": "Kübiti tarif edebiliyoruz."
+            },
+            {
+              "t": 6.2,
+              "en": "Now we change it.",
+              "tr": "Şimdi onu değiştiriyoruz."
+            },
+            {
+              "t": 10.1,
+              "en": "A quantum logic gate manipulates the state of one qubit or of several.",
+              "tr": "Bir kuantum mantık kapısı, bir kübitin ya da birkaçının durumunu işler."
+            },
+            {
+              "t": 25.9,
+              "en": "Gates are the building blocks of quantum computation and of tasks such as teleportation.",
+              "tr": "Kapılar, kuantum hesabın ve teleportasyon gibi işlerin yapı taşlarıdır."
+            },
+            {
+              "t": 45.7,
+              "en": "The first example is the quantum NOT, a single-qubit gate.",
+              "tr": "İlk örnek kuantum NOT, tek kübitlik bir kapı."
+            },
+            {
+              "t": 58.8,
+              "en": "On the computational basis it does what the classical NOT does: |0⟩ goes to |1⟩ and |1⟩ goes to |0⟩.",
+              "tr": "Hesaplama bazında klasik NOT’un yaptığını yapar: |0⟩ gider |1⟩’e, |1⟩ gider |0⟩’a."
             },
             {
               "t": 81.4,
-              "en": "Those are not the only states. On a superposition α|0⟩ + β|1⟩ the quantum NOT does the simplest thing consistent with the two basis actions: it acts linearly. |0⟩ flips to |1⟩ and |1⟩ flips to |0⟩, so the state becomes α|1⟩ + β|0⟩. In a circuit, a wire is one qubit. The NOT is drawn as a box marked X, for historical reasons. The wire carries the state in, X acts, the wire carries the result out.",
-              "tr": "Durumlar yalnız bunlar değil. α|0⟩ + β|1⟩ süperpozisyonunda kuantum NOT, iki baz hareketiyle uyumlu en basit şeyi yapar: lineer davranır. |0⟩, |1⟩ olur; |1⟩, |0⟩ olur. Durum α|1⟩ + β|0⟩ haline gelir. Devrede bir tel, bir kübiti temsil eder. NOT, tarihsel sebeple üzerinde X yazan bir kutu olarak çizilir. Tel durumu içeri taşır, X etkir, tel sonucu dışarı taşır."
+              "en": "Those are not the only states.",
+              "tr": "Durumlar yalnız bunlar değil."
+            },
+            {
+              "t": 87.7,
+              "en": "On a superposition α|0⟩ + β|1⟩ the quantum NOT does the simplest thing consistent with the two basis actions: it acts linearly.",
+              "tr": "α|0⟩ + β|1⟩ süperpozisyonunda kuantum NOT, iki baz hareketiyle uyumlu en basit şeyi yapar: lineer davranır."
+            },
+            {
+              "t": 114.2,
+              "en": "|0⟩ flips to |1⟩ and |1⟩ flips to |0⟩, so the state becomes α|1⟩ + β|0⟩.",
+              "tr": "|0⟩, |1⟩ olur; |1⟩, |0⟩ olur. Durum α|1⟩ + β|0⟩ haline gelir."
+            },
+            {
+              "t": 129.2,
+              "en": "In a circuit, a wire is one qubit.",
+              "tr": "Devrede bir tel, bir kübiti temsil eder."
+            },
+            {
+              "t": 136.3,
+              "en": "The NOT is drawn as a box marked X, for historical reasons.",
+              "tr": "NOT, tarihsel sebeple üzerinde X yazan bir kutu olarak çizilir."
+            },
+            {
+              "t": 148.6,
+              "en": "The wire carries the state in, X acts, the wire carries the result out.",
+              "tr": "Tel durumu içeri taşır, X etkir, tel sonucu dışarı taşır."
             },
             {
               "t": 163.4,
-              "en": "There is also a matrix. X is the 2×2 matrix with columns (0, 1) and (1, 0): the matrix [[0, 1], [1, 0]]. Applied to |0⟩, which is the column (1, 0), it returns the first column (0, 1), which is |1⟩. Applied to |1⟩ it returns the second column (1, 0), which is |0⟩. Matrices act linearly, so the right action on |0⟩ and |1⟩ is the right action on every state.",
-              "tr": "Bir de matris var. X, sütunları (0, 1) ve (1, 0) olan 2×2 matristir: [[0, 1], [1, 0]]. |0⟩ olan (1, 0) sütununa uygulanınca ilk sütunu verir, (0, 1), yani |1⟩. |1⟩’e uygulanınca ikinci sütunu verir, (1, 0), yani |0⟩. Matrisler lineer etkidiği için |0⟩ ve |1⟩ üzerindeki doğru etki, her durum üzerindeki doğru etkidir."
+              "en": "There is also a matrix.",
+              "tr": "Bir de matris var."
+            },
+            {
+              "t": 168.8,
+              "en": "X is the 2×2 matrix with columns (0, 1) and (1, 0): the matrix [[0, 1], [1, 0]].",
+              "tr": "X, sütunları (0, 1) ve (1, 0) olan 2×2 matristir: [[0, 1], [1, 0]]."
+            },
+            {
+              "t": 187.4,
+              "en": "Applied to |0⟩, which is the column (1, 0), it returns the first column (0, 1), which is |1⟩.",
+              "tr": "|0⟩ olan (1, 0) sütununa uygulanınca ilk sütunu verir, (0, 1), yani |1⟩."
+            },
+            {
+              "t": 209.0,
+              "en": "Applied to |1⟩ it returns the second column (1, 0), which is |0⟩.",
+              "tr": "|1⟩’e uygulanınca ikinci sütunu verir, (1, 0), yani |0⟩."
+            },
+            {
+              "t": 224.2,
+              "en": "Matrices act linearly, so the right action on |0⟩ and |1⟩ is the right action on every state.",
+              "tr": "Matrisler lineer etkidiği için |0⟩ ve |1⟩ üzerindeki doğru etki, her durum üzerindeki doğru etkidir."
             },
             {
               "t": 245.8,
-              "en": "The simplest circuit of all is a bare wire: the input |ψ⟩ = α|0⟩ + β|1⟩ is still the output. It looks trivial. In real devices the wire is often the hardest piece, because quantum states are fragile. They live in small systems, single atoms or single photons, and the environment disturbs them easily.",
-              "tr": "En basit devre, çıplak bir teldir: girdi |ψ⟩ = α|0⟩ + β|1⟩ çıktıda da durur. Önemsiz görünür. Gerçek aletlerde tel çoğu zaman en zor parçadır, çünkü kuantum durumlar kırılgandır. Tek atom ya da tek foton gibi küçük sistemlerde yaşarlar ve çevre onları kolayca bozar."
+              "en": "The simplest circuit of all is a bare wire: the input |ψ⟩ = α|0⟩ + β|1⟩ is still the output.",
+              "tr": "En basit devre, çıplak bir teldir: girdi |ψ⟩ = α|0⟩ + β|1⟩ çıktıda da durur."
+            },
+            {
+              "t": 271.1,
+              "en": "It looks trivial.",
+              "tr": "Önemsiz görünür."
+            },
+            {
+              "t": 275.8,
+              "en": "In real devices the wire is often the hardest piece, because quantum states are fragile.",
+              "tr": "Gerçek aletlerde tel çoğu zaman en zor parçadır, çünkü kuantum durumlar kırılgandır."
+            },
+            {
+              "t": 300.0,
+              "en": "They live in small systems, single atoms or single photons, and the environment disturbs them easily.",
+              "tr": "Tek atom ya da tek foton gibi küçük sistemlerde yaşarlar ve çevre onları kolayca bozar."
             },
             {
               "t": 327.8,
-              "en": "Practice: two X gates in a row. Input α|0⟩ + β|1⟩ becomes α|1⟩ + β|0⟩ after the first X, then α|0⟩ + β|1⟩ after the second. The output matches the input. The circuit is equivalent to a wire.",
-              "tr": "Alıştırma: art arda iki X. Girdi α|0⟩ + β|1⟩, ilk X’ten sonra α|1⟩ + β|0⟩, ikinciden sonra yine α|0⟩ + β|1⟩ olur. Çıktı girdiyle aynıdır. Devre bir tele denktir."
+              "en": "Practice: two X gates in a row.",
+              "tr": "Alıştırma: art arda iki X."
+            },
+            {
+              "t": 341.1,
+              "en": "Input α|0⟩ + β|1⟩ becomes α|1⟩ + β|0⟩ after the first X, then α|0⟩ + β|1⟩ after the second.",
+              "tr": "Girdi α|0⟩ + β|1⟩, ilk X’ten sonra α|1⟩ + β|0⟩, ikinciden sonra yine α|0⟩ + β|1⟩ olur."
+            },
+            {
+              "t": 380.2,
+              "en": "The output matches the input.",
+              "tr": "Çıktı girdiyle aynıdır."
+            },
+            {
+              "t": 392.6,
+              "en": "The circuit is equivalent to a wire.",
+              "tr": "Devre bir tele denktir."
             },
             {
               "t": 408.1,
-              "en": "The same fact in matrices: the first gate sends |ψ⟩ to X|ψ⟩, the second sends that to X X |ψ⟩. Multiply [[0, 1], [1, 0]] by itself and you get the 2×2 identity. So two NOT gates in a row are the identity. The next video is the first gate that is genuinely quantum on superpositions: the Hadamard gate.",
-              "tr": "Aynı olgu matrisle: ilk kapı |ψ⟩’yi X|ψ⟩ yapar, ikincisi onu X X |ψ⟩ yapar. [[0, 1], [1, 0]] matrisini kendisiyle çarpınca 2×2 birim matris çıkar. Art arda iki NOT, özdeşliktir. Sonraki video, süperpozisyon üzerinde gerçekten kuantum olan ilk kapı: Hadamard."
+              "en": "The same fact in matrices: the first gate sends |ψ⟩ to X|ψ⟩, the second sends that to X X |ψ⟩.",
+              "tr": "Aynı olgu matrisle: ilk kapı |ψ⟩’yi X|ψ⟩ yapar, ikincisi onu X X |ψ⟩ yapar."
+            },
+            {
+              "t": 434.5,
+              "en": "Multiply [[0, 1], [1, 0]] by itself and you get the 2×2 identity.",
+              "tr": "[[0, 1], [1, 0]] matrisini kendisiyle çarpınca 2×2 birim matris çıkar."
+            },
+            {
+              "t": 452.8,
+              "en": "So two NOT gates in a row are the identity.",
+              "tr": "Art arda iki NOT, özdeşliktir."
+            },
+            {
+              "t": 464.8,
+              "en": "The next video is the first gate that is genuinely quantum on superpositions: the Hadamard gate.",
+              "tr": "Sonraki video, süperpozisyon üzerinde gerçekten kuantum olan ilk kapı: Hadamard."
             },
             {
               "t": 491.8,
-              "en": "Keep the identity X² = I. Later, when a flag is written with gates that are their own inverses, “erase the scratch” means “run the same gates backward,” and for X that is just another X.",
-              "tr": "X² = I kimliğini tut. İleride bir bayrak, kendi tersi olan kapılarla yazıldığında “karalamayı sil” demek “aynı kapıları tersten çalıştır” demektir. X için bu, bir X daha uygulamaktır."
+              "en": "Keep the identity X² = I.",
+              "tr": "X² = I kimliğini tut."
+            },
+            {
+              "t": 502.9,
+              "en": "Later, when a flag is written with gates that are their own inverses, “erase the scratch” means “run the same gates backward,” and for X that is just another X.",
+              "tr": "İleride bir bayrak, kendi tersi olan kapılarla yazıldığında “karalamayı sil” demek “aynı kapıları tersten çalıştır” demektir. X için bu, bir X daha uygulamaktır."
             },
             {
               "t": 574.1,
-              "en": "NOT on the basis looks classical. Hadamard will not.",
-              "tr": "Baz üzerindeki NOT klasik görünür. Hadamard görünmeyecek."
+              "en": "NOT on the basis looks classical.",
+              "tr": "Baz üzerindeki NOT klasik görünür."
+            },
+            {
+              "t": 577.3,
+              "en": "Hadamard will not.",
+              "tr": "Hadamard görünmeyecek."
             }
           ]
         },
@@ -252,48 +682,178 @@ const COURSE = {
           "cues": [
             {
               "t": 0.8,
-              "en": "The NOT gate was essentially classical. The Hadamard gate is the first truly quantum gate. On the computational basis, H|0⟩ = (|0⟩ + |1⟩)/√2, so both amplitudes are 1/√2. H|1⟩ = (|0⟩ − |1⟩)/√2: amplitude 1/√2 for |0⟩ and −1/√2 for |1⟩. The minus sign is the new ingredient.",
-              "tr": "NOT kapısı esasen klasikti. Hadamard, gerçekten kuantum olan ilk kapıdır. Hesaplama bazında H|0⟩ = (|0⟩ + |1⟩)/√2; iki genlik de 1/√2’dir. H|1⟩ = (|0⟩ − |1⟩)/√2: |0⟩ için 1/√2, |1⟩ için −1/√2. Eksi işaret, yeni malzeme budur."
+              "en": "The NOT gate was essentially classical.",
+              "tr": "NOT kapısı esasen klasikti."
+            },
+            {
+              "t": 12.4,
+              "en": "The Hadamard gate is the first truly quantum gate.",
+              "tr": "Hadamard, gerçekten kuantum olan ilk kapıdır."
+            },
+            {
+              "t": 27.2,
+              "en": "On the computational basis, H|0⟩ = (|0⟩ + |1⟩)/√2, so both amplitudes are 1/√2. H|1⟩ = (|0⟩ − |1⟩)/√2: amplitude 1/√2 for |0⟩ and −1/√2 for |1⟩.",
+              "tr": "Hesaplama bazında H|0⟩ = (|0⟩ + |1⟩)/√2; iki genlik de 1/√2’dir."
+            },
+            {
+              "t": 70.0,
+              "en": "The minus sign is the new ingredient.",
+              "tr": "H|1⟩ = (|0⟩ − |1⟩)/√2: |0⟩ için 1/√2, |1⟩ için −1/√2. Eksi işaret, yeni malzeme budur."
             },
             {
               "t": 81.0,
-              "en": "On a superposition it acts linearly. H(α|0⟩ + β|1⟩) = α(|0⟩+|1⟩)/√2 + β(|0⟩−|1⟩)/√2. Collecting terms, the amplitude of |0⟩ is (α+β)/√2 and the amplitude of |1⟩ is (α−β)/√2. In practice you mostly use the circuit, a box marked H, or the matrix. The matrix is (1/√2) times [[1, 1], [1, −1]].",
-              "tr": "Süperpozisyonda lineer etkir. H(α|0⟩ + β|1⟩) = α(|0⟩+|1⟩)/√2 + β(|0⟩−|1⟩)/√2. Terimleri toplarsan |0⟩’ın genliği (α+β)/√2, |1⟩’inki (α−β)/√2 olur. Pratikte çoğu zaman devreyi, üzerinde H yazan kutuyu ya da matrisi kullanırsın. Matris, (1/√2) çarpı [[1, 1], [1, −1]]’dir."
+              "en": "On a superposition it acts linearly.",
+              "tr": "Süperpozisyonda lineer etkir."
+            },
+            {
+              "t": 91.1,
+              "en": "H(α|0⟩ + β|1⟩) = α(|0⟩+|1⟩)/√2 + β(|0⟩−|1⟩)/√2. Collecting terms, the amplitude of |0⟩ is (α+β)/√2 and the amplitude of |1⟩ is (α−β)/√2. In practice you mostly use the circuit, a box marked H, or the matrix.",
+              "tr": "H(α|0⟩ + β|1⟩) = α(|0⟩+|1⟩)/√2 + β(|0⟩−|1⟩)/√2. Terimleri toplarsan |0⟩’ın genliği (α+β)/√2, |1⟩’inki (α−β)/√2 olur. Pratikte çoğu zaman devreyi, üzerinde H yazan kutuyu ya da matrisi kullanırsın."
+            },
+            {
+              "t": 148.9,
+              "en": "The matrix is (1/√2) times [[1, 1], [1, −1]].",
+              "tr": "Matris, (1/√2) çarpı [[1, 1], [1, −1]]’dir."
             },
             {
               "t": 161.5,
-              "en": "Check the matrix on the basis. |0⟩ is the column (1, 0); multiplying picks the first column, (1/√2, 1/√2), which is (|0⟩+|1⟩)/√2. |1⟩ picks the second column, (1/√2, −1/√2), which is (|0⟩−|1⟩)/√2. Linearity extends that to every state. The outputs are not classical basis states. That is what makes the gate quantum.",
-              "tr": "Matrisi bazda kontrol et. |0⟩, (1, 0) sütunudur; çarpım ilk sütunu seçer, (1/√2, 1/√2), yani (|0⟩+|1⟩)/√2. |1⟩ ikinci sütunu seçer, (1/√2, −1/√2), yani (|0⟩−|1⟩)/√2. Lineerlik bunu her duruma taşır. Çıktılar klasik baz durumları değildir. Kapıyı kuantum yapan budur."
+              "en": "Check the matrix on the basis.",
+              "tr": "Matrisi bazda kontrol et."
+            },
+            {
+              "t": 169.4,
+              "en": "|0⟩ is the column (1, 0); multiplying picks the first column, (1/√2, 1/√2), which is (|0⟩+|1⟩)/√2. |1⟩ picks the second column, (1/√2, −1/√2), which is (|0⟩−|1⟩)/√2. Linearity extends that to every state.",
+              "tr": "|0⟩, (1, 0) sütunudur; çarpım ilk sütunu seçer, (1/√2, 1/√2), yani (|0⟩+|1⟩)/√2. |1⟩ ikinci sütunu seçer, (1/√2, −1/√2), yani (|0⟩−|1⟩)/√2. Lineerlik bunu her duruma taşır."
+            },
+            {
+              "t": 222.9,
+              "en": "The outputs are not classical basis states.",
+              "tr": "Çıktılar klasik baz durumları değildir."
+            },
+            {
+              "t": 234.2,
+              "en": "That is what makes the gate quantum.",
+              "tr": "Kapıyı kuantum yapan budur."
             },
             {
               "t": 243.6,
-              "en": "Why care? Nielsen’s analogy: thousands of years ago, going from North Africa to Spain overland means walking all the way around. A boat opens a new medium and cuts the trip. Hadamard and gates like it expand the set of states a computer can occupy. Moving through those states can create shortcuts that a classical computer, stuck in basis states, cannot take.",
-              "tr": "Neden umurumuzda? Nielsen’in benzetmesi: binlerce yıl önce Kuzey Afrika’dan İspanya’ya karadan gitmek, bütün yolu dolanmak demektir. Bir tekne yeni bir ortam açar ve yolu kısaltır. Hadamard ve benzeri kapılar, bilgisayarın bulunabileceği durum kümesini genişletir. O durumlardan geçmek, yalnız baz durumlarına sıkışmış klasik bir bilgisayarın alamayacağı kestirmeler yaratabilir."
+              "en": "Why care?",
+              "tr": "Neden umurumuzda?"
+            },
+            {
+              "t": 246.3,
+              "en": "Nielsen’s analogy: thousands of years ago, going from North Africa to Spain overland means walking all the way around.",
+              "tr": "Nielsen’in benzetmesi: binlerce yıl önce Kuzey Afrika’dan İspanya’ya karadan gitmek, bütün yolu dolanmak demektir."
+            },
+            {
+              "t": 273.0,
+              "en": "A boat opens a new medium and cuts the trip.",
+              "tr": "Bir tekne yeni bir ortam açar ve yolu kısaltır."
+            },
+            {
+              "t": 283.0,
+              "en": "Hadamard and gates like it expand the set of states a computer can occupy.",
+              "tr": "Hadamard ve benzeri kapılar, bilgisayarın bulunabileceği durum kümesini genişletir."
+            },
+            {
+              "t": 299.7,
+              "en": "Moving through those states can create shortcuts that a classical computer, stuck in basis states, cannot take.",
+              "tr": "O durumlardan geçmek, yalnız baz durumlarına sıkışmış klasik bir bilgisayarın alamayacağı kestirmeler yaratabilir."
             },
             {
               "t": 324.8,
-              "en": "A second analogy: if the rules of chess gave your rook a larger set of moves, you might reach checkmate faster. Expanding the dynamics beyond the classical ones creates the possibility of shortcuts. Explicit examples come later. For now, analyze two Hadamards in a row. Pause and guess before reading on.",
-              "tr": "İkinci benzetme: satrançta kalene daha geniş bir hamle kümesi versen, mata daha çabuk varabilirsin. Dinamiği klasik olanın ötesine genişletmek, kestirme ihtimalini doğurur. Açık örnekler sonra gelecek. Şimdilik art arda iki Hadamard’ı incele. Okumadan önce tahmini yap."
+              "en": "A second analogy: if the rules of chess gave your rook a larger set of moves, you might reach checkmate faster.",
+              "tr": "İkinci benzetme: satrançta kalene daha geniş bir hamle kümesi versen, mata daha çabuk varabilirsin."
+            },
+            {
+              "t": 355.4,
+              "en": "Expanding the dynamics beyond the classical ones creates the possibility of shortcuts.",
+              "tr": "Dinamiği klasik olanın ötesine genişletmek, kestirme ihtimalini doğurur."
+            },
+            {
+              "t": 379.0,
+              "en": "Explicit examples come later.",
+              "tr": "Açık örnekler sonra gelecek."
+            },
+            {
+              "t": 387.0,
+              "en": "For now, analyze two Hadamards in a row.",
+              "tr": "Şimdilik art arda iki Hadamard’ı incele."
+            },
+            {
+              "t": 398.0,
+              "en": "Pause and guess before reading on.",
+              "tr": "Okumadan önce tahmini yap."
             },
             {
               "t": 407.4,
-              "en": "H|0⟩ = (|0⟩+|1⟩)/√2. The second H sends |0⟩ to (|0⟩+|1⟩)/√2 and |1⟩ to (|0⟩−|1⟩)/√2. The |1⟩ terms cancel, the |0⟩ terms add, and you get |0⟩ back. Starting from |1⟩, the |0⟩ terms cancel and you get |1⟩ back. Two Hadamards are a wire.",
-              "tr": "H|0⟩ = (|0⟩+|1⟩)/√2. İkinci H, |0⟩’ı (|0⟩+|1⟩)/√2’ye, |1⟩’i (|0⟩−|1⟩)/√2’ye götürür. |1⟩ terimleri birbirini götürür, |0⟩ terimleri toplanır, geriye |0⟩ kalır. |1⟩’den başlarsan |0⟩ terimleri birbirini götürür ve geriye |1⟩ kalır. İki Hadamard bir teldir."
+              "en": "H|0⟩ = (|0⟩+|1⟩)/√2. The second H sends |0⟩ to (|0⟩+|1⟩)/√2 and |1⟩ to (|0⟩−|1⟩)/√2. The |1⟩ terms cancel, the |0⟩ terms add, and you get |0⟩ back.",
+              "tr": "H|0⟩ = (|0⟩+|1⟩)/√2. İkinci H, |0⟩’ı (|0⟩+|1⟩)/√2’ye, |1⟩’i (|0⟩−|1⟩)/√2’ye götürür. |1⟩ terimleri birbirini götürür, |0⟩ terimleri toplanır, geriye |0⟩ kalır."
+            },
+            {
+              "t": 458.4,
+              "en": "Starting from |1⟩, the |0⟩ terms cancel and you get |1⟩ back.",
+              "tr": "|1⟩’den başlarsan |0⟩ terimleri birbirini götürür ve geriye |1⟩ kalır."
+            },
+            {
+              "t": 479.5,
+              "en": "Two Hadamards are a wire.",
+              "tr": "İki Hadamard bir teldir."
             },
             {
               "t": 488.2,
-              "en": "In matrices, H H |ψ⟩ and H² equals the identity. That is why the circuit is a wire. Now the question Nielsen wants you to sit with: why the minus sign in the bottom-right entry? Suppose a fake gate H̃ with all plus signs, (1/√2)[[1, 1], [1, 1]].",
-              "tr": "Matrisle, H H |ψ⟩ ve H² birim matrise eşittir. Devrenin tel olmasının sebebi bu. Nielsen’in üstünde durmanı istediği soru: sağ alt girişteki eksi neden var? Hepsi artı olan sahte bir kapı düşün, H̃ = (1/√2)[[1, 1], [1, 1]]."
+              "en": "In matrices, H H |ψ⟩ and H² equals the identity.",
+              "tr": "Matrisle, H H |ψ⟩ ve H² birim matrise eşittir."
+            },
+            {
+              "t": 504.7,
+              "en": "That is why the circuit is a wire.",
+              "tr": "Devrenin tel olmasının sebebi bu."
+            },
+            {
+              "t": 516.4,
+              "en": "Now the question Nielsen wants you to sit with: why the minus sign in the bottom-right entry?",
+              "tr": "Nielsen’in üstünde durmanı istediği soru: sağ alt girişteki eksi neden var?"
+            },
+            {
+              "t": 548.4,
+              "en": "Suppose a fake gate H̃ with all plus signs, (1/√2)[[1, 1], [1, 1]].",
+              "tr": "Hepsi artı olan sahte bir kapı düşün, H̃ = (1/√2)[[1, 1], [1, 1]]."
             },
             {
               "t": 571.4,
-              "en": "H̃ sends both |0⟩ and |1⟩ to the same vector (|0⟩+|1⟩)/√2. Feed it the legal state (|0⟩−|1⟩)/√2. The two images cancel and the output is the zero vector, which has length 0. A legal gate must send unit vectors to unit vectors. H̃ does not. H does. Nielsen will prove the general fact — unitaries preserve length — in a later video. Next is measurement, and why normalization is forced by probabilities adding to 1.",
-              "tr": "H̃ hem |0⟩’ı hem |1⟩’i aynı vektöre, (|0⟩+|1⟩)/√2’ye gönderir. Ona yasal bir durum ver, (|0⟩−|1⟩)/√2. İki görüntü birbirini götürür ve çıktı sıfır vektörüdür; uzunluğu 0’dır. Yasal bir kapı, birim vektörü birim vektöre göndermelidir. H̃ göndermez. H gönderir. Nielsen, uzunluğu koruyan şeyin üniter olduğu genel olguyu sonraki bir videoda kanıtlayacak. Sırada ölçüm var ve normalizasyonun, olasılıkların toplamının 1 olmasından geldiği."
+              "en": "H̃ sends both |0⟩ and |1⟩ to the same vector (|0⟩+|1⟩)/√2. Feed it the legal state (|0⟩−|1⟩)/√2. The two images cancel and the output is the zero vector, which has length 0. A legal gate must send unit vectors to unit vectors.",
+              "tr": "H̃ hem |0⟩’ı hem |1⟩’i aynı vektöre, (|0⟩+|1⟩)/√2’ye gönderir. Ona yasal bir durum ver, (|0⟩−|1⟩)/√2. İki görüntü birbirini götürür ve çıktı sıfır vektörüdür; uzunluğu 0’dır. Yasal bir kapı, birim vektörü birim vektöre göndermelidir."
+            },
+            {
+              "t": 615.8,
+              "en": "H̃ does not.",
+              "tr": "H̃ göndermez. H gönderir."
+            },
+            {
+              "t": 618.1,
+              "en": "H does.",
+              "tr": "H does."
+            },
+            {
+              "t": 620.5,
+              "en": "Nielsen will prove the general fact — unitaries preserve length — in a later video.",
+              "tr": "Nielsen, uzunluğu koruyan şeyin üniter olduğu genel olguyu sonraki bir videoda kanıtlayacak."
+            },
+            {
+              "t": 636.8,
+              "en": "Next is measurement, and why normalization is forced by probabilities adding to 1.",
+              "tr": "Sırada ölçüm var ve normalizasyonun, olasılıkların toplamının 1 olmasından geldiği."
             },
             {
               "t": 652.9,
-              "en": "The minus sign is not decoration. Without it, two different inputs can be crushed to the same output, and a normalized state can be sent to nothing.",
-              "tr": "Eksi işaret süs değil. O olmadan iki farklı girdi aynı çıktıya ezilebilir ve boyu 1 olan bir durum hiçe gönderilebilir."
+              "en": "The minus sign is not decoration.",
+              "tr": "Eksi işaret süs değil."
+            },
+            {
+              "t": 671.0,
+              "en": "Without it, two different inputs can be crushed to the same output, and a normalized state can be sent to nothing.",
+              "tr": "O olmadan iki farklı girdi aynı çıktıya ezilebilir ve boyu 1 olan bir durum hiçe gönderilebilir."
             },
             {
               "t": 733.7,
@@ -302,8 +862,13 @@ const COURSE = {
             },
             {
               "t": 816.6,
-              "en": "The next video leaves gates for a moment and asks what it means to measure a qubit and read information out of it. Measurement is tied to the normalization condition, and it is how a general single-qubit gate will later be understood.",
-              "tr": "Sonraki video bir an kapılardan ayrılıp bir kübiti ölçmenin ve ondan bilgi okumanın ne demek olduğunu sorar. Ölçüm, normalizasyon şartına bağlıdır ve genel tek kübit kapısı daha sonra bunun üzerinden anlaşılır."
+              "en": "The next video leaves gates for a moment and asks what it means to measure a qubit and read information out of it.",
+              "tr": "Sonraki video bir an kapılardan ayrılıp bir kübiti ölçmenin ve ondan bilgi okumanın ne demek olduğunu sorar."
+            },
+            {
+              "t": 825.4,
+              "en": "Measurement is tied to the normalization condition, and it is how a general single-qubit gate will later be understood.",
+              "tr": "Ölçüm, normalizasyon şartına bağlıdır ve genel tek kübit kapısı daha sonra bunun üzerinden anlaşılır."
             }
           ]
         },
@@ -338,48 +903,188 @@ const COURSE = {
           "cues": [
             {
               "t": 0.9,
-              "en": "Someone hands you a qubit in an unknown state α|0⟩ + β|1⟩ and asks you to determine α and β. The answer is no. It is fundamentally impossible. The quantum state of a system is not directly observable. The best you can do is partial information about α and β.",
-              "tr": "Biri sana bilinmeyen bir durumda, α|0⟩ + β|1⟩, bir kübit uzatıyor ve α ile β’yi bulmanı istiyor. Cevap hayır. Bu temelden imkânsız. Bir sistemin kuantum durumu doğrudan gözlenemez. Yapabileceğinin en iyisi, α ve β hakkında kısmi bilgidir."
+              "en": "Someone hands you a qubit in an unknown state α|0⟩ + β|1⟩ and asks you to determine α and β.",
+              "tr": "Biri sana bilinmeyen bir durumda, α|0⟩ + β|1⟩, bir kübit uzatıyor ve α ile β’yi bulmanı istiyor."
+            },
+            {
+              "t": 30.6,
+              "en": "The answer is no.",
+              "tr": "Cevap hayır."
+            },
+            {
+              "t": 36.0,
+              "en": "It is fundamentally impossible.",
+              "tr": "Bu temelden imkânsız."
+            },
+            {
+              "t": 46.0,
+              "en": "The quantum state of a system is not directly observable.",
+              "tr": "Bir sistemin kuantum durumu doğrudan gözlenemez."
+            },
+            {
+              "t": 64.4,
+              "en": "The best you can do is partial information about α and β.",
+              "tr": "Yapabileceğinin en iyisi, α ve β hakkında kısmi bilgidir."
             },
             {
               "t": 82.8,
-              "en": "The process that extracts that partial information is measurement in the computational basis. It is how we read a result out of a quantum computer. For one qubit: you get the classical bit 0 with probability |α|², and 1 with probability |β|². Later this generalizes to many qubits.",
-              "tr": "O kısmi bilgiyi çıkaran süreç, hesaplama bazında ölçümdür. Bir kuantum bilgisayardan sonucu böyle okuruz. Tek kübit için: |α|² olasılıkla klasik bit 0, |β|² olasılıkla 1 görürsün. Bu sonra çok kübitli sistemlere genellenir."
+              "en": "The process that extracts that partial information is measurement in the computational basis.",
+              "tr": "O kısmi bilgiyi çıkaran süreç, hesaplama bazında ölçümdür."
+            },
+            {
+              "t": 109.8,
+              "en": "It is how we read a result out of a quantum computer.",
+              "tr": "Bir kuantum bilgisayardan sonucu böyle okuruz."
+            },
+            {
+              "t": 125.2,
+              "en": "For one qubit: you get the classical bit 0 with probability |α|², and 1 with probability |β|².",
+              "tr": "Tek kübit için: |α|² olasılıkla klasik bit 0, |β|² olasılıkla 1 görürsün."
+            },
+            {
+              "t": 152.6,
+              "en": "Later this generalizes to many qubits.",
+              "tr": "Bu sonra çok kübitli sistemlere genellenir."
             },
             {
               "t": 163.6,
-              "en": "Picture the qubit as an atom in the lab and a large apparatus — lasers, electronics, a screen — interacting with it. The apparatus returns an outcome, 0 or 1. The outcome is classical information. You can use it to control other processes. In a computation you prepare a state, apply gates, and typically measure at the end to read the result.",
-              "tr": "Kübiti laboratuvardaki bir atom gibi, aleti de onunla etkileşen büyük bir cihaz gibi düşün: lazer, elektronik, ekran. Cihaz bir sonuç döner, 0 ya da 1. Sonuç klasik bilgidir. Onu başka süreçleri yönetmek için kullanabilirsin. Bir hesapta durum hazırlanır, kapılar uygulanır ve tipik olarak sonda sonucu okumak için ölçülür."
+              "en": "Picture the qubit as an atom in the lab and a large apparatus — lasers, electronics, a screen — interacting with it.",
+              "tr": "Kübiti laboratuvardaki bir atom gibi, aleti de onunla etkileşen büyük bir cihaz gibi düşün: lazer, elektronik, ekran."
+            },
+            {
+              "t": 191.7,
+              "en": "The apparatus returns an outcome, 0 or 1. The outcome is classical information.",
+              "tr": "Cihaz bir sonuç döner, 0 ya da 1. Sonuç klasik bilgidir."
+            },
+            {
+              "t": 210.9,
+              "en": "You can use it to control other processes.",
+              "tr": "Onu başka süreçleri yönetmek için kullanabilirsin."
+            },
+            {
+              "t": 221.1,
+              "en": "In a computation you prepare a state, apply gates, and typically measure at the end to read the result.",
+              "tr": "Bir hesapta durum hazırlanır, kapılar uygulanır ve tipik olarak sonda sonucu okumak için ölçülür."
             },
             {
               "t": 246.1,
-              "en": "Measurement disturbs the state. If the outcome is 0, the qubit is left in |0⟩. If the outcome is 1, it is left in |1⟩. Afterward there is no trace of the original α and β. You cannot extract any more information about them. They were hidden, and the measurement spent them.",
-              "tr": "Ölçüm durumu bozar. Sonuç 0 ise kübit |0⟩’da kalır. Sonuç 1 ise |1⟩’de kalır. Sonrasında özgün α ve β’den iz kalmaz. Onlar hakkında daha fazla bilgi çıkaramazsın. Gizliydiler ve ölçüm onları harcadı."
+              "en": "Measurement disturbs the state.",
+              "tr": "Ölçüm durumu bozar."
+            },
+            {
+              "t": 255.4,
+              "en": "If the outcome is 0, the qubit is left in |0⟩.",
+              "tr": "Sonuç 0 ise kübit |0⟩’da kalır."
+            },
+            {
+              "t": 269.1,
+              "en": "If the outcome is 1, it is left in |1⟩.",
+              "tr": "Sonuç 1 ise |1⟩’de kalır."
+            },
+            {
+              "t": 280.7,
+              "en": "Afterward there is no trace of the original α and β.",
+              "tr": "Sonrasında özgün α ve β’den iz kalmaz."
+            },
+            {
+              "t": 296.2,
+              "en": "You cannot extract any more information about them.",
+              "tr": "Onlar hakkında daha fazla bilgi çıkaramazsın."
+            },
+            {
+              "t": 311.5,
+              "en": "They were hidden, and the measurement spent them.",
+              "tr": "Gizliydiler ve ölçüm onları harcadı."
             },
             {
               "t": 326.1,
-              "en": "One consequence: you cannot store an infinite amount of classical information in a qubit. α is a complex number; its real part has an infinite binary expansion. If you could read α exactly, a qubit would be an infinite classical memory. Quantum mechanics does not allow that readout.",
-              "tr": "Bir sonuç: bir kübite sonsuz klasik bilgi sığdıramazsın. α bir karmaşık sayıdır; gerçel kısmının sonsuz bir ikili açılımı vardır. α’yı tam okuyabilseydin kübit sonsuz bir klasik bellek olurdu. Kuantum mekaniği bu okumaya izin vermez."
+              "en": "One consequence: you cannot store an infinite amount of classical information in a qubit.",
+              "tr": "Bir sonuç: bir kübite sonsuz klasik bilgi sığdıramazsın."
+            },
+            {
+              "t": 351.6,
+              "en": "α is a complex number; its real part has an infinite binary expansion.",
+              "tr": "α bir karmaşık sayıdır; gerçel kısmının sonsuz bir ikili açılımı vardır."
+            },
+            {
+              "t": 371.6,
+              "en": "If you could read α exactly, a qubit would be an infinite classical memory.",
+              "tr": "α’yı tam okuyabilseydin kübit sonsuz bir klasik bellek olurdu."
+            },
+            {
+              "t": 393.0,
+              "en": "Quantum mechanics does not allow that readout.",
+              "tr": "Kuantum mekaniği bu okumaya izin vermez."
             },
             {
               "t": 406.2,
-              "en": "There are other measurements. Computational-basis measurement plus gates such as H and X can simulate an arbitrary quantum measurement, so in principle this is the measurement you need. Example: the state (|0⟩+|1⟩)/√2. Each amplitude has absolute value 1/√2, and the square is 1/2. You see 0 or 1 with probability 1/2 each, and the qubit collapses to the outcome you saw.",
-              "tr": "Başka ölçümler de vardır. Hesaplama bazı ölçümü, H ve X gibi kapılarla birlikte keyfi bir kuantum ölçümünü taklit edebilir; prensipte ihtiyacın olan ölçüm budur. Örnek: (|0⟩+|1⟩)/√2. Her genliğin mutlak değeri 1/√2, karesi 1/2’dir. 0 ya da 1’i 1/2 olasılıkla görürsün ve kübit gördüğün sonuca çöker."
+              "en": "There are other measurements.",
+              "tr": "Başka ölçümler de vardır."
+            },
+            {
+              "t": 412.6,
+              "en": "Computational-basis measurement plus gates such as H and X can simulate an arbitrary quantum measurement, so in principle this is the measurement you need.",
+              "tr": "Hesaplama bazı ölçümü, H ve X gibi kapılarla birlikte keyfi bir kuantum ölçümünü taklit edebilir; prensipte ihtiyacın olan ölçüm budur."
+            },
+            {
+              "t": 447.0,
+              "en": "Example: the state (|0⟩+|1⟩)/√2. Each amplitude has absolute value 1/√2, and the square is 1/2. You see 0 or 1 with probability 1/2 each, and the qubit collapses to the outcome you saw.",
+              "tr": "Örnek: (|0⟩+|1⟩)/√2. Her genliğin mutlak değeri 1/√2, karesi 1/2’dir. 0 ya da 1’i 1/2 olasılıkla görürsün ve kübit gördüğün sonuca çöker."
             },
             {
               "t": 488.0,
-              "en": "In a circuit, measurement is drawn as a meter. The classical outcome is often called m and drawn as a double wire, leaving to be used in classical post-processing. The qubit is now |0⟩ or |1⟩. The usual convention is not to draw a quantum wire coming out: after measurement the qubit is typically discarded. That is not always true, but the symbol assumes it.",
-              "tr": "Devrede ölçüm bir sayaç olarak çizilir. Klasik sonuç çoğu zaman m diye adlandırılır ve çift çizgili bir telle, klasik son işleme gitmek üzere çizilir. Kübit artık |0⟩ ya da |1⟩’dir. Alışılmış sözleşmede çıkan bir kuantum tel çizilmez: ölçümden sonra kübit genellikle atılır. Bu her zaman doğru değildir ama sembol bunu varsayar."
+              "en": "In a circuit, measurement is drawn as a meter.",
+              "tr": "Devrede ölçüm bir sayaç olarak çizilir."
+            },
+            {
+              "t": 498.7,
+              "en": "The classical outcome is often called m and drawn as a double wire, leaving to be used in classical post-processing.",
+              "tr": "Klasik sonuç çoğu zaman m diye adlandırılır ve çift çizgili bir telle, klasik son işleme gitmek üzere çizilir."
+            },
+            {
+              "t": 525.5,
+              "en": "The qubit is now |0⟩ or |1⟩.",
+              "tr": "Kübit artık |0⟩ ya da |1⟩’dir."
+            },
+            {
+              "t": 532.0,
+              "en": "The usual convention is not to draw a quantum wire coming out: after measurement the qubit is typically discarded.",
+              "tr": "Alışılmış sözleşmede çıkan bir kuantum tel çizilmez: ölçümden sonra kübit genellikle atılır."
+            },
+            {
+              "t": 558.4,
+              "en": "That is not always true, but the symbol assumes it.",
+              "tr": "Bu her zaman doğru değildir ama sembol bunu varsayar."
             },
             {
               "t": 570.2,
-              "en": "Normalization is the same fact in another costume. The probabilities of 0 and 1 must add to 1, so |α|² + |β|² = 1. The state vector has length 1 because the measurement probabilities add to 1. The next Nielsen videos treat general single-qubit gates. Those are the next block of this course, still locked.",
-              "tr": "Normalizasyon, aynı olgunun başka kılığıdır. 0 ve 1 olasılıkları toplamı 1 olmalıdır, yani |α|² + |β|² = 1. Durum vektörünün uzunluğu 1’dir, çünkü ölçüm olasılıkları toplamı 1’dir. Nielsen’in sonraki videoları genel tek kübit kapılarını işler. Onlar bu dersin sonraki bloğu ve henüz kilitli."
+              "en": "Normalization is the same fact in another costume.",
+              "tr": "Normalizasyon, aynı olgunun başka kılığıdır."
+            },
+            {
+              "t": 584.0,
+              "en": "The probabilities of 0 and 1 must add to 1, so |α|² + |β|² = 1. The state vector has length 1 because the measurement probabilities add to 1. The next Nielsen videos treat general single-qubit gates.",
+              "tr": "0 ve 1 olasılıkları toplamı 1 olmalıdır, yani |α|² + |β|² = 1. Durum vektörünün uzunluğu 1’dir, çünkü ölçüm olasılıkları toplamı 1’dir. Nielsen’in sonraki videoları genel tek kübit kapılarını işler."
+            },
+            {
+              "t": 638.7,
+              "en": "Those are the next block of this course, still locked.",
+              "tr": "Onlar bu dersin sonraki bloğu ve henüz kilitli."
             },
             {
               "t": 653.6,
-              "en": "Hold this: a phase of −1 does not change |α|². A meter cannot see the sign. Anything that cares about the sign has to look at the state vector, not at a histogram of shots.",
-              "tr": "Şunu tut: −1 fazı |α|²’yi değiştirmez. Bir sayaç işareti göremez. İşaretin peşindeki her şey, atış histogramına değil durum vektörüne bakmalıdır."
+              "en": "Hold this: a phase of −1 does not change |α|².",
+              "tr": "Şunu tut: −1 fazı |α|²’yi değiştirmez."
+            },
+            {
+              "t": 657.1,
+              "en": "A meter cannot see the sign.",
+              "tr": "Bir sayaç işareti göremez."
+            },
+            {
+              "t": 659.3,
+              "en": "Anything that cares about the sign has to look at the state vector, not at a histogram of shots.",
+              "tr": "İşaretin peşindeki her şey, atış histogramına değil durum vektörüne bakmalıdır."
             }
           ]
         },
@@ -414,38 +1119,158 @@ const COURSE = {
           "cues": [
             {
               "t": 0.5,
-              "en": "Single qubits are not enough for a computation. We add one two-qubit gate: the controlled-NOT, also written CNOT or CX. In a circuit it is two wires, a dot on the control and a plus on the target. The top wire in Nielsen’s drawing is the control. The bottom wire is the target.",
-              "tr": "Tek kübitler bir hesap için yetmez. Bir tane iki kübitlik kapı ekleriz: kontrollü NOT, kısaca CNOT ya da CX. Devrede iki tel, kontrolde bir nokta, hedefte bir artıdır. Nielsen’in çiziminde üst tel kontroldür. Alt tel hedeftir."
+              "en": "Single qubits are not enough for a computation.",
+              "tr": "Tek kübitler bir hesap için yetmez."
+            },
+            {
+              "t": 14.3,
+              "en": "We add one two-qubit gate: the controlled-NOT, also written CNOT or CX.",
+              "tr": "Bir tane iki kübitlik kapı ekleriz: kontrollü NOT, kısaca CNOT ya da CX."
+            },
+            {
+              "t": 35.2,
+              "en": "In a circuit it is two wires, a dot on the control and a plus on the target.",
+              "tr": "Devrede iki tel, kontrolde bir nokta, hedefte bir artıdır."
+            },
+            {
+              "t": 57.5,
+              "en": "The top wire in Nielsen’s drawing is the control.",
+              "tr": "Nielsen’in çiziminde üst tel kontroldür."
+            },
+            {
+              "t": 71.9,
+              "en": "The bottom wire is the target.",
+              "tr": "Alt tel hedeftir."
             },
             {
               "t": 80.7,
-              "en": "Two qubits have four computational basis states: |00⟩, |01⟩, |10⟩, |11⟩. A general state is a superposition with four amplitudes, and the sum of the squares of their absolute values is 1. The same normalization as for one qubit. CNOT is, on the basis, a classical gate. If the control is |1⟩, it flips the target. If the control is |0⟩, it does nothing.",
-              "tr": "İki kübitin dört hesaplama bazı durumu vardır: |00⟩, |01⟩, |10⟩, |11⟩. Genel durum dört genlikli bir süperpozisyondur ve mutlak karelerin toplamı 1’dir. Tek kübitteki normalizasyonun aynısı. CNOT, baz üzerinde klasik bir kapıdır. Kontrol |1⟩ ise hedefi tersler. Kontrol |0⟩ ise hiçbir şey yapmaz."
+              "en": "Two qubits have four computational basis states: |00⟩, |01⟩, |10⟩, |11⟩.",
+              "tr": "İki kübitin dört hesaplama bazı durumu vardır: |00⟩, |01⟩, |10⟩, |11⟩."
+            },
+            {
+              "t": 97.3,
+              "en": "A general state is a superposition with four amplitudes, and the sum of the squares of their absolute values is 1. The same normalization as for one qubit.",
+              "tr": "Genel durum dört genlikli bir süperpozisyondur ve mutlak karelerin toplamı 1’dir. Tek kübitteki normalizasyonun aynısı."
+            },
+            {
+              "t": 133.2,
+              "en": "CNOT is, on the basis, a classical gate.",
+              "tr": "CNOT, baz üzerinde klasik bir kapıdır."
+            },
+            {
+              "t": 142.4,
+              "en": "If the control is |1⟩, it flips the target.",
+              "tr": "Kontrol |1⟩ ise hedefi tersler."
+            },
+            {
+              "t": 152.4,
+              "en": "If the control is |0⟩, it does nothing.",
+              "tr": "Kontrol |0⟩ ise hiçbir şey yapmaz."
             },
             {
               "t": 161.4,
-              "en": "So |00⟩ stays |00⟩, |01⟩ stays |01⟩, |10⟩ becomes |11⟩, and |11⟩ becomes |10⟩. In bits: |x⟩|y⟩ goes to |x⟩|y XOR x⟩, addition modulo 2. On superpositions the four actions apply linearly. That is the whole gate.",
-              "tr": "Yani |00⟩ kalır |00⟩, |01⟩ kalır |01⟩, |10⟩ olur |11⟩, |11⟩ olur |10⟩. Bitlerle: |x⟩|y⟩ gider |x⟩|y XOR x⟩, mod 2 toplama. Süperpozisyonda bu dört hareket lineer uygulanır. Kapının tamamı budur."
+              "en": "So |00⟩ stays |00⟩, |01⟩ stays |01⟩, |10⟩ becomes |11⟩, and |11⟩ becomes |10⟩.",
+              "tr": "Yani |00⟩ kalır |00⟩, |01⟩ kalır |01⟩, |10⟩ olur |11⟩, |11⟩ olur |10⟩."
+            },
+            {
+              "t": 192.3,
+              "en": "In bits: |x⟩|y⟩ goes to |x⟩|y XOR x⟩, addition modulo 2. On superpositions the four actions apply linearly.",
+              "tr": "Bitlerle: |x⟩|y⟩ gider |x⟩|y XOR x⟩, mod 2 toplama. Süperpozisyonda bu dört hareket lineer uygulanır."
+            },
+            {
+              "t": 234.7,
+              "en": "That is the whole gate.",
+              "tr": "Kapının tamamı budur."
             },
             {
               "t": 243.8,
-              "en": "As a matrix it is 4×4, because the state is a four-component vector (α for |00⟩, β for |01⟩, γ for |10⟩, δ for |11⟩). The first two basis vectors are fixed. The third, |10⟩, is sent to |11⟩. The fourth, |11⟩, is sent to |10⟩. The matrix is unitary, like the single-qubit gates. It is useful when you want to check an identity.",
-              "tr": "Matris olarak 4×4’tür, çünkü durum dört bileşenli bir vektördür (|00⟩ için α, |01⟩ için β, |10⟩ için γ, |11⟩ için δ). İlk iki baz vektörü sabit kalır. Üçüncü, |10⟩, |11⟩’e gider. Dördüncü, |11⟩, |10⟩’a gider. Matris, tek kübit kapıları gibi üniterdir. Bir kimliği kontrol etmek istediğinde işe yarar."
+              "en": "As a matrix it is 4×4, because the state is a four-component vector (α for |00⟩, β for |01⟩, γ for |10⟩, δ for |11⟩).",
+              "tr": "Matris olarak 4×4’tür, çünkü durum dört bileşenli bir vektördür (|00⟩ için α, |01⟩ için β, |10⟩ için γ, |11⟩ için δ)."
+            },
+            {
+              "t": 274.6,
+              "en": "The first two basis vectors are fixed.",
+              "tr": "İlk iki baz vektörü sabit kalır."
+            },
+            {
+              "t": 284.6,
+              "en": "The third, |10⟩, is sent to |11⟩.",
+              "tr": "Üçüncü, |10⟩, |11⟩’e gider."
+            },
+            {
+              "t": 293.2,
+              "en": "The fourth, |11⟩, is sent to |10⟩.",
+              "tr": "Dördüncü, |11⟩, |10⟩’a gider."
+            },
+            {
+              "t": 302.2,
+              "en": "The matrix is unitary, like the single-qubit gates.",
+              "tr": "Matris, tek kübit kapıları gibi üniterdir."
+            },
+            {
+              "t": 315.6,
+              "en": "It is useful when you want to check an identity.",
+              "tr": "Bir kimliği kontrol etmek istediğinde işe yarar."
             },
             {
               "t": 328.2,
-              "en": "In a larger circuit the untouched wires stay put. On a computational basis state, CNOT leaves the control as it is and flips the target when the control bit is 1. Nielsen then shows that “classical” does not mean the gate is boring. Start from |00⟩, apply H to the first qubit, then CNOT.",
-              "tr": "Daha büyük bir devrede dokunulmayan teller yerinde kalır. Bir hesaplama bazı durumunda CNOT kontrolü olduğu gibi bırakır ve kontrol biti 1 ise hedefi tersler. Nielsen sonra “klasik” demenin kapının sıkıcı olduğu anlamına gelmediğini gösterir. |00⟩’dan başla, ilk kübite H uygula, sonra CNOT."
+              "en": "In a larger circuit the untouched wires stay put.",
+              "tr": "Daha büyük bir devrede dokunulmayan teller yerinde kalır."
+            },
+            {
+              "t": 342.2,
+              "en": "On a computational basis state, CNOT leaves the control as it is and flips the target when the control bit is 1. Nielsen then shows that “classical” does not mean the gate is boring.",
+              "tr": "Bir hesaplama bazı durumunda CNOT kontrolü olduğu gibi bırakır ve kontrol biti 1 ise hedefi tersler. Nielsen sonra “klasik” demenin kapının sıkıcı olduğu anlamına gelmediğini gösterir."
+            },
+            {
+              "t": 394.3,
+              "en": "Start from |00⟩, apply H to the first qubit, then CNOT.",
+              "tr": "|00⟩’dan başla, ilk kübite H uygula, sonra CNOT."
             },
             {
               "t": 410.0,
-              "en": "H on the first qubit of |00⟩ produces (|00⟩ + |10⟩)/√2. The second qubit is still |0⟩. CNOT leaves |00⟩ alone and sends |10⟩ to |11⟩. The output is (|00⟩ + |11⟩)/√2.",
-              "tr": "|00⟩’ın ilk kübitine H, (|00⟩ + |10⟩)/√2 üretir. İkinci kübit hâlâ |0⟩’dadır. CNOT |00⟩’a dokunmaz, |10⟩’ı |11⟩ yapar. Çıktı (|00⟩ + |11⟩)/√2 olur."
+              "en": "H on the first qubit of |00⟩ produces (|00⟩ + |10⟩)/√2. The second qubit is still |0⟩.",
+              "tr": "|00⟩’ın ilk kübitine H, (|00⟩ + |10⟩)/√2 üretir. İkinci kübit hâlâ |0⟩’dadır."
+            },
+            {
+              "t": 453.3,
+              "en": "CNOT leaves |00⟩ alone and sends |10⟩ to |11⟩.",
+              "tr": "CNOT |00⟩’a dokunmaz, |10⟩’ı |11⟩ yapar."
+            },
+            {
+              "t": 476.5,
+              "en": "The output is (|00⟩ + |11⟩)/√2.",
+              "tr": "Çıktı (|00⟩ + |11⟩)/√2 olur."
             },
             {
               "t": 492.1,
-              "en": "That state is entangled. There is no way to read it as “each qubit has its own classical bit.” Nielsen will use states like this in superdense coding and teleportation, which are outside this first block. The news to keep: CNOT plus single-qubit gates such as H can create non-classical states. With those pieces, Nielsen says, you have what you need for any quantum computation. The next video of his series is universal computation. It is in the locked block.",
-              "tr": "Bu durum dolanıktır. Onu “her kübitin kendi klasik biti var” diye okuyamazsın. Nielsen buna benzer durumları süperyoğun kodlama ve teleportasyonda kullanacak; ikisi de bu ilk bloğun dışında. Tutulacak haber: CNOT artı H gibi tek kübit kapıları, klasik olmayan durumlar üretebilir. Nielsen, bu parçalarla her kuantum hesap için gerekenin elinde olduğunu söyler. Serisinin sonraki videosu evrensel hesaplamadır. O, kilitli bloktadır."
+              "en": "That state is entangled.",
+              "tr": "Bu durum dolanıktır."
+            },
+            {
+              "t": 496.3,
+              "en": "There is no way to read it as “each qubit has its own classical bit.” Nielsen will use states like this in superdense coding and teleportation, which are outside this first block.",
+              "tr": "Onu “her kübitin kendi klasik biti var” diye okuyamazsın. Nielsen buna benzer durumları süperyoğun kodlama ve teleportasyonda kullanacak; ikisi de bu ilk bloğun dışında."
+            },
+            {
+              "t": 527.9,
+              "en": "The news to keep: CNOT plus single-qubit gates such as H can create non-classical states.",
+              "tr": "Tutulacak haber: CNOT artı H gibi tek kübit kapıları, klasik olmayan durumlar üretebilir."
+            },
+            {
+              "t": 543.6,
+              "en": "With those pieces, Nielsen says, you have what you need for any quantum computation.",
+              "tr": "Nielsen, bu parçalarla her kuantum hesap için gerekenin elinde olduğunu söyler."
+            },
+            {
+              "t": 558.5,
+              "en": "The next video of his series is universal computation.",
+              "tr": "Serisinin sonraki videosu evrensel hesaplamadır."
+            },
+            {
+              "t": 568.0,
+              "en": "It is in the locked block.",
+              "tr": "O, kilitli bloktadır."
             },
             {
               "t": 572.6,
@@ -481,73 +1306,403 @@ const COURSE = {
           "cues": [
             {
               "t": 0.0,
-              "en": "A common popular summary says a quantum computer holds every bit string at once in a superposition and therefore does a classical computation on all of them in parallel. Grant Sanderson thinks this summary causes a specific wrong intuition. He sets a quiz. A mystery function hides one secret number in 0 … n−1. You may only test numbers. Classically, guess-and-check takes on the order of n tries: on average about n/2.",
-              "tr": "Yaygın bir popüler özet der ki kuantum bilgisayar her bit dizisini süperpozisyonda bir arada tutar ve bu yüzden klasik hesabı hepsine paralel uygular. Grant Sanderson bu özetin belirli bir yanlış sezgi ürettiğini düşünür. Bir sınav kurar. Gizemli bir fonksiyon, 0 … n−1 arasında bir gizli sayı saklar. Yalnızca sayı deneyebilirsin. Klasik olarak dene-ve-bak, n mertebesinde deneme ister: ortalamada yaklaşık n/2."
+              "en": "A common popular summary says a quantum computer holds every bit string at once in a superposition and therefore does a classical computation on all of them in parallel.",
+              "tr": "Yaygın bir popüler özet der ki kuantum bilgisayar her bit dizisini süperpozisyonda bir arada tutar ve bu yüzden klasik hesabı hepsine paralel uygular."
+            },
+            {
+              "t": 33.1,
+              "en": "Grant Sanderson thinks this summary causes a specific wrong intuition.",
+              "tr": "Grant Sanderson bu özetin belirli bir yanlış sezgi ürettiğini düşünür. Bir sınav kurar."
+            },
+            {
+              "t": 46.8,
+              "en": "He sets a quiz.",
+              "tr": "He sets a quiz."
+            },
+            {
+              "t": 49.7,
+              "en": "A mystery function hides one secret number in 0 … n−1. You may only test numbers.",
+              "tr": "Gizemli bir fonksiyon, 0 … n−1 arasında bir gizli sayı saklar. Yalnızca sayı deneyebilirsin."
+            },
+            {
+              "t": 65.6,
+              "en": "Classically, guess-and-check takes on the order of n tries: on average about n/2.",
+              "tr": "Klasik olarak dene-ve-bak, n mertebesinde deneme ister: ortalamada yaklaşık n/2."
             },
             {
               "t": 81.4,
-              "en": "Computer scientists write that runtime O(n). The big O says the factor that scales is n; constants like 1/2 are hidden. The quiz: on a quantum computer, what is the best runtime for the same search? The options he offers are O(√n), O(log n), O(log log n), and O(1). He has not defined quantum computing yet. The question is a gut check, not a grade.",
-              "tr": "Bilgisayar bilimciler bu süreyi O(n) yazar. Büyük O, ölçeği belirleyen çarpanın n olduğunu söyler; 1/2 gibi sabitler gizlenir. Sınav: aynı arama bir kuantum bilgisayarda en iyi hangi sürede biter? Seçenekleri O(√n), O(log n), O(log log n) ve O(1). Kuantum hesaplamayı henüz tanımlamadı. Soru bir not değil, bir sezgi kontrolü."
+              "en": "Computer scientists write that runtime O(n).",
+              "tr": "Bilgisayar bilimciler bu süreyi O(n) yazar."
+            },
+            {
+              "t": 91.7,
+              "en": "The big O says the factor that scales is n; constants like 1/2 are hidden.",
+              "tr": "Büyük O, ölçeği belirleyen çarpanın n olduğunu söyler; 1/2 gibi sabitler gizlenir."
+            },
+            {
+              "t": 108.9,
+              "en": "The quiz: on a quantum computer, what is the best runtime for the same search?",
+              "tr": "Sınav: aynı arama bir kuantum bilgisayarda en iyi hangi sürede biter?"
+            },
+            {
+              "t": 127.2,
+              "en": "The options he offers are O(√n), O(log n), O(log log n), and O(1).",
+              "tr": "Seçenekleri O(√n), O(log n), O(log log n) ve O(1)."
+            },
+            {
+              "t": 142.6,
+              "en": "He has not defined quantum computing yet.",
+              "tr": "Kuantum hesaplamayı henüz tanımlamadı."
+            },
+            {
+              "t": 152.1,
+              "en": "The question is a gut check, not a grade.",
+              "tr": "Soru bir not değil, bir sezgi kontrolü."
             },
             {
               "t": 161.7,
-              "en": "In a YouTube poll, in a Stanford lecture, and at the International Math Olympiad, the most common answer is O(1). That is wrong, and it comes from the parallel-universe summary: put all n values into a superposition, process them at once, read the answer. The second most common answer is O(log n), an exponential speedup. That happens for a few special problems. Shor’s factoring algorithm is the famous case. Most problems are not like that. The correct answer here is O(√n).",
-              "tr": "Bir YouTube anketinde, bir Stanford dersinde ve Uluslararası Matematik Olimpiyatı’nda en sık cevap O(1)’dir. Bu yanlıştır ve paralel-evren özetinden gelir: n değeri süperpozisyona koy, hepsini birden işle, cevabı oku. İkinci sık cevap O(log n), yani üstel bir hızlanma. Bu, birkaç özel problemde olur. Shor’un çarpanlara ayırma algoritması ünlü örnektir. Problemlerin çoğu böyle değildir. Buradaki doğru cevap O(√n)’dir."
+              "en": "In a YouTube poll, in a Stanford lecture, and at the International Math Olympiad, the most common answer is O(1).",
+              "tr": "Bir YouTube anketinde, bir Stanford dersinde ve Uluslararası Matematik Olimpiyatı’nda en sık cevap O(1)’dir."
+            },
+            {
+              "t": 181.0,
+              "en": "That is wrong, and it comes from the parallel-universe summary: put all n values into a superposition, process them at once, read the answer.",
+              "tr": "Bu yanlıştır ve paralel-evren özetinden gelir: n değeri süperpozisyona koy, hepsini birden işle, cevabı oku."
+            },
+            {
+              "t": 205.2,
+              "en": "The second most common answer is O(log n), an exponential speedup.",
+              "tr": "İkinci sık cevap O(log n), yani üstel bir hızlanma."
+            },
+            {
+              "t": 216.5,
+              "en": "That happens for a few special problems.",
+              "tr": "Bu, birkaç özel problemde olur."
+            },
+            {
+              "t": 223.3,
+              "en": "Shor’s factoring algorithm is the famous case.",
+              "tr": "Shor’un çarpanlara ayırma algoritması ünlü örnektir."
+            },
+            {
+              "t": 231.2,
+              "en": "Most problems are not like that.",
+              "tr": "Problemlerin çoğu böyle değildir."
+            },
+            {
+              "t": 236.7,
+              "en": "The correct answer here is O(√n).",
+              "tr": "Buradaki doğru cevap O(√n)’dir."
             },
             {
               "t": 242.3,
-              "en": "In 1994 it was proved you cannot beat O(√n) on this task. Two years later Lov Grover gave a procedure that achieves it. A million possibilities take on the order of a thousand steps. The precise count hides a factor of π/4. The puzzle is a stand-in for any problem where a solution is easy to check and hard to find, the NP problems. A square-root speedup is not an exponential one. It is still striking that one method speeds up that whole class. The rest of his video walks through Grover. This lesson stops at the state vector and the minus sign.",
-              "tr": "1994’te bu işte O(√n)’yi geçemeyeceğin kanıtlandı. İki yıl sonra Lov Grover bunu başaran bir yöntem verdi. Bir milyon olasılık, bin adım mertebesinde sürer. Kesin sayı, π/4 çarpanını gizler. Bulmaca, çözümün kontrolü kolay, bulunması zor olan her problemin vekilidir; NP problemleri. Karekök hızlanma, üstel bir hızlanma değildir. Yine de tek bir yöntemin bütün bu sınıfı hızlandırması çarpıcıdır. Videonun gerisi Grover’ı adım adım anlatır. Bu ders, durum vektörü ve eksi işarette durur."
+              "en": "In 1994 it was proved you cannot beat O(√n) on this task.",
+              "tr": "1994’te bu işte O(√n)’yi geçemeyeceğin kanıtlandı."
+            },
+            {
+              "t": 250.9,
+              "en": "Two years later Lov Grover gave a procedure that achieves it.",
+              "tr": "İki yıl sonra Lov Grover bunu başaran bir yöntem verdi."
+            },
+            {
+              "t": 260.1,
+              "en": "A million possibilities take on the order of a thousand steps.",
+              "tr": "Bir milyon olasılık, bin adım mertebesinde sürer."
+            },
+            {
+              "t": 269.5,
+              "en": "The precise count hides a factor of π/4. The puzzle is a stand-in for any problem where a solution is easy to check and hard to find, the NP problems.",
+              "tr": "Kesin sayı, π/4 çarpanını gizler. Bulmaca, çözümün kontrolü kolay, bulunması zor olan her problemin vekilidir; NP problemleri."
+            },
+            {
+              "t": 292.1,
+              "en": "A square-root speedup is not an exponential one.",
+              "tr": "Karekök hızlanma, üstel bir hızlanma değildir."
+            },
+            {
+              "t": 299.3,
+              "en": "It is still striking that one method speeds up that whole class.",
+              "tr": "Yine de tek bir yöntemin bütün bu sınıfı hızlandırması çarpıcıdır."
+            },
+            {
+              "t": 309.0,
+              "en": "The rest of his video walks through Grover.",
+              "tr": "Videonun gerisi Grover’ı adım adım anlatır."
+            },
+            {
+              "t": 315.5,
+              "en": "This lesson stops at the state vector and the minus sign.",
+              "tr": "Bu ders, durum vektörü ve eksi işarette durur."
             },
             {
               "t": 324.1,
-              "en": "He wants the first part of the video to be mathematics, not analogy. Classical data is a string of bits, which might mean an integer, which might mean a voltage. Quantum computing has the same layers. The new fact at the middle layer: the state of the memory is not the same object as what you read out.",
-              "tr": "Videonun ilk kısmının benzetme değil matematik olmasını istiyor. Klasik veri bir bit dizisidir; bu bir tamsayı anlamına gelebilir, o da bir gerilim anlamına gelebilir. Kuantum hesabın da aynı katmanları vardır. Orta katmandaki yeni olgu: belleğin durumu, okuduğun şeyle aynı nesne değildir."
+              "en": "He wants the first part of the video to be mathematics, not analogy.",
+              "tr": "Videonun ilk kısmının benzetme değil matematik olmasını istiyor."
+            },
+            {
+              "t": 343.1,
+              "en": "Classical data is a string of bits, which might mean an integer, which might mean a voltage.",
+              "tr": "Klasik veri bir bit dizisidir; bu bir tamsayı anlamına gelebilir, o da bir gerilim anlamına gelebilir."
+            },
+            {
+              "t": 368.9,
+              "en": "Quantum computing has the same layers.",
+              "tr": "Kuantum hesabın da aynı katmanları vardır."
+            },
+            {
+              "t": 379.5,
+              "en": "The new fact at the middle layer: the state of the memory is not the same object as what you read out.",
+              "tr": "Orta katmandaki yeni olgu: belleğin durumu, okuduğun şeyle aynı nesne değildir."
             },
             {
               "t": 408.1,
-              "en": "What you read is a bit string, and it is random. A program does not pick one output. It determines a probability distribution over all possible outputs. On a 4-bit readout there are 16 possible strings. A k-qubit computer has 2^k possible readouts. You never see the distribution itself. You see one string, drawn from it. You never see all strings coexisting.",
-              "tr": "Okuduğun şey bir bit dizisidir ve rastgeledir. Bir program tek bir çıktı seçmez. Bütün olası çıktılar üzerinde bir olasılık dağılımı belirler. 4 bitlik bir okumada 16 olası dizgi vardır. k kübitlik bir bilgisayarın 2^k olası okuması vardır. Dağılımın kendisini hiç görmezsin. Ondan çekilmiş bir dizgi görürsün. Bütün dizgilerin bir arada durduğunu görmezsin."
+              "en": "What you read is a bit string, and it is random.",
+              "tr": "Okuduğun şey bir bit dizisidir ve rastgeledir."
+            },
+            {
+              "t": 419.3,
+              "en": "A program does not pick one output.",
+              "tr": "Bir program tek bir çıktı seçmez."
+            },
+            {
+              "t": 427.4,
+              "en": "It determines a probability distribution over all possible outputs.",
+              "tr": "Bütün olası çıktılar üzerinde bir olasılık dağılımı belirler."
+            },
+            {
+              "t": 443.0,
+              "en": "On a 4-bit readout there are 16 possible strings.",
+              "tr": "4 bitlik bir okumada 16 olası dizgi vardır."
+            },
+            {
+              "t": 454.4,
+              "en": "A k-qubit computer has 2^k possible readouts.",
+              "tr": "k kübitlik bir bilgisayarın 2^k olası okuması vardır."
+            },
+            {
+              "t": 464.8,
+              "en": "You never see the distribution itself.",
+              "tr": "Dağılımın kendisini hiç görmezsin."
+            },
+            {
+              "t": 473.7,
+              "en": "You see one string, drawn from it.",
+              "tr": "Ondan çekilmiş bir dizgi görürsün."
+            },
+            {
+              "t": 481.6,
+              "en": "You never see all strings coexisting.",
+              "tr": "Bütün dizgilerin bir arada durduğunu görmezsin."
             },
             {
               "t": 490.2,
-              "en": "After you read a value, the state changes so that all the probability sits on that value. Read again and you see the same string. The distribution is delicate: looking collapses it. Where does the distribution come from? From a big vector, one component per possible bit string. For 4 bits the vector has 16 components. The vector is not the probability distribution. The rule, the strange one: the probability of a string is the square of the magnitude of its component.",
-              "tr": "Bir değer okuduktan sonra durum değişir; bütün olasılık o değerde toplanır. Tekrar okursan aynı dizgiyi görürsün. Dağılım naziktir: bakmak onu çökertir. Dağılım nereden gelir? Büyük bir vektörden, olası her bit dizgisi için bir bileşen. 4 bitte vektörün 16 bileşeni vardır. Vektör, olasılık dağılımı değildir. Kural, tuhaf olanı: bir dizginin olasılığı, bileşeninin büyüklüğünün karesidir."
+              "en": "After you read a value, the state changes so that all the probability sits on that value.",
+              "tr": "Bir değer okuduktan sonra durum değişir; bütün olasılık o değerde toplanır."
+            },
+            {
+              "t": 505.9,
+              "en": "Read again and you see the same string.",
+              "tr": "Tekrar okursan aynı dizgiyi görürsün."
+            },
+            {
+              "t": 512.8,
+              "en": "The distribution is delicate: looking collapses it.",
+              "tr": "Dağılım naziktir: bakmak onu çökertir."
+            },
+            {
+              "t": 521.8,
+              "en": "Where does the distribution come from?",
+              "tr": "Dağılım nereden gelir?"
+            },
+            {
+              "t": 528.5,
+              "en": "From a big vector, one component per possible bit string.",
+              "tr": "Büyük bir vektörden, olası her bit dizgisi için bir bileşen."
+            },
+            {
+              "t": 538.6,
+              "en": "For 4 bits the vector has 16 components.",
+              "tr": "4 bitte vektörün 16 bileşeni vardır."
+            },
+            {
+              "t": 545.7,
+              "en": "The vector is not the probability distribution.",
+              "tr": "Vektör, olasılık dağılımı değildir."
+            },
+            {
+              "t": 554.0,
+              "en": "The rule, the strange one: the probability of a string is the square of the magnitude of its component.",
+              "tr": "Kural, tuhaf olanı: bir dizginin olasılığı, bileşeninin büyüklüğünün karesidir."
             },
             {
               "t": 572.2,
-              "en": "If the component for 0011 is 0.5, the probability of reading 0011 is 0.25. Components may be negative. The square does not change, so the probabilities do not change. The state is still a different state. Flipping signs is central to Grover’s algorithm. He then shrinks the picture to a single qubit, two possible readouts, 0 and 1.",
-              "tr": "0011’in bileşeni 0,5 ise 0011 okuma olasılığı 0,25’tir. Bileşenler negatif olabilir. Kare değişmez, dolayısıyla olasılıklar değişmez. Durum yine de başka bir durumdur. İşaret çevirmek, Grover algoritmasının merkezindedir. Sonra resmi tek kübite indirir: iki olası okuma, 0 ve 1."
+              "en": "If the component for 0011 is 0.5, the probability of reading 0011 is 0.25. Components may be negative.",
+              "tr": "0011’in bileşeni 0,5 ise 0011 okuma olasılığı 0,25’tir. Bileşenler negatif olabilir."
+            },
+            {
+              "t": 597.2,
+              "en": "The square does not change, so the probabilities do not change.",
+              "tr": "Kare değişmez, dolayısıyla olasılıklar değişmez."
+            },
+            {
+              "t": 612.6,
+              "en": "The state is still a different state.",
+              "tr": "Durum yine de başka bir durumdur."
+            },
+            {
+              "t": 621.7,
+              "en": "Flipping signs is central to Grover’s algorithm.",
+              "tr": "İşaret çevirmek, Grover algoritmasının merkezindedir."
+            },
+            {
+              "t": 633.4,
+              "en": "He then shrinks the picture to a single qubit, two possible readouts, 0 and 1.",
+              "tr": "Sonra resmi tek kübite indirir: iki olası okuma, 0 ve 1."
             },
             {
               "t": 652.5,
-              "en": "A qubit’s state vector is an arrow in a plane. The horizontal coordinate is the amplitude of 0; its square is the probability of reading 0. The vertical coordinate is the amplitude of 1. Because the probabilities add to 1, x² + y² = 1. The arrow has length 1 and lives on the unit circle. In more qubits it lives on a high-dimensional unit sphere. A qubit is not a bit that is both values. It is this unit vector. On measurement it collapses onto the axis you saw.",
-              "tr": "Bir kübitin durum vektörü, düzlemde bir oktur. Yatay koordinat 0’ın genliğidir; karesi 0 okuma olasılığıdır. Dikey koordinat 1’in genliğidir. Olasılıklar toplamı 1 olduğu için x² + y² = 1. Okun uzunluğu 1’dir ve birim çemberin üstünde yaşar. Daha çok kübitte yüksek boyutlu bir birim kürenin üstünde yaşar. Kübit, iki değer birden olan bir bit değildir. Bu birim vektördür. Ölçülünce gördüğün eksene çöker."
+              "en": "A qubit’s state vector is an arrow in a plane.",
+              "tr": "Bir kübitin durum vektörü, düzlemde bir oktur."
+            },
+            {
+              "t": 660.9,
+              "en": "The horizontal coordinate is the amplitude of 0; its square is the probability of reading 0. The vertical coordinate is the amplitude of 1. Because the probabilities add to 1, x² + y² = 1. The arrow has length 1 and lives on the unit circle.",
+              "tr": "Yatay koordinat 0’ın genliğidir; karesi 0 okuma olasılığıdır. Dikey koordinat 1’in genliğidir. Olasılıklar toplamı 1 olduğu için x² + y² = 1. Okun uzunluğu 1’dir ve birim çemberin üstünde yaşar."
+            },
+            {
+              "t": 704.7,
+              "en": "In more qubits it lives on a high-dimensional unit sphere.",
+              "tr": "Daha çok kübitte yüksek boyutlu bir birim kürenin üstünde yaşar."
+            },
+            {
+              "t": 715.3,
+              "en": "A qubit is not a bit that is both values.",
+              "tr": "Kübit, iki değer birden olan bir bit değildir."
+            },
+            {
+              "t": 722.7,
+              "en": "It is this unit vector.",
+              "tr": "It is this unit vector."
+            },
+            {
+              "t": 726.9,
+              "en": "On measurement it collapses onto the axis you saw.",
+              "tr": "Bu birim vektördür. Ölçülünce gördüğün eksene çöker."
             },
             {
               "t": 736.0,
-              "en": "He names this the Born rule: square the magnitudes, get probabilities. The same pattern shows up for electron spin and photon polarization. A qubit is the abstraction over those systems, the way a bit abstracts over voltages and magnets. The ket symbol denotes a unit vector in that space. |0⟩ is the horizontal unit vector, the state that always reads 0. |1⟩ is the vertical unit vector. A general qubit is a weighted sum of those two.",
-              "tr": "Buna Born kuralı der: büyüklüklerin karesini al, olasılıkları bul. Aynı kalıp elektron spini ve foton polarizasyonunda da vardır. Kübit, bu sistemlerin soyutlamasıdır; bitin gerilim ve mıknatıs soyutlaması olması gibi. Ket sembolü, o uzaydaki bir birim vektörü gösterir. |0⟩ yatay birim vektördür, hep 0 okunan durum. |1⟩ dikey birim vektördür. Genel bir kübit, bu ikisinin ağırlıklı toplamıdır."
+              "en": "He names this the Born rule: square the magnitudes, get probabilities.",
+              "tr": "Buna Born kuralı der: büyüklüklerin karesini al, olasılıkları bul."
+            },
+            {
+              "t": 749.1,
+              "en": "The same pattern shows up for electron spin and photon polarization.",
+              "tr": "Aynı kalıp elektron spini ve foton polarizasyonunda da vardır."
+            },
+            {
+              "t": 761.7,
+              "en": "A qubit is the abstraction over those systems, the way a bit abstracts over voltages and magnets.",
+              "tr": "Kübit, bu sistemlerin soyutlamasıdır; bitin gerilim ve mıknatıs soyutlaması olması gibi."
+            },
+            {
+              "t": 779.8,
+              "en": "The ket symbol denotes a unit vector in that space.",
+              "tr": "Ket sembolü, o uzaydaki bir birim vektörü gösterir."
+            },
+            {
+              "t": 789.4,
+              "en": "|0⟩ is the horizontal unit vector, the state that always reads 0. |1⟩ is the vertical unit vector.",
+              "tr": "|0⟩ yatay birim vektördür, hep 0 okunan durum. |1⟩ dikey birim vektördür."
+            },
+            {
+              "t": 807.6,
+              "en": "A general qubit is a weighted sum of those two.",
+              "tr": "Genel bir kübit, bu ikisinin ağırlıklı toplamıdır."
             },
             {
               "t": 816.4,
-              "en": "Classical gates such as AND, OR, and NOT process bits. Quantum gates process qubits, and they look like rotations or flips of the state vector. His example is the Hadamard. It sends the horizontal |0⟩ arrow to the northeast diagonal, and the vertical |1⟩ arrow to the southeast diagonal. You use it to turn a definite 0 or 1 into a 50-50 state, and back. An algorithm is a sequence of such moves that steers the vector until it points almost entirely along one coordinate axis, the answer you wanted.",
-              "tr": "AND, OR ve NOT gibi klasik kapılar bit işler. Kuantum kapılar kübit işler ve durum vektörünün dönmesi ya da çevrilmesi gibi görünürler. Örneği Hadamard’dır. Yatay |0⟩ okunu kuzeydoğu köşegenine, dikey |1⟩ okunu güneydoğu köşegenine gönderir. Onu, kesin bir 0 ya da 1’i 50-50 bir duruma çevirmek ve geri almak için kullanırsın. Bir algoritma, vektörü neredeyse bütünüyle tek bir koordinat eksenine, istediğin cevaba yönlendiren bu hareketlerin dizisidir."
+              "en": "Classical gates such as AND, OR, and NOT process bits.",
+              "tr": "AND, OR ve NOT gibi klasik kapılar bit işler."
+            },
+            {
+              "t": 825.4,
+              "en": "Quantum gates process qubits, and they look like rotations or flips of the state vector.",
+              "tr": "Kuantum kapılar kübit işler ve durum vektörünün dönmesi ya da çevrilmesi gibi görünürler."
+            },
+            {
+              "t": 840.0,
+              "en": "His example is the Hadamard.",
+              "tr": "Örneği Hadamard’dır."
+            },
+            {
+              "t": 844.6,
+              "en": "It sends the horizontal |0⟩ arrow to the northeast diagonal, and the vertical |1⟩ arrow to the southeast diagonal.",
+              "tr": "Yatay |0⟩ okunu kuzeydoğu köşegenine, dikey |1⟩ okunu güneydoğu köşegenine gönderir."
+            },
+            {
+              "t": 863.6,
+              "en": "You use it to turn a definite 0 or 1 into a 50-50 state, and back.",
+              "tr": "Onu, kesin bir 0 ya da 1’i 50-50 bir duruma çevirmek ve geri almak için kullanırsın."
+            },
+            {
+              "t": 874.5,
+              "en": "An algorithm is a sequence of such moves that steers the vector until it points almost entirely along one coordinate axis, the answer you wanted.",
+              "tr": "Bir algoritma, vektörü neredeyse bütünüyle tek bir koordinat eksenine, istediğin cevaba yönlendiren bu hareketlerin dizisidir."
             },
             {
               "t": 898.6,
-              "en": "With one qubit there are only two axes, so you can only answer a yes-no question. With k qubits there are 2^k axes, one per bit string. If you can point the vector along one of them, the readout can carry more information: a factor of a large number, or the secret key from the opening puzzle. He then says the reason there is any extra power at all is that the state vector grows exponentially, while you still cannot read its entries directly. This lesson stops here. The reflections that implement Grover start later in the video, around 24 minutes.",
-              "tr": "Tek kübitte yalnız iki eksen vardır, yani ancak evet-hayır sorusu cevaplanır. k kübitte 2^k eksen vardır, her bit dizgisi için bir tane. Vektörü bunlardan biri boyunca yönlendirebilirsen okuma daha fazla bilgi taşıyabilir: büyük bir sayının çarpanı ya da açılış bulmacasının gizli anahtarı. Sonra, ekstra bir güç varsa sebebinin durum vektörünün üstel büyümesi olduğunu, buna rağmen bileşenlerini doğrudan okuyamadığını söyler. Bu ders burada durur. Grover’ı uygulayan yansımalar videonun ilerisinde, yaklaşık 24. dakikada başlar."
+              "en": "With one qubit there are only two axes, so you can only answer a yes-no question.",
+              "tr": "Tek kübitte yalnız iki eksen vardır, yani ancak evet-hayır sorusu cevaplanır."
+            },
+            {
+              "t": 910.8,
+              "en": "With k qubits there are 2^k axes, one per bit string.",
+              "tr": "k kübitte 2^k eksen vardır, her bit dizgisi için bir tane."
+            },
+            {
+              "t": 918.7,
+              "en": "If you can point the vector along one of them, the readout can carry more information: a factor of a large number, or the secret key from the opening puzzle.",
+              "tr": "Vektörü bunlardan biri boyunca yönlendirebilirsen okuma daha fazla bilgi taşıyabilir: büyük bir sayının çarpanı ya da açılış bulmacasının gizli anahtarı."
+            },
+            {
+              "t": 942.3,
+              "en": "He then says the reason there is any extra power at all is that the state vector grows exponentially, while you still cannot read its entries directly.",
+              "tr": "Sonra, ekstra bir güç varsa sebebinin durum vektörünün üstel büyümesi olduğunu, buna rağmen bileşenlerini doğrudan okuyamadığını söyler."
+            },
+            {
+              "t": 965.0,
+              "en": "This lesson stops here.",
+              "tr": "Bu ders burada durur."
+            },
+            {
+              "t": 968.5,
+              "en": "The reflections that implement Grover start later in the video, around 24 minutes.",
+              "tr": "Grover’ı uygulayan yansımalar videonun ilerisinde, yaklaşık 24. dakikada başlar."
             },
             {
               "t": 980.8,
-              "en": "What you need from this video for the logo: a marked pixel is a basis state whose amplitude has been multiplied by −1. Every readout probability stays the same. The state vector does not.",
-              "tr": "Bu videodan logo için gereken: işaretli bir piksel, genliği −1 ile çarpılmış bir baz durumudur. Her okuma olasılığı aynı kalır. Durum vektörü kalmaz."
+              "en": "What you need from this video for the logo: a marked pixel is a basis state whose amplitude has been multiplied by −1. Every readout probability stays the same.",
+              "tr": "Bu videodan logo için gereken: işaretli bir piksel, genliği −1 ile çarpılmış bir baz durumudur. Her okuma olasılığı aynı kalır."
+            },
+            {
+              "t": 1051.3,
+              "en": "The state vector does not.",
+              "tr": "Durum vektörü kalmaz."
             },
             {
               "t": 1062.8,
-              "en": "Stop the video. The next lesson has no Nielsen film, because he never recorded the reversible-computing episodes. It is the recipe that turns a classical yes-no check into that minus sign.",
-              "tr": "Videoyu durdur. Sonraki dersin Nielsen filmi yok, çünkü tersinir hesap bölümlerini hiç çekmedi. O ders, klasik bir evet-hayır kontrolünü bu eksi işarete çeviren tariftir."
+              "en": "Stop the video.",
+              "tr": "Videoyu durdur."
+            },
+            {
+              "t": 1064.0,
+              "en": "The next lesson has no Nielsen film, because he never recorded the reversible-computing episodes.",
+              "tr": "Sonraki dersin Nielsen filmi yok, çünkü tersinir hesap bölümlerini hiç çekmedi."
+            },
+            {
+              "t": 1071.4,
+              "en": "It is the recipe that turns a classical yes-no check into that minus sign.",
+              "tr": "O ders, klasik bir evet-hayır kontrolünü bu eksi işarete çeviren tariftir."
             }
           ]
         },
