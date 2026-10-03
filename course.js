@@ -663,3 +663,108 @@ const COURSE = {
     }
   ]
 };
+
+COURSE.kids = {
+  bit: [
+    "Bir **bit**, defterdeki bir kareye ya boş ya dolu yazmak gibi. Boş 0, dolu 1.",
+    "**NOT** (değil kapısı) doluyu boşa, boşu doluya çevirir. **AND** (ve kapısı) ancak iki kare de doluysa dolu der. **OR** (veya kapısı) bir tanesi doluysa yeter."
+  ],
+  reversible: [
+    "**Tersinir** demek, yaptığın işi geri alabilmek. Silgiyle sildiğin yazı geri gelmez. NOT ikinci kez basınca eski haline döner, o yüzden tersinirdir.",
+    "**CNOT** (controlled NOT, kontrollü değil): soldaki bit 1 ise sağdakini çevirir. İkisi de 1 iken bir daha basarsan başa dönersin.",
+    "**Toffoli**, iki kontrolü olan CNOT’tur. İki anahtar da açıkken hedefi çevirir. AND’in silmeden yapılmış hali budur: cevap hedefe yazılır, girişler yerinde kalır."
+  ],
+  vector: [
+    "Bir **kübit** (qubit, kuantum biti) sihirli bir anahtar değil. Uzunluğu tam 1 olan bir oktur. Oka **ket** denir, şöyle yazılır: |0⟩.",
+    "|0⟩ ve |1⟩ iki özel oktur. Genel durum ikisinin karışımıdır: biraz |0⟩, biraz |1⟩. Karışımın ağırlıklarına **genlik** denir. Ağırlıkların kareleri toplanınca 1 olur. O kare, ölçünce o sonucu görme şansındır.",
+    "Tahtadaki θ açısı bu karışımı kaydırır. 0 derecede ok tamamen |0⟩, 180 derecede tamamen |1⟩, 90 derecede ikisi de yarı yarıya."
+  ],
+  phase: [
+    "Bütün oku aynı sayıda çevirmek yeni bir ok vermez. Buna **küresel faz** denir. Fotoğrafın her yerine aynı filtreyi basmak gibi: sahne değişmez.",
+    "**Göreli faz**, iki okun arasındaki farktır. |0⟩ + |1⟩ ile |0⟩ − |1⟩ aynı şansı verir, ikisi de yarı yarıya. Eksi işaret yine de ayrı bir durumdur. H, sonra Z, sonra H bunu |1⟩ diye ortaya çıkarır.",
+    "φ kaydırıcısı o eksi işareti yavaş yavaş çevirir. Olasılık çubuğu kıpırdamaz. Değişen, işaretin kendisidir."
+  ],
+  gates: [
+    "**X** klasik NOT’tur: |0⟩ ile |1⟩ yer değiştirir. **Z**, |1⟩’in önüne eksi koyar. **H** (Hadamard) |0⟩’ı yarı yarıya karışıma açar.",
+    "**S** ve **T** daha ince çevirmelerdir. |1⟩’i küçük bir açıyla döndürürler. Kapının uzunluğu bozmamasına **üniter** denir: ok hâlâ 1 birimdir.",
+    "Tahtaya kapı ekle, çubuklara bak, geri al. H’den sonra iki şans da 1/2’dir ve toplam yine 1’dir."
+  ],
+  measure: [
+    "**Ölçüm**, okun üstündeki şansı tek bir yazıya çevirir. **Born kuralı** der ki şans, genliğin boyunun karesidir.",
+    "Bir kez ölçünce alet ya 0 ya 1 yazar. Aynı anda ikisini birden yazmaz. Yüz kez ölçünce sayılar yarıya yaklaşır. Ölçtükten sonra ok, gördüğün tarafa yatar. Buna **çökme** denir.",
+    "Önce H’ye bas, sonra 200 kez ölç. İki sütun birbirine yakın çıkar."
+  ],
+  bell: [
+    "İki kübit yan yana durunca ortak defter açılır. Buna **tensör çarpımı** denir. Satırlar |00⟩, |01⟩, |10⟩, |11⟩ diye okunur. Soldaki rakam birinci kübit, sağdaki ikincidir.",
+    "Her kübiti ayrı hazırlarsan **çarpım durumu** olur. Ayrı hazırlanamayan ortak dura **dolanıklık** denir.",
+    "**Bell durumu** (|00⟩ + |11⟩) / √2 böyle bir duraktır. H ve CNOT ile kurulur. Ölçünce ya 00 ya 11 gelir. İki bit hep aynıdır."
+  ],
+  teleport: [
+    "Bilinmeyen bir kübiti fotokopi gibi çoğaltamazsın. Buna **kopyalanamazlık** denir.",
+    "**Teleportasyon** yine de göndermendir. Elinde önceden paylaşılmış bir Bell çifti vardır. Alice iki klasik bit söyler, Bob o iki bite göre X ya da Z basar, kübit ona geçer. Çift harcanır. İkinci bir kopya kalmaz.",
+    "Tahta mesaj olarak |+⟩ taşır. Sekiz satırın şansı eşittir. Soldaki iki bit hangi düzeltmenin gerektiğini söyler."
+  ],
+  deutsch: [
+    "**Söz problemi**, fonksiyonun sana verdiği sözdür. Burada söz şu: fonksiyon ya her yerde aynı cevabı verir (**sabit**), ya da yarısında 0 yarısında 1 verir (**dengeli**).",
+    "Klasik tarafta emin olmak için fonksiyonu birkaç kez okursun. Kuantum tarafta bir kez, üst üste binmiş halde okursun. Hedefteki eksi işaret kontrolün fazına yazılır. Buna **phase kickback** (fazın geri tepmesi) denir.",
+    "Tahtada sabiti seçince ilk kübit 0 olur. Dengeliyi seçince 1 olur."
+  ],
+  simon: [
+    "Simon’un sözü bir gizli dizidir. Adı **s**. Fonksiyon, girdiyi s kadar kaydırınca aynı cevabı verir. Kaydırma **XOR** ile yazılır: x ⊕ s.",
+    "Örnek: s = 01 ise f(00) ile f(01) aynıdır, f(10) ile f(11) aynıdır. Kuantum devre, s’ye dik bir y dizisi üretir. Birkaç y, s’yi ele verir.",
+    "Bu tahta dört kübit istediği için devreyi koşturmaz. Sözü elle tutman yeter. Shor’un periyodu, aynı fikrin sayılar üzerindeki halidir."
+  ],
+  grover: [
+    "Elinde karışık bir liste var. İçinde bir tane işaretli eleman var. Klasik arama teker teker bakar. **Grover** işaretliyi yaklaşık karekök kadar adımda büyütür.",
+    "İşaret, o satırı −1 ile çarpmaktır. Logodaki siyah kare de aynısını yapar. Sonra **yayılma**, ortalama boya göre yansıtır. İşaretli satır uzar, diğerleri kısalır.",
+    "Dört eleman ve tek işaret için bir tur yetiyor. Tahtada bir satır seç. O satırın şansı 1 olur."
+  ],
+  shor: [
+    "**Shor**, büyük bir sayının çarpanlarını periyot bularak arar. **Periyot**, dizinin başa dönme adımıdır.",
+    "15 ve taban 7 ile dene. Dizi 1, 7, 4, 13, sonra yine 1. Periyot 4. Ortadaki adımdan 3 ve 5 çıkar. Bunlar 15’in çarpanlarıdır.",
+    "Kuantum bilgisayar periyodu okur. Çarpanı ayıran bölme işlemi klasiktir. O okumaya **QFT** (quantum Fourier transform, kuantum Fourier dönüşümü) denir. Üç kübitlik tahta o devreyi taşımaz. Aritmetik burada durur."
+  ],
+  universal: [
+    "**Evrensel** demek, elindeki birkaç parça ile her devreyi kurabilmek. Tek kübit kapı artı CNOT yeter.",
+    "Bu projenin notu başka bir soru sorar: aynı işi daha kısa yaz. **Derinlik**, merdivenin kaç basamak sürdüğüdür. **CX**, CNOT sayısıdır. Az basamak ve az CX, daha iyi not.",
+    "Tahtadaki Bell devresinde bir H ve bir CX vardır. Kapı ekledikçe ikisi de değişir."
+  ],
+  logo: [
+    "Elinde 64’e 64’lük bir kare defter var. Üstünde logonun **1.097 siyah karesi** boyalı.",
+    "**Faz oracle** (phase oracle, faz kâhini) her kareye bakar. Siyahsa o karenin durumuna eksi koyar. Beyazsa dokunmaz. Koordinatları silmez.",
+    "**Kübit** ile 6 tane yan yana 64 sayı yazarsın. Biri x, biri y. **Little-endian**, küçük dilimin solda durmasıdır. **Ancilla** kenardaki karalama kâğıdıdır. İş bitince boşaltman gerekir, yoksa ödev kabul edilmez.",
+    "Alttaki 4×4 tahta aynı kuralın oyuncağıdır. Siyah kare, o koordinata eksi yazar."
+  ],
+  bitflip: [
+    "Mesajı üç kez yan yana yazarsan, biri bozulsa diğer ikisi doğruyu söyler. Buna **tekrar** denir. |0⟩ yerine |000⟩, |1⟩ yerine |111⟩.",
+    "Bir tele **X** basmak, o biti ters çevirmektir. Üç bitten biri farklı kalır. Çoğunluk, hangi telin döndüğünü söyler. Bu hâlâ bir **bit hatasıdır**. Eksi işaretin bozulması ayrı bir hatadır, bu üçlü onu düzeltmez.",
+    "Tahta (|000⟩ + |111⟩) / √2 ile açılır. Bir tele X bas. Genlik, bir biti farklı olan satıra kayar."
+  ],
+  bb84: [
+    "**BB84**, iki kişinin aynı gizli kelimeyi, başkası duymadan kurmasıdır. Alice her bit için bir **baz** seçer. Baz, cetvelin yönüdür: Z, |0⟩ ve |1⟩ cetveli; X, |+⟩ ve |−⟩ cetveli.",
+    "Bob kendi cetvelini seçer. Cetveller aynıysa Alice’in biti ona geçer. Farklıysa sonuç yazı tura olur, o bit atılır. Kalan bitler **anahtardır**.",
+    "Tahtada Alice’in bitleri sabittir: 1, 0, 1, 1. Bazları çevir. Aynı bazın kaldığı yerler anahtara girer."
+  ],
+  "mit-map": [
+    "Üç kapı var, hepsi MIT’de. **18.435J**, Peter Shor’un 2003 defteri. Her dersin notu yok. Listede PDF’i olanı aç.",
+    "**8.370**, Isaac Chuang ve Shor’un üç parçalık serisi. 1 temel, 2 protokol ve algoritma, 3 gürültü ve anahtar.",
+    "**6.845**, Scott Aaronson’ın sınır dersi. Algoritmanın ne yaptığını öğrendikten sonra, neyi yapamayacağını sorar."
+  ],
+  "preskill-map": [
+    "John Preskill’in Caltech defteri **Ph219**. Eski adı 229. Bölüm bölüm yazılmış, yıllar içinde yenilenmiş.",
+    "Önce durum ve ölçüm (2 ve 3), sonra devre (5), sonra algoritma (6), hata için 7. Topoloji ve Shannon kuramı daha sonraki yıl.",
+    "Eski PDF’lerde bölüm numarası kaymış olabilir. Güncel numarayı ders sayfasından al."
+  ],
+  "other-schools": [
+    "Berkeley’de Vazirani, CMU’da O’Donnell, Waterloo’da Cleve aynı iskeleti başka sırayla dizer.",
+    "Yeni bir not açınca içindekilerde şunları ara: kübit, ölçüm, CNOT, Deutsch, Grover, periyot. Tahtada kurduğun kapı orada da durur."
+  ],
+  papers: [
+    "Ders notu modeli kurar. **Makale**, o modelin gazetedeki hali. Her birinde üç şeyi ayır: ne diyor, hangi sayıyı ölçmüş, o sayı nereye kadar geçer.",
+    "Grover’ın sayısı sorgu sayısıdır. Shor’unki polinom zamandır. Willow’unki mantıksal hatanın düşmesidir. Üçü aynı iddia değildir."
+  ],
+  glossary: [
+    "Karttaki kalın söz, bir dersin tahtasına bağlıdır. Takılırsan o derse dön.",
+    "Logodaki siyah kare ile Grover’ın işareti aynı iştir: o satırı −1 ile çarpmak."
+  ]
+};

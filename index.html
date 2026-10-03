@@ -161,6 +161,54 @@
     padding: 0; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 12px; text-decoration: underline;
   }
+  .kid-bar { display: flex; justify-content: flex-end; padding: 12px 18px 0; }
+  .kid-switch { position: relative; display: inline-flex; cursor: pointer; }
+  .kid-switch input {
+    position: absolute; opacity: 0; width: 1px; height: 1px;
+  }
+  .kid-track {
+    width: 44px; height: 24px; border-radius: 3px;
+    border: 1.5px solid var(--ink); background: transparent; position: relative;
+  }
+  .kid-thumb {
+    position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+    background: var(--ink); border-radius: 1px;
+    transition: transform 0.2s ease;
+  }
+  .kid-switch input:checked + .kid-track { background: var(--accent); border-color: var(--accent); }
+  .kid-switch input:checked + .kid-track .kid-thumb { transform: translateX(20px); background: var(--paper); }
+  .kid-switch input:focus-visible + .kid-track { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .kid-bubble {
+    display: none;
+    margin: 0 0 18px;
+    padding: 16px 16px 14px;
+    background: #fff8e8;
+    border: 1.5px solid #e8c48a;
+    border-radius: 4px 18px 18px 18px;
+    position: relative;
+    box-shadow: 6px 8px 0 rgba(154, 52, 18, 0.08);
+  }
+  .kid-bubble::before {
+    content: "";
+    position: absolute;
+    left: 18px; top: -9px;
+    width: 16px; height: 16px;
+    background: #fff8e8;
+    border-left: 1.5px solid #e8c48a;
+    border-top: 1.5px solid #e8c48a;
+    transform: rotate(45deg);
+  }
+  .kid-bubble-who {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700; font-size: 13px; color: var(--accent); margin: 0 0 8px;
+  }
+  .kid-bubble p { margin: 0 0 10px; }
+  .kid-bubble p:last-child { margin-bottom: 0; }
+  .kid-bubble strong { color: var(--ink); }
+  body.kid-mode .kid-bubble { display: block; }
+  @media (prefers-reduced-motion: reduce) {
+    .kid-thumb { transition: none; }
+  }
   input[type="range"] { width: min(280px, 70vw); }
   @media (max-width: 980px) {
     .app { grid-template-columns: 1fr; }
@@ -170,6 +218,12 @@
 </style>
 </head>
 <body>
+<div class="kid-bar">
+  <label class="kid-switch">
+    <input type="checkbox" id="kid-toggle" role="switch" aria-label="Basit anlatım" />
+    <span class="kid-track" aria-hidden="true"><span class="kid-thumb"></span></span>
+  </label>
+</div>
 <div class="app">
   <aside>
     <p class="brand">Çalışma masası</p>
@@ -202,15 +256,9 @@ function flat() {
   return out;
 }
 function isDone(id) { return !!state.done[id]; }
-function unlocked(lesson) {
-  const seq = flat();
-  const i = seq.findIndex(l => l.id === lesson.id);
-  if (i <= 0) return true;
-  return isDone(seq[i - 1].id);
-}
 function firstOpen() {
   const seq = flat();
-  return seq.find(l => unlocked(l) && !isDone(l.id)) || seq[0];
+  return seq.find(l => !isDone(l.id)) || seq[0];
 }
 function esc(s) {
   return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
@@ -230,9 +278,7 @@ function renderNav() {
     mod.lessons.forEach(lesson => {
       const b = document.createElement("button");
       b.type = "button";
-      const open = unlocked(lesson);
       b.className = "lesson-btn" + (lesson.id === current.id ? " active" : "") + (isDone(lesson.id) ? " done" : "");
-      b.disabled = !open;
       const mark = document.createElement("span");
       mark.className = "mark";
       mark.textContent = isDone(lesson.id) ? "✓" : "";
@@ -242,17 +288,25 @@ function renderNav() {
       title.textContent = lesson.title;
       const meta = document.createElement("div");
       meta.className = "lmeta";
-      meta.textContent = open ? lesson.meta : "Önceki dersin geçişi";
+      meta.textContent = lesson.meta;
       box.appendChild(title);
       box.appendChild(meta);
       b.appendChild(mark);
       b.appendChild(box);
-      b.addEventListener("click", () => { if (unlocked(lesson)) show(lesson.id); });
+      b.addEventListener("click", () => show(lesson.id));
       nav.appendChild(b);
     });
   });
 }
 
+function inline(s) {
+  return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+function kidHtml(lesson) {
+  const paras = (COURSE.kids && COURSE.kids[lesson.id]) || [];
+  if (!paras.length) return "";
+  return "<aside class=\"kid-bubble\" data-kid><p class=\"kid-bubble-who\">Rehber</p>" + paras.map(p => "<p>" + inline(p) + "</p>").join("") + "</aside>";
+}
 function blockHtml(block) {
   if (block.t === "p") return "<p>" + esc(block.s) + "</p>";
   if (block.t === "h") return "<h3>" + esc(block.s) + "</h3>";
@@ -501,7 +555,7 @@ function show(id) {
   const seq = flat();
   const finished = seq.length > 0 && seq.every(l => isDone(l.id));
   const stage = document.getElementById("stage");
-  stage.innerHTML = "<p class=\"kicker\">" + esc(lesson.kicker) + "</p><h2>" + esc(lesson.title) + "</h2><p class=\"lead\">" + esc(lesson.lead) + "</p><div class=\"sources\">" + links + "</div><div class=\"prose\">" + (lesson.blocks || []).map(blockHtml).join("") + "</div><form class=\"check\" id=\"quiz\"><h3>Geçiş</h3><p>" + esc(lesson.quiz.q) + "</p>" + lesson.quiz.options.map((o, i) => "<label class=\"opt\"><input type=\"radio\" name=\"a\" value=\"" + i + "\"> " + esc(o) + "</label>").join("") + "<div class=\"row\"><button class=\"act\" id=\"finish\" type=\"submit\"" + (isDone(lesson.id) ? " disabled" : "") + ">" + (isDone(lesson.id) ? "Tamamlandı" : "Dersi tamamla") + "</button><button class=\"ghost\" id=\"next\" type=\"button\">Sonraki</button><span class=\"msg\" id=\"msg\"></span></div></form>" + (finished ? "<div class=\"done-banner\">" + esc(COURSE.doneNote) + "</div>" : "");
+  stage.innerHTML = "<p class=\"kicker\">" + esc(lesson.kicker) + "</p><h2>" + esc(lesson.title) + "</h2><p class=\"lead\">" + esc(lesson.lead) + "</p>" + kidHtml(lesson) + "<div class=\"sources\">" + links + "</div><div class=\"prose\">" + (lesson.blocks || []).map(blockHtml).join("") + "</div><form class=\"check\" id=\"quiz\"><h3>Geçiş</h3><p>" + esc(lesson.quiz.q) + "</p>" + lesson.quiz.options.map((o, i) => "<label class=\"opt\"><input type=\"radio\" name=\"a\" value=\"" + i + "\"> " + esc(o) + "</label>").join("") + "<div class=\"row\"><button class=\"act\" id=\"finish\" type=\"submit\"" + (isDone(lesson.id) ? " disabled" : "") + ">" + (isDone(lesson.id) ? "Tamamlandı" : "Dersi tamamla") + "</button><button class=\"ghost\" id=\"next\" type=\"button\">Sonraki</button><span class=\"msg\" id=\"msg\"></span></div></form>" + (finished ? "<div class=\"done-banner\">" + esc(COURSE.doneNote) + "</div>" : "");
   const labs = stage.querySelectorAll("[data-lab]");
   let li = 0;
   (lesson.blocks || []).forEach(b => {
@@ -510,7 +564,7 @@ function show(id) {
   stage.querySelector("#next").addEventListener("click", () => {
     const i = seq.findIndex(l => l.id === lesson.id);
     const nxt = seq[i + 1];
-    if (nxt && unlocked(nxt)) show(nxt.id);
+    if (nxt) show(nxt.id);
   });
   stage.querySelector("#quiz").addEventListener("submit", ev => {
     ev.preventDefault();
@@ -525,7 +579,7 @@ function show(id) {
     state.done[lesson.id] = true;
     save();
     msg.className = "msg ok";
-    msg.textContent = "Tamam. Sonraki ders açıldı.";
+    msg.textContent = "Tamam.";
     document.getElementById("finish").disabled = true;
     document.getElementById("finish").textContent = "Tamamlandı";
     renderNav();
@@ -533,6 +587,17 @@ function show(id) {
     if (i === seq.length - 1) show(lesson.id);
   });
 }
+
+const KID_KEY = "logo-oracle-kid-mode";
+const kidToggle = document.getElementById("kid-toggle");
+function applyKid(on) {
+  document.body.classList.toggle("kid-mode", on);
+  kidToggle.setAttribute("aria-checked", on ? "true" : "false");
+  try { localStorage.setItem(KID_KEY, on ? "1" : "0"); } catch (e) {}
+}
+kidToggle.checked = localStorage.getItem(KID_KEY) === "1";
+applyKid(kidToggle.checked);
+kidToggle.addEventListener("change", () => applyKid(kidToggle.checked));
 
 document.getElementById("reset").addEventListener("click", () => {
   if (!confirm("İşaretler silinsin mi?")) return;
