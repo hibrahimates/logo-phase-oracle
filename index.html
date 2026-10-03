@@ -26,15 +26,12 @@
     min-height: 100vh;
     background: var(--bg);
     color: var(--ink);
-    font: 16px/1.55 "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+    font: 17px/1.55 "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
   }
   button, input, select { font: inherit; }
   a { color: var(--accent); }
-  .app {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    min-height: 100vh;
-  }
+  code { font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 0.92em; }
+  .app { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
   aside {
     background: var(--side);
     color: var(--side-ink);
@@ -52,29 +49,15 @@
     color: var(--side-dim);
     margin: 0 8px 8px;
   }
-  aside h1 {
-    font-size: 22px;
-    line-height: 1.2;
-    font-weight: 600;
-    margin: 0 8px 14px;
-  }
+  aside h1 { font-size: 22px; line-height: 1.2; font-weight: 600; margin: 0 8px 14px; }
   .meter {
     margin: 0 8px 18px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 13px;
     color: var(--side-dim);
   }
-  .bar {
-    height: 4px;
-    background: #3a342c;
-    margin-top: 8px;
-  }
-  .bar > span {
-    display: block;
-    height: 100%;
-    background: #e7c2ae;
-    width: 0%;
-  }
+  .bar { height: 4px; background: #3a342c; margin-top: 8px; }
+  .bar > span { display: block; height: 100%; background: #e7c2ae; width: 0%; }
   .mod-label {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 11px;
@@ -98,192 +81,90 @@
   }
   .lesson-btn:hover { background: #2a251f; }
   .lesson-btn.active { background: #342c24; }
-  .lesson-btn:disabled {
-    color: var(--lock);
-    cursor: not-allowed;
-  }
+  .lesson-btn:disabled { color: var(--lock); cursor: not-allowed; }
   .lesson-btn:disabled:hover { background: transparent; }
   .mark {
-    width: 16px;
-    height: 16px;
-    margin-top: 3px;
-    border: 1px solid #8d8070;
-    border-radius: 3px;
-    display: grid;
-    place-items: center;
+    width: 16px; height: 16px; margin-top: 3px;
+    border: 1px solid #8d8070; border-radius: 3px;
+    display: grid; place-items: center;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    color: #d7efe3;
+    font-size: 12px; color: #d7efe3;
   }
   .lesson-btn.done .mark { background: var(--ok); border-color: var(--ok); }
   .ltitle { font-size: 15px; line-height: 1.3; }
   .lmeta {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    color: var(--side-dim);
-    margin-top: 2px;
+    font-size: 12px; color: var(--side-dim); margin-top: 2px;
   }
-  .lesson-btn:disabled .lmeta { color: #6f675e; }
-  main { padding: 28px 32px 80px; max-width: 1180px; }
+  main { padding: 28px 32px 80px; max-width: 920px; }
   .kicker {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 6px;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 6px;
   }
   main h2 { font-size: 32px; line-height: 1.15; margin: 0 0 10px; font-weight: 600; }
-  .lead { color: var(--muted); margin: 0 0 16px; max-width: 68ch; }
-  .sources {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 14px;
-    margin: 0 0 18px;
+  .lead { color: var(--muted); margin: 0 0 16px; }
+  .sources { display: flex; flex-wrap: wrap; gap: 8px 14px; margin: 0 0 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 13px; }
+  .prose h3 { font-size: 20px; margin: 22px 0 8px; }
+  .prose p { margin: 0 0 12px; }
+  .formula {
+    margin: 8px 0 16px; padding: 12px 14px;
+    background: var(--paper); border: 1px solid var(--line);
+    font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-size: 15px; line-height: 1.45; overflow-x: auto;
+  }
+  .note { margin: 8px 0 16px; padding: 12px 14px; background: var(--accent-soft); }
+  ol.steps { margin: 0 0 16px; padding-left: 1.2em; }
+  ol.steps li { margin: 4px 0; }
+  .cards { display: grid; gap: 10px; margin: 8px 0 16px; }
+  .card { background: var(--paper); border: 1px solid var(--line); padding: 12px 14px; }
+  .card h3 { margin: 0 0 6px; font-size: 17px; }
+  .card p { margin: 0 0 8px; }
+  .lab {
+    margin: 8px 0 18px; background: var(--paper); border: 1px solid var(--line); padding: 14px;
+  }
+  .lab h3 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 13px;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 10px;
   }
-  .watch {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    background: var(--bg);
-    padding-bottom: 8px;
-    max-width: 920px;
-  }
-  .frame {
-    background: #111;
-    width: 100%;
-    height: min(42vh, 420px);
-  }
-  .frame iframe, #player { width: 100%; height: 100%; }
-  .now {
-    margin-top: 8px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 12px 14px 14px;
-  }
-  .now p { margin: 0; }
-  .now-en {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.45;
-  }
-  .now-tr {
-    margin-top: 8px;
-    font-size: 18px;
-    line-height: 1.45;
-  }
-  details.full {
-    margin-top: 18px;
-    max-width: 920px;
-  }
-  details.full summary {
-    cursor: pointer;
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+  button.act, button.ghost, button.gate {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 13px;
-    color: var(--muted);
+    font-size: 14px; cursor: pointer;
   }
-  .reading {
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 18px 20px;
-    max-width: 920px;
-  }
-  .note {
-    margin: 14px 0 0;
-    padding: 12px 14px;
-    background: var(--accent-soft);
-    max-width: 920px;
-    font-size: 15px;
-  }
-  .split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    margin-top: 22px;
-    align-items: start;
-  }
-  .col h3 {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin: 0 0 8px;
-    color: var(--muted);
-  }
-  .cue {
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 8px;
-    padding: 8px 8px;
-    border-top: 1px solid var(--line);
-    cursor: pointer;
-  }
-  .cue time {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-    padding-top: 3px;
-  }
-  .cue.active { background: #fff4ea; }
-  .check {
-    margin-top: 28px;
-    background: var(--paper);
-    border: 1px solid var(--line);
-    padding: 16px 18px 18px;
-    max-width: 920px;
-  }
-  .check h3 { margin: 0 0 8px; font-size: 18px; }
-  .opt {
-    display: block;
-    margin: 6px 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 15px;
-  }
-  .row { display: flex; gap: 10px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
-  button.act {
-    background: var(--ink);
-    color: var(--paper);
-    border: 0;
-    padding: 8px 14px;
-    cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 14px;
-  }
+  button.act { background: var(--ink); color: var(--paper); border: 0; padding: 8px 14px; }
   button.act:disabled { background: #c8bfb2; cursor: not-allowed; }
-  button.ghost {
-    background: transparent;
-    border: 1px solid var(--line);
-    padding: 8px 14px;
-    cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 14px;
-  }
+  button.ghost, button.gate { background: transparent; border: 1px solid var(--line); padding: 8px 12px; }
+  button.gate.on { background: var(--ink); color: var(--paper); }
+  .amp { display: grid; grid-template-columns: 72px 1fr auto; gap: 8px; align-items: center; margin: 4px 0; font-size: 14px; }
+  .track { height: 10px; background: #efe8dc; }
+  .track > span { display: block; height: 100%; background: var(--accent); }
+  .amp em { font-style: normal; font-family: "SF Mono", ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  .hist { display: flex; gap: 6px; align-items: flex-end; height: 88px; margin-top: 8px; }
+  .hist div { flex: 1; background: var(--accent); min-height: 2px; position: relative; }
+  .hist span { position: absolute; top: -18px; left: 0; right: 0; text-align: center; font-size: 11px; font-family: -apple-system, sans-serif; }
+  label.bit { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 36px); gap: 4px; }
+  .cell { width: 36px; height: 36px; border: 1px solid var(--line); background: #fff; cursor: pointer; }
+  .cell.on { background: var(--ink); }
+  .check { margin-top: 22px; background: var(--paper); border: 1px solid var(--line); padding: 16px 18px; }
+  .check h3 { margin: 0 0 8px; font-size: 18px; }
+  .opt { display: block; margin: 6px 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; }
   .msg { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 14px; }
   .msg.ok { color: var(--ok); }
   .msg.bad { color: var(--accent); }
-  .done-banner {
-    margin-top: 18px;
-    padding: 14px 16px;
-    background: var(--ok-soft);
-    max-width: 920px;
-  }
+  .done-banner { margin-top: 18px; padding: 14px 16px; background: var(--ok-soft); }
   .reset {
-    margin: 22px 8px 0;
-    background: transparent;
-    color: var(--side-dim);
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 12px;
-    text-decoration: underline;
+    margin: 22px 8px 0; background: transparent; color: var(--side-dim); border: 0;
+    padding: 0; cursor: pointer; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 12px; text-decoration: underline;
   }
+  input[type="range"] { width: min(280px, 70vw); }
   @media (max-width: 980px) {
     .app { grid-template-columns: 1fr; }
     aside { position: relative; height: auto; max-height: 240px; }
-    .split { grid-template-columns: 1fr; }
     main { padding: 20px 16px 64px; }
   }
 </style>
@@ -303,50 +184,39 @@
   </aside>
   <main id="stage"></main>
 </div>
+<script src="sim.js"></script>
 <script src="course.js"></script>
 <script>
-const KEY = "classiq-qc-course-v1";
+const KEY = "classiq-qc-portal-v1";
 const state = load();
 let current = firstOpen();
-let player = null;
-let ticker = null;
-let apiReady = false;
 
 function load() {
   try { return JSON.parse(localStorage.getItem(KEY)) || { done: {} }; }
   catch (e) { return { done: {} }; }
 }
 function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
-
 function flat() {
   const out = [];
   COURSE.modules.forEach(m => m.lessons.forEach(l => out.push(l)));
   return out;
 }
-function openLessons() { return flat().filter(l => l.cues); }
-function tracked() { return openLessons().filter(l => !l.free); }
 function isDone(id) { return !!state.done[id]; }
 function unlocked(lesson) {
-  if (!lesson.cues) return false;
-  if (lesson.free) return true;
-  const seq = tracked();
+  const seq = flat();
   const i = seq.findIndex(l => l.id === lesson.id);
   if (i <= 0) return true;
   return isDone(seq[i - 1].id);
 }
 function firstOpen() {
-  const seq = tracked();
-  return seq.find(l => unlocked(l) && !isDone(l.id)) || seq.find(l => unlocked(l)) || seq[0];
+  const seq = flat();
+  return seq.find(l => unlocked(l) && !isDone(l.id)) || seq[0];
 }
-
-function fmt(t) {
-  if (t == null) return "";
-  const s = Math.floor(t);
-  return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+function esc(s) {
+  return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
 }
-
 function renderNav() {
-  const seq = tracked();
+  const seq = flat();
   const doneN = seq.filter(l => isDone(l.id)).length;
   document.getElementById("count").textContent = doneN + " / " + seq.length + " ders";
   document.getElementById("fill").style.width = (seq.length ? (100 * doneN / seq.length) : 0) + "%";
@@ -360,8 +230,8 @@ function renderNav() {
     mod.lessons.forEach(lesson => {
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "lesson-btn" + (lesson.id === current.id ? " active" : "") + (isDone(lesson.id) ? " done" : "");
       const open = unlocked(lesson);
+      b.className = "lesson-btn" + (lesson.id === current.id ? " active" : "") + (isDone(lesson.id) ? " done" : "");
       b.disabled = !open;
       const mark = document.createElement("span");
       mark.className = "mark";
@@ -372,7 +242,7 @@ function renderNav() {
       title.textContent = lesson.title;
       const meta = document.createElement("div");
       meta.className = "lmeta";
-      meta.textContent = open ? lesson.meta : "Kilitli · transkript sırada";
+      meta.textContent = open ? lesson.meta : "Önceki dersin geçişi";
       box.appendChild(title);
       box.appendChild(meta);
       b.appendChild(mark);
@@ -383,68 +253,264 @@ function renderNav() {
   });
 }
 
-function esc(s) {
-  return String(s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+function blockHtml(block) {
+  if (block.t === "p") return "<p>" + esc(block.s) + "</p>";
+  if (block.t === "h") return "<h3>" + esc(block.s) + "</h3>";
+  if (block.t === "f") return "<div class=\"formula\">" + esc(block.s) + "</div>";
+  if (block.t === "note") return "<div class=\"note\">" + esc(block.s) + "</div>";
+  if (block.t === "ol") return "<ol class=\"steps\">" + block.items.map(s => "<li>" + esc(s) + "</li>").join("") + "</ol>";
+  if (block.t === "cards") {
+    return "<div class=\"cards\">" + block.items.map(c => {
+      const link = c.href ? "<a href=\"" + esc(c.href) + "\" target=\"_blank\" rel=\"noopener\">" + esc(c.label || "Aç") + "</a>" : (c.label ? "<span>" + esc(c.label) + "</span>" : "");
+      return "<article class=\"card\"><h3>" + esc(c.h) + "</h3><p>" + esc(c.s) + "</p>" + link + "</article>";
+    }).join("") + "</div>";
+  }
+  if (block.t === "lab") return "<div class=\"lab\" data-lab></div>";
+  return "";
+}
+
+function bars(state, n) {
+  const p = QC.probs(state);
+  return p.map((pr, i) => {
+    if (pr < 0.0008) return "";
+    const w = Math.max(2, Math.round(pr * 1000) / 10);
+    return "<div class=\"amp\"><code>|" + QC.label(i, n) + "⟩</code><span class=\"track\"><span style=\"width:" + w + "%\"></span></span><em>" + esc(QC.fmt(state[i])) + " · " + (Math.round(pr * 1000) / 10) + "</em></div>";
+  }).join("") || "<p>Boş.</p>";
+}
+
+function mountLab(el, lab) {
+  if (lab.kind === "bits") return mountBits(el);
+  if (lab.kind === "bloch") return mountBloch(el);
+  if (lab.kind === "circuit") return mountCircuit(el, lab);
+  if (lab.kind === "deutsch") return mountDeutsch(el);
+  if (lab.kind === "grover") return mountGrover(el);
+  if (lab.kind === "logo") return mountLogo(el);
+  if (lab.kind === "period") return mountPeriod(el);
+  if (lab.kind === "bitflip") return mountBitflip(el);
+  if (lab.kind === "bb84") return mountBb84(el);
+  if (lab.kind === "predict") return mountPredict(el, lab);
+  el.innerHTML = "<p>Tahta yok.</p>";
+}
+
+function mountBits(el) {
+  el.innerHTML = "<h3>Dene</h3><div class=\"row\"><label class=\"bit\"><input type=\"checkbox\" id=\"ba\"> A</label><label class=\"bit\"><input type=\"checkbox\" id=\"bb\"> B</label></div><div id=\"bout\"></div>";
+  const paint = () => {
+    const a = el.querySelector("#ba").checked ? 1 : 0;
+    const b = el.querySelector("#bb").checked ? 1 : 0;
+    el.querySelector("#bout").innerHTML = "<p>NOT A = " + (1 - a) + " · A AND B = " + (a & b) + " · A OR B = " + (a | b) + "</p>";
+  };
+  el.querySelector("#ba").addEventListener("change", paint);
+  el.querySelector("#bb").addEventListener("change", paint);
+  paint();
+}
+
+function mountBloch(el) {
+  el.innerHTML = "<h3>Dene · θ ve φ</h3><div class=\"row\"><label>θ <input id=\"th\" type=\"range\" min=\"0\" max=\"180\" value=\"90\"></label><span id=\"thv\">90°</span></div><div class=\"row\"><label>φ <input id=\"ph\" type=\"range\" min=\"0\" max=\"360\" value=\"0\"></label><span id=\"phv\">0°</span></div><div id=\"bout\"></div>";
+  const paint = () => {
+    const th = Number(el.querySelector("#th").value) * Math.PI / 180;
+    const ph = Number(el.querySelector("#ph").value) * Math.PI / 180;
+    el.querySelector("#thv").textContent = el.querySelector("#th").value + "°";
+    el.querySelector("#phv").textContent = el.querySelector("#ph").value + "°";
+    const a = QC.c(Math.cos(th / 2));
+    const b = QC.c(Math.cos(ph) * Math.sin(th / 2), Math.sin(ph) * Math.sin(th / 2));
+    const p0 = QC.cabs2(a), p1 = QC.cabs2(b);
+    el.querySelector("#bout").innerHTML = "<p>|0⟩ genliği " + esc(QC.fmt(a)) + " · olasılık " + (Math.round(p0 * 1000) / 10) + "</p><p>|1⟩ genliği " + esc(QC.fmt(b)) + " · olasılık " + (Math.round(p1 * 1000) / 10) + "</p><p>φ kayınca olasılık aynı kalır. Değişen, göreli fazdır.</p>";
+  };
+  el.querySelector("#th").addEventListener("input", paint);
+  el.querySelector("#ph").addEventListener("input", paint);
+  paint();
+}
+
+function mountCircuit(el, lab) {
+  const n = lab.n;
+  let tape = (lab.tape || []).map(s => Object.assign({}, s));
+  const saved = tape.map(s => Object.assign({}, s));
+  const shots = lab.shots || 0;
+  const editable = lab.editable !== false;
+  el.innerHTML = "<h3>Dene · " + n + " kübit</h3><div class=\"row\" id=\"pal\"></div><div id=\"tape\"></div><div id=\"amps\"></div>" + (shots ? "<div class=\"row\"><button class=\"act\" type=\"button\" id=\"meas\">" + shots + " kez ölç</button></div><div id=\"hist\"></div>" : "");
+  const pal = el.querySelector("#pal");
+  function addBtn(label, fn) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "gate";
+    b.textContent = label;
+    b.addEventListener("click", fn);
+    pal.appendChild(b);
+  }
+  if (editable) {
+    const gates = n === 1 ? ["H", "X", "Z", "S", "T"] : ["H", "X", "Z", "S"];
+    let q = 0;
+    if (n > 1) {
+      addBtn("kübit " + q, () => {});
+      const qb = pal.lastChild;
+      qb.addEventListener("click", () => {
+        q = (q + 1) % n;
+        qb.textContent = "kübit " + q;
+      });
+    }
+    gates.forEach(g => addBtn(g, () => { tape.push({ op: g, q: q }); paint(); }));
+    if (n >= 2) addBtn("CNOT 0→1", () => { tape.push({ op: "CNOT", c: 0, t: 1 }); paint(); });
+    if (n >= 3) addBtn("CNOT 1→2", () => { tape.push({ op: "CNOT", c: 1, t: 2 }); paint(); });
+    addBtn("geri al", () => { tape.pop(); paint(); });
+    addBtn("sıfırla", () => { tape = saved.map(s => Object.assign({}, s)); paint(); });
+  }
+  function paint() {
+    const state = QC.run(n, tape);
+    el.querySelector("#tape").textContent = tape.length ? tape.map(s => s.op === "CNOT" ? "CNOT " + s.c + "→" + s.t : s.op + " " + s.q).join("  ·  ") : "Henüz kapı yok. Durum |0…0⟩.";
+    el.querySelector("#amps").innerHTML = bars(state, n);
+    el._state = state;
+  }
+  const meas = el.querySelector("#meas");
+  if (meas) meas.addEventListener("click", () => {
+    const counts = QC.sampleShots(el._state, shots);
+    const max = Math.max.apply(null, counts.concat([1]));
+    el.querySelector("#hist").innerHTML = "<div class=\"hist\">" + counts.map((c, i) => {
+      if (c === 0 && QC.probs(el._state)[i] < 0.001) return "";
+      const h = Math.round(70 * c / max);
+      return "<div style=\"height:" + h + "px\"><span>" + QC.label(i, n) + " " + c + "</span></div>";
+    }).join("") + "</div>";
+  });
+  paint();
+}
+
+function mountDeutsch(el) {
+  el.innerHTML = "<h3>Dene · Deutsch</h3><div class=\"row\"><button class=\"gate\" type=\"button\" data-k=\"const0\">sabit 0</button><button class=\"gate\" type=\"button\" data-k=\"const1\">sabit 1</button><button class=\"gate\" type=\"button\" data-k=\"balanced\">dengeli</button></div><div id=\"amps\"></div>";
+  el.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    const s = QC.deutsch(b.dataset.k);
+    const p0 = Math.round(QC.qubitProb(s, 2, 0, 0) * 1000) / 10;
+    el.querySelector("#amps").innerHTML = bars(s, 2) + "<p>İlk kübitin 0 olma olasılığı: " + p0 + ".</p>";
+  }));
+}
+
+function mountGrover(el) {
+  el.innerHTML = "<h3>Dene · bir Grover turu</h3><div class=\"row\" id=\"pick\"></div><div id=\"amps\"></div>";
+  for (let i = 0; i < 4; i++) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "gate";
+    b.textContent = "işaret |" + QC.label(i, 2) + "⟩";
+    b.addEventListener("click", () => {
+      el.querySelector("#amps").innerHTML = bars(QC.groverOnce(i), 2);
+    });
+    el.querySelector("#pick").appendChild(b);
+  }
+}
+
+function mountLogo(el) {
+  const on = [];
+  for (let i = 0; i < 16; i++) on.push(false);
+  el.innerHTML = "<h3>Dene · 4×4 logo</h3><div class=\"grid4\" id=\"g\"></div><p id=\"info\"></p>";
+  const g = el.querySelector("#g");
+  function paint() {
+    let n = 0;
+    const marks = [];
+    on.forEach((v, i) => { if (v) { n += 1; marks.push(QC.label(i, 4)); } });
+    el.querySelector("#info").textContent = n + " siyah kare. Eksi faz yazılan bazlar: " + (marks.join(", ") || "yok") + ". Gerçek görev 64×64 ve 1.097 siyah piksel.";
+  }
+  for (let i = 0; i < 16; i++) {
+    const c = document.createElement("button");
+    c.type = "button";
+    c.className = "cell";
+    c.title = QC.label(i, 4);
+    c.addEventListener("click", () => {
+      on[i] = !on[i];
+      c.classList.toggle("on", on[i]);
+      paint();
+    });
+    g.appendChild(c);
+  }
+  paint();
+}
+
+function mountPeriod(el) {
+  el.innerHTML = "<h3>Dene · 7 üzeri x mod 15</h3><div class=\"row\"><button class=\"act\" type=\"button\" id=\"go\">diziyi ve çarpanları yaz</button></div><div id=\"out\"></div>";
+  el.querySelector("#go").addEventListener("click", () => {
+    const p = QC.period15();
+    el.querySelector("#out").innerHTML = "<p>x = 0…7 için dizi: " + p.seq.join(", ") + "</p><p>Periyot " + p.period + ". gcd(7²−1, 15) = " + p.gcdMinus + " ve gcd(7²+1, 15) = " + p.gcdPlus + ".</p>";
+  });
+}
+
+function mountBitflip(el) {
+  let flips = [];
+  el.innerHTML = "<h3>Dene · bir tele X</h3><div class=\"row\"><button class=\"gate\" type=\"button\" data-q=\"0\">X kübit 0</button><button class=\"gate\" type=\"button\" data-q=\"1\">X kübit 1</button><button class=\"gate\" type=\"button\" data-q=\"2\">X kübit 2</button><button class=\"ghost\" type=\"button\" id=\"rst\">sıfırla</button></div><div id=\"amps\"></div>";
+  function state() {
+    let s = QC.zeros(3);
+    s[0] = QC.c(Math.SQRT1_2);
+    s[7] = QC.c(Math.SQRT1_2);
+    flips.forEach(q => { s = QC.apply1(s, 3, q, QC.G.X); });
+    return s;
+  }
+  function paint() { el.querySelector("#amps").innerHTML = bars(state(), 3); }
+  el.querySelectorAll(".gate").forEach(b => b.addEventListener("click", () => { flips.push(Number(b.dataset.q)); paint(); }));
+  el.querySelector("#rst").addEventListener("click", () => { flips = []; paint(); });
+  paint();
+}
+
+function mountBb84(el) {
+  const bits = [1, 0, 1, 1];
+  el.innerHTML = "<h3>Dene · dört bit</h3><p>Alice bitleri sabit: 1, 0, 1, 1. Baz Z ya da X.</p><div id=\"rows\"></div><p id=\"key\"></p>";
+  const rows = el.querySelector("#rows");
+  const alice = ["Z", "Z", "Z", "Z"];
+  const bob = ["Z", "Z", "Z", "Z"];
+  function paint() {
+    const kept = [];
+    bits.forEach((bit, i) => { if (alice[i] === bob[i]) kept.push(bit); });
+    el.querySelector("#key").textContent = "Anahtar: " + (kept.join("") || "boş") + "  (" + kept.length + " bit kaldı)";
+  }
+  bits.forEach((bit, i) => {
+    const line = document.createElement("div");
+    line.className = "row";
+    line.innerHTML = "<span>bit " + (i + 1) + " = " + bit + "</span>";
+    function basisBtn(who, arr) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "gate";
+      b.textContent = who + " " + arr[i];
+      b.addEventListener("click", () => {
+        arr[i] = arr[i] === "Z" ? "X" : "Z";
+        b.textContent = who + " " + arr[i];
+        paint();
+      });
+      line.appendChild(b);
+    }
+    basisBtn("Alice", alice);
+    basisBtn("Bob", bob);
+    rows.appendChild(line);
+  });
+  paint();
+}
+
+function mountPredict(el, lab) {
+  el.innerHTML = "<h3>Tahmin et, sonra çalıştır</h3><p>" + esc(lab.prompt) + "</p>" + lab.options.map((o, i) => "<label class=\"opt\"><input type=\"radio\" name=\"pred\" value=\"" + i + "\"> " + esc(o) + "</label>").join("") + "<div class=\"row\"><button class=\"act\" type=\"button\" id=\"runp\">Çalıştır</button><span class=\"msg\" id=\"pmsg\"></span></div><div id=\"amps\"></div>";
+  el.querySelector("#runp").addEventListener("click", () => {
+    const picked = el.querySelector("input[name=pred]:checked");
+    const msg = el.querySelector("#pmsg");
+    const s = QC.run(lab.n, lab.tape);
+    el.querySelector("#amps").innerHTML = bars(s, lab.n);
+    if (!picked) { msg.className = "msg bad"; msg.textContent = "Önce bir şık seç."; return; }
+    if (Number(picked.value) === lab.answer) { msg.className = "msg ok"; msg.textContent = lab.why; }
+    else { msg.className = "msg bad"; msg.textContent = lab.why; }
+  });
 }
 
 function show(id) {
-  if (ticker) { clearInterval(ticker); ticker = null; }
-  player = null;
   current = flat().find(l => l.id === id);
   renderNav();
-  const stage = document.getElementById("stage");
   const lesson = current;
-  const links = (lesson.links || []).map(l => `<a href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
-  const media = lesson.video
-    ? `<div class="watch"><div class="frame"><div id="player"></div></div><div class="now" aria-live="polite"><p class="now-en" id="now-en"></p><p class="now-tr" id="now-tr"></p></div></div>`
-    : `<div class="reading"><p>${esc(lesson.reading)}</p></div>`;
-  const note = lesson.note ? `<div class="note">${esc(lesson.note)}</div>` : "";
-  const cues = lesson.cues.map((c, i) => {
-    const stamp = c.t == null ? "" : fmt(c.t);
-    const en = `<div class="cue" data-i="${i}"><time>${stamp}</time><div>${esc(c.en)}</div></div>`;
-    const tr = `<div class="cue" data-i="${i}"><time>${stamp}</time><div>${esc(c.tr)}</div></div>`;
-    return [en, tr];
+  const links = (lesson.links || []).map(l => "<a href=\"" + esc(l.href) + "\" target=\"_blank\" rel=\"noopener\">" + esc(l.label) + "</a>").join("");
+  const seq = flat();
+  const finished = seq.length > 0 && seq.every(l => isDone(l.id));
+  const stage = document.getElementById("stage");
+  stage.innerHTML = "<p class=\"kicker\">" + esc(lesson.kicker) + "</p><h2>" + esc(lesson.title) + "</h2><p class=\"lead\">" + esc(lesson.lead) + "</p><div class=\"sources\">" + links + "</div><div class=\"prose\">" + (lesson.blocks || []).map(blockHtml).join("") + "</div><form class=\"check\" id=\"quiz\"><h3>Geçiş</h3><p>" + esc(lesson.quiz.q) + "</p>" + lesson.quiz.options.map((o, i) => "<label class=\"opt\"><input type=\"radio\" name=\"a\" value=\"" + i + "\"> " + esc(o) + "</label>").join("") + "<div class=\"row\"><button class=\"act\" id=\"finish\" type=\"submit\"" + (isDone(lesson.id) ? " disabled" : "") + ">" + (isDone(lesson.id) ? "Tamamlandı" : "Dersi tamamla") + "</button><button class=\"ghost\" id=\"next\" type=\"button\">Sonraki</button><span class=\"msg\" id=\"msg\"></span></div></form>" + (finished ? "<div class=\"done-banner\">" + esc(COURSE.doneNote) + "</div>" : "");
+  const labs = stage.querySelectorAll("[data-lab]");
+  let li = 0;
+  (lesson.blocks || []).forEach(b => {
+    if (b.t === "lab") { mountLab(labs[li], b); li += 1; }
   });
-  const finished = tracked().length > 0 && tracked().every(l => isDone(l.id));
-  stage.innerHTML = `
-    <p class="kicker">${esc(lesson.kicker)}</p>
-    <h2>${esc(lesson.title)}</h2>
-    <p class="lead">${esc(lesson.lead)}</p>
-    <div class="sources">${links}</div>
-    ${media}
-    ${note}
-    <details class="full"${lesson.video ? "" : " open"}>
-      <summary>Tüm metin, satır satır</summary>
-    <div class="split">
-      <section class="col">
-        <h3>İngilizce</h3>
-        <div id="en">${cues.map(p => p[0]).join("")}</div>
-      </section>
-      <section class="col">
-        <h3>Türkçe</h3>
-        <div id="tr">${cues.map(p => p[1]).join("")}</div>
-      </section>
-    </div>
-    </details>
-    <form class="check" id="quiz">
-      <h3>Geçiş</h3>
-      <p>${esc(lesson.quiz.q)}</p>
-      ${lesson.quiz.options.map((o, i) => `<label class="opt"><input type="radio" name="a" value="${i}" /> ${esc(o)}</label>`).join("")}
-      <div class="row">
-        <button class="act" id="finish" type="submit" ${isDone(lesson.id) ? "disabled" : ""}>${isDone(lesson.id) ? "Tamamlandı" : "Dersi tamamla"}</button>
-        <span class="msg" id="msg"></span>
-      </div>
-    </form>
-    ${finished ? `<div class="done-banner">${COURSE.doneNote}</div>` : ""}
-  `;
-  stage.querySelectorAll(".cue").forEach(el => {
-    el.addEventListener("click", () => {
-      const i = Number(el.dataset.i);
-      const t = lesson.cues[i].t;
-      document.querySelectorAll(".cue").forEach(n => n.classList.toggle("active", Number(n.dataset.i) === i));
-      setNow(i);
-      if (player && t != null && player.seekTo) player.seekTo(t, true);
-    });
+  stage.querySelector("#next").addEventListener("click", () => {
+    const i = seq.findIndex(l => l.id === lesson.id);
+    const nxt = seq[i + 1];
+    if (nxt && unlocked(nxt)) show(nxt.id);
   });
   stage.querySelector("#quiz").addEventListener("submit", ev => {
     ev.preventDefault();
@@ -463,58 +529,9 @@ function show(id) {
     document.getElementById("finish").disabled = true;
     document.getElementById("finish").textContent = "Tamamlandı";
     renderNav();
-    if (openLessons().every(l => isDone(l.id))) show(lesson.id);
+    const i = seq.findIndex(l => l.id === lesson.id);
+    if (i === seq.length - 1) show(lesson.id);
   });
-  setNow(0);
-  mountPlayer(lesson);
-}
-
-function setNow(idx) {
-  const c = current.cues[idx];
-  const en = document.getElementById("now-en");
-  const tr = document.getElementById("now-tr");
-  if (!c || !en || !tr) return;
-  en.textContent = c.en;
-  tr.textContent = c.tr;
-}
-
-function mountPlayer(lesson) {
-  if (ticker) { clearInterval(ticker); ticker = null; }
-  if (!lesson.video) { player = null; return; }
-  const boot = () => {
-    if (player && player.loadVideoById) {
-      player.loadVideoById(lesson.video);
-      return;
-    }
-    player = new YT.Player("player", {
-      videoId: lesson.video,
-      playerVars: { rel: 0, modestbranding: 1, playsinline: 1, cc_load_policy: 0 },
-      events: { onReady: () => track(), onStateChange: () => track() }
-    });
-  };
-  if (window.YT && YT.Player) boot();
-  else {
-    window.onYouTubeIframeAPIReady = () => { apiReady = true; mountPlayer(current); };
-    if (!document.getElementById("ytapi")) {
-      const s = document.createElement("script");
-      s.id = "ytapi";
-      s.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(s);
-    }
-  }
-  track();
-}
-
-function track() {
-  if (ticker) clearInterval(ticker);
-  ticker = setInterval(() => {
-    if (!player || !player.getCurrentTime || !current.video) return;
-    const t = player.getCurrentTime();
-    let idx = 0;
-    current.cues.forEach((c, i) => { if (c.t != null && c.t <= t + 0.25) idx = i; });
-    setNow(idx);
-    document.querySelectorAll(".cue").forEach(n => n.classList.toggle("active", Number(n.dataset.i) === idx));
-  }, 400);
 }
 
 document.getElementById("reset").addEventListener("click", () => {
